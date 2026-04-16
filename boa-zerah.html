@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOA Zerah — Victor Osondu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #fafaf8;
+    --grey-dark: #c8c8c2;
+    --grey-mid: #7a7a76;
+    --grey-light: #3a3a38;
+    --grey-faint: #1a1a18;
+    --white: #111110;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--white);
+    color: var(--black);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 4rem;
+    background: rgba(17,17,16,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--grey-faint);
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--black);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-back {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .nav-back:hover { color: var(--black); }
+
+  /* FADE IN ANIMATION */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    opacity: 0;
+    animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 10rem 4rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    border-bottom: 1px solid var(--grey-faint);
+  }
+
+  .hero-left { animation-delay: 0.05s; }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    margin-bottom: 1.25rem;
+    animation-delay: 0.05s;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--grey-mid);
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation-delay: 0.15s;
+  }
+
+  .meta-item {}
+
+  .meta-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    margin-bottom: 0.2rem;
+  }
+
+  .meta-value {
+    font-size: 0.95rem;
+    color: var(--grey-dark);
+    font-weight: 300;
+  }
+
+  /* HERO IMAGE */
+  .hero-img-wrap {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: var(--grey-faint);
+    animation-delay: 0.1s;
+  }
+
+  .hero-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%);
+    transition: filter 0.5s;
+  }
+
+  .hero-img-wrap:hover img { filter: grayscale(0%); }
+
+  /* CONTENT SECTIONS */
+  .case-section {
+    padding: 5rem 4rem;
+    border-bottom: 1px solid var(--grey-faint);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .case-section.full-width {
+    display: block;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    padding-top: 0.2rem;
+    position: sticky;
+    top: 6rem;
+  }
+
+  .section-body {}
+
+  .section-body h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-bottom: 1.25rem;
+  }
+
+  .section-body p {
+    font-size: 1rem;
+    color: var(--grey-dark);
+    font-weight: 300;
+    line-height: 1.85;
+    margin-bottom: 1rem;
+    max-width: 560px;
+  }
+
+  /* MOCKUP SLOT */
+  .mockup-slot {
+    width: 100%;
+    aspect-ratio: 16/10;
+    background: var(--grey-faint);
+    overflow: hidden;
+    margin-top: 2.5rem;
+    position: relative;
+  }
+
+  .mockup-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%);
+    transition: filter 0.5s;
+  }
+
+  .mockup-slot:hover img { filter: grayscale(0%); }
+
+  .mockup-slot-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .mockup-slot-placeholder span {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--grey-light);
+  }
+
+  /* COLOUR SWATCHES */
+  .colour-row {
+    display: flex;
+    gap: 1px;
+    margin-top: 2rem;
+    height: 80px;
+    overflow: hidden;
+  }
+
+  .colour-swatch {
+    flex: 1;
+    position: relative;
+    transition: flex 0.4s cubic-bezier(0.22,1,0.36,1);
+    cursor: default;
+  }
+
+  .colour-swatch:hover { flex: 2.5; }
+
+  .swatch-label {
+    position: absolute;
+    bottom: 8px;
+    left: 10px;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.25s;
+    white-space: nowrap;
+  }
+
+  .colour-swatch:hover .swatch-label { opacity: 1; }
+
+  /* FULL-WIDTH IMAGE */
+  .full-img {
+    width: 100%;
+    aspect-ratio: 21/9;
+    overflow: hidden;
+    background: var(--grey-faint);
+  }
+
+  .full-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%);
+    transition: filter 0.5s;
+  }
+
+  .full-img:hover img { filter: grayscale(0%); }
+
+  /* NAV FOOTER */
+  .project-nav {
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .project-nav a {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .project-nav a:hover { color: var(--black); }
+
+  .project-nav-center {
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    color: var(--grey-light);
+    letter-spacing: 0.04em;
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 1.25rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 3rem; grid-template-columns: 1fr; gap: 2.5rem; }
+    .case-section { padding: 3rem 1.5rem; grid-template-columns: 1fr; gap: 1.5rem; }
+    .section-label { position: static; }
+    .project-nav { padding: 2rem 1.5rem; }
+    .colour-row { height: 60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="./index.html" class="nav-logo">Victor Osondu</a>
+  <a href="./index.html#work" class="nav-back">← All work</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow fade-up" style="animation-delay:0.05s">Brand Identity · Strategy · 2025</p>
+    <h1 class="fade-up" style="animation-delay:0.1s">BOA <em>Zerah</em></h1>
+    <div class="hero-meta fade-up" style="animation-delay:0.18s">
+      <div class="meta-item">
+        <p class="meta-label">Client</p>
+        <p class="meta-value">BOA Zerah</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Sector</p>
+        <p class="meta-value">Trade · Energy · Production · Supply Chain</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Deliverables</p>
+        <p class="meta-value">Logo System · Brand Colours · Brand Guidelines · Mockups</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Year</p>
+        <p class="meta-value">2025</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero image slot -->
+  <div class="hero-img-wrap fade-up" style="animation-delay:0.12s">
+    <img src="./BOA Zerah/Business Card.jpg" alt="BOA Zerah Business Card Mockup">
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="case-section">
+  <p class="section-label">Overview</p>
+  <div class="section-body">
+    <h2>Positioning a multi-sector enterprise for the long game.</h2>
+    <p>BOA Zerah is a multi-sector enterprise launched in 2025 and based in Lagos, Nigeria. The goal was to position BOA Zerah as a key investor across the trade, energy, production, and supply chain sectors — highlighting its commitment to true innovation and real diversity.</p>
+    <p>The identity needed to feel authoritative enough to command boardroom confidence, yet versatile enough to flex across wildly different industries without losing coherence.</p>
+
+    <!-- Mockup slot 1 -->
+    <div class="mockup-slot">
+      <img src="./BOA Zerah/Delivery Truck.jpg" alt="BOA Zerah Delivery Truck Mockup">
+    </div>
+  </div>
+</section>
+
+<!-- LOGO CONCEPT -->
+<section class="case-section">
+  <p class="section-label">Logo concept</p>
+  <div class="section-body">
+    <h2>Shining in every direction.</h2>
+    <p>"Zerah" is a Hebrew word meaning <em>shining</em>. The divergent rays in the mark reflect the brand's diverse and versatile vision — energy radiating outward into multiple sectors simultaneously.</p>
+    <p>The semi-circle beneath hints at the world of business and opportunity. Its clean, simple form is designed to adapt seamlessly across the many fields BOA Zerah operates in — equally at home on a corporate letterhead as on a hard hat or shipping container.</p>
+
+    <!-- Mockup slot 2 -->
+    <div class="mockup-slot">
+      <img src="./BOA Zerah/Construction Site.jpg" alt="BOA Zerah Construction Site Mockup">
+    </div>
+  </div>
+</section>
+
+<!-- BRAND COLOURS -->
+<section class="case-section">
+  <p class="section-label">Brand colours</p>
+  <div class="section-body">
+    <h2>A palette built for range.</h2>
+    <p>The colour palette is designed to capture BOA Zerah's core values of diversity, versatility, and brilliance. Each hue works together to reflect the brand's wide-ranging vision and adaptability — no single colour dominates, just as no single sector defines the business.</p>
+
+    <!-- Colour swatches — replace hex values with actual brand colours -->
+    <div class="colour-row">
+      <div class="colour-swatch" style="background:#1a8fe3;">
+        <span class="swatch-label" style="color:#fafaf8;">Blue</span>
+      </div>
+      <div class="colour-swatch" style="background:#ff5a5f;">
+        <span class="swatch-label" style="color:#111110;">Coral</span>
+      </div>
+      <div class="colour-swatch" style="background:#ffd700;">
+        <span class="swatch-label" style="color:#111110;">Gold</span>
+      </div>
+      <div class="colour-swatch" style="background:#2edcba;">
+        <span class="swatch-label" style="color:#fafaf8;">Mint</span>
+      </div>
+    </div>
+
+    <!-- Mockup slot 3 -->
+    <div class="mockup-slot">
+      <img src="./BOA Zerah/Construction Helmet 2.jpg" alt="BOA Zerah Construction Helmet Mockup">
+    </div>
+  </div>
+</section>
+
+<!-- MOCKUPS FULL WIDTH -->
+<section class="case-section full-width" style="padding-bottom: 0;">
+  <p class="section-label" style="margin-bottom: 2rem;">Mockups</p>
+
+  <!-- Full-width mockup slot -->
+  <div class="full-img">
+    <div class="mockup-slot-placeholder" style="height:100%;">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="7" width="30" height="22" rx="1.5" stroke="#3a3a38" stroke-width="1.5"/>
+        <circle cx="11" cy="14" r="3" stroke="#3a3a38" stroke-width="1.5"/>
+        <path d="M3 23l8-6 6 5 5-4 9 6" stroke="#3a3a38" stroke-width="1.5" stroke-linejoin="round"/>
+      </svg>
+        <img src="./BOA Zerah/Delivery Box 4.jpg" alt="BOA Zerah Delivery Box Mockup">
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT NAV -->
+<div class="project-nav">
+  <a href="./index.html#work">← Back to work</a>
+  <span class="project-nav-center">01 / 07</span>
+  <a href="./addide-rebrand.html">Next project →</a>
+</div>
+
+</body>
+</html>

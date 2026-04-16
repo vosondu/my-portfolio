@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joie Luxe Rentals — Victor Osondu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #fafaf8;
+    --grey-dark: #c8c8c2;
+    --grey-mid: #7a7a76;
+    --grey-light: #3a3a38;
+    --grey-faint: #1a1a18;
+    --white: #111110;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--white); color: var(--black); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 4rem; background: rgba(17,17,16,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--grey-faint); }
+  .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--black); text-decoration: none; letter-spacing: -0.01em; }
+  .nav-back { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-mid); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--black); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up { opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards; }
+
+  .hero { padding: 10rem 4rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; border-bottom: 1px solid var(--grey-faint); }
+  .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-mid); margin-bottom: 1.25rem; }
+  .hero h1 { font-family: var(--serif); font-size: clamp(2.6rem, 5vw, 4.8rem); line-height: 1.0; letter-spacing: -0.025em; color: var(--black); margin-bottom: 1.5rem; }
+  .hero h1 em { font-style: italic; color: var(--grey-mid); }
+  .hero-meta { display: flex; flex-direction: column; gap: 1.5rem; }
+  .meta-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-mid); margin-bottom: 0.2rem; }
+  .meta-value { font-size: 0.95rem; color: var(--grey-dark); font-weight: 300; }
+
+  .hero-img-wrap { width: 100%; aspect-ratio: 4/3; overflow: hidden; background: var(--grey-faint); }
+  .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%); transition: filter 0.5s; }
+  .hero-img-wrap:hover img { filter: grayscale(0%); }
+
+  .case-section { padding: 5rem 4rem; border-bottom: 1px solid var(--grey-faint); display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
+  .case-section.full-width { display: block; }
+  .section-label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-mid); padding-top: 0.2rem; position: sticky; top: 6rem; }
+  .section-body h2 { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.15; letter-spacing: -0.02em; color: var(--black); margin-bottom: 1.25rem; }
+  .section-body p { font-size: 1rem; color: var(--grey-dark); font-weight: 300; line-height: 1.85; margin-bottom: 1rem; max-width: 560px; }
+  .section-body em { font-style: italic; color: var(--grey-mid); }
+
+  .pullquote { border-left: 1px solid var(--grey-light); padding-left: 1.5rem; margin: 2rem 0; }
+  .pullquote p { font-family: var(--serif); font-size: 1.3rem; line-height: 1.5; color: var(--grey-dark); font-weight: 400; font-style: italic; max-width: 480px; margin: 0; }
+
+  .img-grid { display: grid; gap: 1px; background: var(--grey-faint); margin-top: 2.5rem; }
+  .img-grid.two-col { grid-template-columns: 1fr 1fr; }
+  .img-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+  .img-cell { aspect-ratio: 4/3; overflow: hidden; background: var(--grey-faint); }
+  .img-cell img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%); transition: filter 0.5s, transform 0.5s; }
+  .img-cell:hover img { filter: grayscale(0%); transform: scale(1.02); }
+
+  .mockup-slot { width: 100%; aspect-ratio: 16/10; background: var(--grey-faint); overflow: hidden; margin-top: 2.5rem; }
+  .mockup-slot img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%); transition: filter 0.5s; }
+  .mockup-slot:hover img { filter: grayscale(0%); }
+
+  .full-img { width: 100%; aspect-ratio: 21/9; overflow: hidden; background: var(--grey-faint); }
+  .full-img img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%); transition: filter 0.5s; }
+  .full-img:hover img { filter: grayscale(0%); }
+
+  .project-nav { padding: 3rem 4rem; display: flex; justify-content: space-between; align-items: center; }
+  .project-nav a { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-mid); text-decoration: none; transition: color 0.2s; }
+  .project-nav a:hover { color: var(--black); }
+  .project-nav-center { font-family: var(--serif); font-size: 0.9rem; color: var(--grey-light); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.25rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 3rem; grid-template-columns: 1fr; gap: 2.5rem; }
+    .case-section { padding: 3rem 1.5rem; grid-template-columns: 1fr; gap: 1.5rem; }
+    .section-label { position: static; }
+    .img-grid.three-col { grid-template-columns: 1fr 1fr; }
+    .project-nav { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="./index.html" class="nav-logo">Victor Osondu</a>
+  <a href="./index.html#work" class="nav-back">← All work</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <p class="hero-eyebrow fade-up" style="animation-delay:0.05s">Brand Identity · Luxury Real Estate</p>
+    <h1 class="fade-up" style="animation-delay:0.1s">Joie <em>Luxe</em> Rentals</h1>
+    <div class="hero-meta fade-up" style="animation-delay:0.18s">
+      <div>
+        <p class="meta-label">Client</p>
+        <p class="meta-value">Joy Felix — Joie Luxe Rentals</p>
+      </div>
+      <div>
+        <p class="meta-label">Sector</p>
+        <p class="meta-value">Luxury Real Estate · Property Rentals</p>
+      </div>
+      <div>
+        <p class="meta-label">Deliverables</p>
+        <p class="meta-value">Logo Mark · Brand Guidelines · Business Card · Social Media · Merchandise · Invoice Template</p>
+      </div>
+    </div>
+  </div>
+  <div class="hero-img-wrap fade-up" style="animation-delay:0.12s">
+    <img src="./Joie Luxe Rentals/Business Card Mockup 1.jpg" alt="Joie Luxe Rentals Business Card">
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="case-section">
+  <p class="section-label">Overview</p>
+  <div class="section-body">
+    <h2>A long but successful project.</h2>
+    <p>After my first conversation with Joy Felix, I moved into research — luxury brands within and outside real estate. Rolex. Patek Philippe. Aman. BHS-Marbella. Each one taught me something different about what luxury actually communicates.</p>
+    <p>Aman stood out most: minimal, quiet, serene photography. Layouts with radical restraint. In one word — luxury. That sensibility became the north star for Joie Luxe.</p>
+
+    <div class="mockup-slot">
+      <img src="./Joie Luxe Rentals/Business Card Mockup 2.jpg" alt="Joie Luxe Business Card Spread">
+    </div>
+  </div>
+</section>
+
+<!-- THE MARK -->
+<section class="case-section">
+  <p class="section-label">The mark</p>
+  <div class="section-body">
+    <h2>Found by accident. Confirmed by conviction.</h2>
+    <p>All the while I was researching, I was sketching. The first iteration my client didn't entirely accept — and I'm glad she didn't. It forced me back to the sketchbook, deeper into abstraction.</p>
+
+    <div class="pullquote">
+      <p>"It was more or less a mistake, but when I saw it, I knew this was it."</p>
+    </div>
+
+    <p>The final mark arrived while experimenting in Illustrator — not by strategy, but by following an instinct. It integrated an arch and the initials J and L. The way they fit together felt less like design and more like discovery. I decided on a typeface that completed it, and my client approved without hesitation.</p>
+
+    <div class="img-grid two-col">
+      <div class="img-cell">
+        <img src="./Joie Luxe Rentals/Linen Logo Mockup.jpg" alt="Joie Luxe Logo on Linen">
+      </div>
+      <div class="img-cell">
+        <img src="./Joie Luxe Rentals/Embroidered Logo Mockup.jpg" alt="Joie Luxe Embroidered Logo">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND SYSTEM -->
+<section class="case-section">
+  <p class="section-label">Brand system</p>
+  <div class="section-body">
+    <h2>Colour, layout, grids — built for quiet confidence.</h2>
+    <p>From the mark, the identity expanded outward: colour selection, grid systems, layout principles, and brand guidelines. Deep forest greens against cool whites and warm neutrals — a palette that communicates premium without shouting.</p>
+    <p>Every element was tested: would it work on a building signage? On a business card? On a tote bag? On a hung clothing tag? The answer had to be yes at every scale.</p>
+
+    <div class="img-grid three-col">
+      <div class="img-cell">
+        <img src="./Joie Luxe Rentals/Cloth Tag.jpg" alt="Joie Luxe Cloth Tag">
+      </div>
+      <div class="img-cell">
+        <img src="./Joie Luxe Rentals/Cloth Tag 2.jpg" alt="Joie Luxe Cloth Tag 2">
+      </div>
+      <div class="img-cell">
+        <img src="./Joie Luxe Rentals/Office-Building-Logo-Mockup.jpg" alt="Joie Luxe Building Signage">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLATERAL -->
+<section class="case-section">
+  <p class="section-label">Collateral</p>
+  <div class="section-body">
+    <h2>Identity across every touchpoint.</h2>
+    <p>Brand guidelines, business cards, social media designs, a t-shirt, invoice template — all designed within the Joie Luxe identity. Every asset uploaded to Google Drive and delivered to Joy. Then a few minor updates to better suit her evolving needs. Then the balance paid.</p>
+
+    <div class="img-grid two-col">
+      <div class="img-cell">
+        <img src="./Joie Luxe Rentals/Hanging-T-Shirt-Mockup.jpg" alt="Joie Luxe T-Shirt">
+      </div>
+      <div class="img-cell">
+        <img src="./Joie Luxe Rentals/Poster Mockup.jpg" alt="Joie Luxe Poster">
+      </div>
+      <div class="img-cell">
+        <img src="./Joie Luxe Rentals/04 Free Tote Bag Mockup Holding By Hand.jpg" alt="Joie Luxe Tote Bag">
+      </div>
+      <div class="img-cell">
+        <img src="./Joie Luxe Rentals/open-brand-guidelines-book-v7-mockup-isometric.jpg" alt="Joie Luxe Brand Guidelines">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL WIDTH -->
+<section class="case-section full-width" style="padding-bottom:0;">
+  <div class="full-img">
+    <img src="./Joie Luxe Rentals/Free paper and business cards mockup.jpg" alt="Joie Luxe Full Stationery Spread">
+  </div>
+</section>
+
+<div class="project-nav">
+  <a href="./bwbcon-2026.html">← BWBCON 2026</a>
+  <span class="project-nav-center">06 / 07</span>
+  <a href="./index.html#work">All work →</a>
+</div>
+
+</body>
+</html>

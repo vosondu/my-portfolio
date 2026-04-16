@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Victor Osondu — Brand Identity Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #fafaf8;
+    --grey-dark: #c8c8c2;
+    --grey-mid: #7a7a76;
+    --grey-light: #3a3a38;
+    --grey-faint: #1a1a18;
+    --white: #111110;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--white);
+    color: var(--black);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 4rem;
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--grey-faint);
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--black);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.875rem;
+    color: var(--grey-mid);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--black); }
+
+  /* HERO */
+  .hero {
+    padding: 14rem 4rem 8rem;
+    max-width: 900px;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--grey-mid);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--grey-dark);
+    max-width: 480px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .hero-cta {
+    margin-top: 3rem;
+    display: inline-block;
+    font-size: 0.875rem;
+    color: var(--black);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--black);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .hero-cta:hover {
+    color: var(--grey-mid);
+    border-color: var(--grey-light);
+  }
+
+  /* DIVIDER */
+  .rule {
+    width: 100%;
+    height: 1px;
+    background: var(--grey-faint);
+    margin: 0 4rem;
+    width: calc(100% - 8rem);
+  }
+
+  /* WORK SECTION */
+  .work {
+    padding: 6rem 4rem;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    margin-bottom: 4rem;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--grey-faint);
+    border: 1px solid var(--grey-faint);
+  }
+
+  .project-card {
+    background: var(--white);
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .project-card:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .project-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--grey-faint);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .project-card:first-child .project-img {
+    aspect-ratio: 21/9;
+  }
+
+  .project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(90%);
+    transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.4s;
+  }
+
+  .project-card:hover .project-img img {
+    transform: scale(1.03);
+    filter: grayscale(0%);
+  }
+
+  .project-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-img-placeholder svg {
+    opacity: 0.15;
+  }
+
+  .project-info {
+    padding: 1.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .project-meta {}
+
+  .project-tags {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    margin-bottom: 0.4rem;
+  }
+
+  .project-name {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    letter-spacing: -0.01em;
+    color: var(--black);
+  }
+
+  .project-arrow {
+    color: var(--grey-light);
+    font-size: 1.5rem;
+    transition: color 0.2s, transform 0.3s;
+    line-height: 1;
+  }
+
+  .project-card:hover .project-arrow {
+    color: var(--black);
+    transform: translate(3px, -3px);
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 6rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .about-left {}
+
+  .about h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+  }
+
+  .about p {
+    font-size: 1rem;
+    color: var(--grey-dark);
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+  }
+
+  .about-tools {
+    margin-top: 2.5rem;
+  }
+
+  .about-tools p {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    margin-bottom: 0.75rem;
+  }
+
+  .tool-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tool-tag {
+    font-size: 0.8rem;
+    color: var(--grey-dark);
+    border: 1px solid var(--grey-light);
+    padding: 0.25rem 0.75rem;
+    letter-spacing: 0.02em;
+  }
+
+  .about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-top: 0.5rem;
+  }
+
+  .stat {}
+
+  .stat-number {
+    font-family: var(--serif);
+    font-size: 3.5rem;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--black);
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+  }
+
+  /* CONTACT */
+  .contact {
+    padding: 6rem 4rem 8rem;
+    background: #1a1a18;
+    color: var(--black);
+  }
+
+  .contact .section-label {
+    color: var(--grey-mid);
+  }
+
+  .contact h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+  }
+
+  .contact h2 em {
+    color: var(--grey-light);
+    font-style: italic;
+  }
+
+  .contact-links {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .contact-link-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 0;
+    border-top: 1px solid #2a2a28;
+    text-decoration: none;
+    color: var(--black);
+    transition: padding-left 0.3s;
+  }
+
+  .contact-link-row:last-child {
+    border-bottom: 1px solid #2a2a28;
+  }
+
+  .contact-link-row:hover {
+    padding-left: 0.75rem;
+  }
+
+  .contact-link-row:hover .contact-link-arrow {
+    transform: translate(4px, -4px);
+  }
+
+  .contact-link-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    margin-bottom: 0.15rem;
+  }
+
+  .contact-link-value {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    letter-spacing: -0.01em;
+  }
+
+  .contact-link-arrow {
+    color: var(--grey-mid);
+    font-size: 1.25rem;
+    transition: transform 0.3s, color 0.2s;
+  }
+
+  .contact-link-row:hover .contact-link-arrow {
+    color: var(--black);
+  }
+
+  /* FOOTER */
+  footer {
+    background: #111110;
+    padding: 2rem 4rem;
+    border-top: 1px solid #1e1e1c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-size: 0.78rem;
+    color: #555552;
+    letter-spacing: 0.04em;
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 1.25rem 1.5rem; }
+    .nav-links { gap: 1.25rem; }
+    .hero { padding: 9rem 1.5rem 5rem; }
+    .rule { margin: 0 1.5rem; width: calc(100% - 3rem); }
+    .work { padding: 4rem 1.5rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card:first-child { grid-column: auto; }
+    .about { padding: 4rem 1.5rem; grid-template-columns: 1fr; gap: 3rem; }
+    .about-stats { flex-direction: row; flex-wrap: wrap; gap: 2rem; }
+    .contact { padding: 4rem 1.5rem 5rem; }
+    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Victor Osondu</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Brand Identity Designer — Lagos, Nigeria</p>
+  <h1>Brand identities built to <em>last.</em></h1>
+  <p class="hero-sub">I create visual identities that give businesses a clear, confident presence — from strategy and naming through to logo systems and brand guidelines.</p>
+  <a href="#work" class="hero-cta">View selected work ↓</a>
+</section>
+
+<div class="rule"></div>
+
+<!-- WORK -->
+<section class="work" id="work">
+  <p class="section-label">Selected projects</p>
+
+  <div class="projects-grid">
+
+    <!-- Featured project -->
+    <article class="project-card" onclick="location.href='./boa-zerah.html'" style="cursor:pointer;">
+      <div class="project-img">
+        <!-- Replace the placeholder below with: <img src="your-image.jpg" alt="BOA Zerah"> -->
+        <img src="./BOA Zerah/Business Card.jpg" alt="BOA Zerah">
+      </div>
+      <div class="project-info">
+        <div class="project-meta">
+          <p class="project-tags">Brand Identity · Strategy</p>
+          <p class="project-name">BOA Zerah</p>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+    </article>
+
+    <!-- Project 2 -->
+    <article class="project-card" onclick="location.href='./addide-rebrand.html'" style="cursor:pointer;">
+      <div class="project-img">
+        <img src="./Addide/Artboard 1.jpg" alt="Addide Rebrand">
+      </div>
+      <div class="project-info">
+        <div class="project-meta">
+          <p class="project-tags">Rebrand · Identity System</p>
+          <p class="project-name">Addide Rebrand</p>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+    </article>
+
+    <!-- Project 3 -->
+    <article class="project-card" onclick="location.href='./emc-properties.html'" style="cursor:pointer;">
+      <div class="project-img">
+        <img src="./EMC Properties/Artboard 7.jpg" alt="EMC Properties">
+      </div>
+      <div class="project-info">
+        <div class="project-meta">
+          <p class="project-tags">Brand Identity · Real Estate</p>
+          <p class="project-name">EMC Properties</p>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+    </article>
+
+    <!-- Project 4 -->
+    <article class="project-card" onclick="location.href='./cunnect.html'" style="cursor:pointer;">
+      <div class="project-img">
+        <img src="./Cunnect/Billboard.jpg" alt="Cunnect">
+      </div>
+      <div class="project-info">
+        <div class="project-meta">
+          <p class="project-tags">Brand Identity · Tech</p>
+          <p class="project-name">Cunnect</p>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+    </article>
+
+    <!-- Project 5 -->
+    <article class="project-card" onclick="location.href='./bwbcon-2026.html'" style="cursor:pointer;">
+      <div class="project-img">
+        <img src="./BWBCON 2026/1.jpg" alt="BWBCON 2026">
+      </div>
+      <div class="project-info">
+        <div class="project-meta">
+          <p class="project-tags">Event Branding</p>
+          <p class="project-name">BWBCON 2026</p>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+    </article>
+
+    <!-- Project 6 -->
+    <article class="project-card" onclick="location.href='./joie-luxe-rentals.html'" style="cursor:pointer;">
+      <div class="project-img">
+        <img src="./Joie Luxe Rentals/Business Card Mockup 1.jpg" alt="Joie Luxe Rentals">
+      </div>
+      <div class="project-info">
+        <div class="project-meta">
+          <p class="project-tags">Brand Identity · Luxury Real Estate</p>
+          <p class="project-name">Joie Luxe Rentals</p>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+    </article>
+
+    <!-- Project 7 -->
+    <article class="project-card" onclick="location.href='./eduverse.html'" style="cursor:pointer;">
+      <div class="project-img">
+        <img src="./Eduverse/Building Mockup.jpg" alt="Eduverse">
+      </div>
+      <div class="project-info">
+        <div class="project-meta">
+          <p class="project-tags">Brand Identity · Edtech</p>
+          <p class="project-name">Eduverse</p>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-left">
+    <p class="section-label">About</p>
+    <h2>Design is a thinking tool, not just a making tool.</h2>
+    <p>I'm Victor — a brand identity designer with over three years of experience helping businesses find their visual voice. Based in Lagos, I work with startups, creatives, and growing companies across Nigeria and internationally.</p>
+    <p>Currently Lead Graphic Designer at Mahadumia, an edtech platform. Available for select freelance projects.</p>
+
+    <div class="about-tools">
+      <p>Tools</p>
+      <div class="tool-list">
+        <span class="tool-tag">Illustrator</span>
+        <span class="tool-tag">Photoshop</span>
+        <span class="tool-tag">After Effects</span>
+        <span class="tool-tag">Canva</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-stats">
+    <div class="stat">
+      <p class="stat-number">3+</p>
+      <p class="stat-label">Years experience</p>
+    </div>
+    <div class="stat">
+      <p class="stat-number">7</p>
+      <p class="stat-label">Featured projects</p>
+    </div>
+    <div class="stat">
+      <p class="stat-number">∞</p>
+      <p class="stat-label">Iterations until right</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="section-label">Get in touch</p>
+  <h2>Let's build something <em>worth remembering.</em></h2>
+
+  <div class="contact-links">
+    <a href="mailto:osonduvictor84@gmail.com" class="contact-link-row">
+      <div>
+        <p class="contact-link-label">Email</p>
+        <p class="contact-link-value"><span class="__cf_email__" data-cfemail="84ece1e8e8ebc4f2ede7f0ebf6ebf7ebeae0f1aae7ebe9">osonduvictor84@gmail.com</span></p>
+      </div>
+      <span class="contact-link-arrow">↗</span>
+    </a>
+    <a href="https://behance.net/vosondu" target="_blank" class="contact-link-row">
+      <div>
+        <p class="contact-link-label">Behance</p>
+        <p class="contact-link-value">behance.net/vosondu</p>
+      </div>
+      <span class="contact-link-arrow">↗</span>
+    </a>
+    <a href="https://www.upwork.com/freelancers/~012784caf6938ecf6f" target="_blank" class="contact-link-row">
+      <div>
+        <p class="contact-link-label">Upwork</p>
+        <p class="contact-link-value">Available for hire</p>
+      </div>
+      <span class="contact-link-arrow">↗</span>
+  
