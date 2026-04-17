@@ -58,6 +58,7 @@
   .img-cell { aspect-ratio: 4/3; overflow: hidden; background: var(--grey-faint); }
   .img-cell.portrait { aspect-ratio: 3/4; }
   .img-cell img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%); transition: filter 0.5s, transform 0.5s; }
+  .img-cell img.preserve, .mockup-slot img.preserve { object-fit: contain; object-position: center; }
   .img-cell:hover img { filter: grayscale(0%); transform: scale(1.02); }
 
   .mockup-slot { width: 100%; aspect-ratio: 16/10; background: var(--grey-faint); overflow: hidden; margin-top: 2.5rem; }
@@ -127,7 +128,7 @@
     <p>Working under a team led by Mr. Obinna — a man who prioritises excellence in everything he touches, and who operates with deep faith and resilience — the bar was always set high. That standard shaped every design decision made on this project.</p>
 
     <div class="mockup-slot">
-      <img src="./images/BWBCON 2026/Announcement Flyer HD.jpg" alt="BWBCON 2026 Announcement Flyer">
+      <img class="preserve" src="./images/BWBCON 2026/Announcement Flyer HD.jpg" alt="BWBCON 2026 Announcement Flyer">
     </div>
   </div>
 </section>
@@ -141,10 +142,10 @@
 
     <div class="img-grid two-col">
       <div class="img-cell">
-        <img src="./images/BWBCON 2026/Call For Sponsors.jpg" alt="BWBCON Call For Sponsors">
+        <img class="preserve" src="./images/BWBCON 2026/Call For Sponsors.jpg" alt="BWBCON Call For Sponsors">
       </div>
       <div class="img-cell">
-        <img src="./images/BWBCON 2026/Multiple Social Media Mockup.jpg" alt="BWBCON Social Media Mockup">
+        <img class="preserve" src="./images/BWBCON 2026/Multiple Social Media Mockup.jpg" alt="BWBCON Social Media Mockup">
       </div>
     </div>
   </div>
