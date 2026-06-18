@@ -11,12 +11,12 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --black: #fafaf8;
+    --black: #131313;
     --grey-dark: #c8c8c2;
     --grey-mid: #7a7a76;
     --grey-light: #3a3a38;
     --grey-faint: #1a1a18;
-    --white: #111110;
+    --white: #fafaf8;
     --serif: 'DM Serif Display', Georgia, serif;
     --sans: 'DM Sans', system-ui, sans-serif;
   }
@@ -25,8 +25,8 @@
 
   body {
     font-family: var(--sans);
-    background: var(--white);
-    color: var(--black);
+    background: var(--black);
+    color: var(--white);
     font-size: 16px;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
@@ -49,7 +49,7 @@
   .nav-logo {
     font-family: var(--serif);
     font-size: 1.1rem;
-    color: var(--black);
+    color: var(--white);
     text-decoration: none;
     letter-spacing: -0.01em;
   }
@@ -66,7 +66,7 @@
     gap: 0.4rem;
   }
 
-  .nav-back:hover { color: var(--black); }
+  .nav-back:hover { color: var(--white); }
 
   /* FADE IN ANIMATION */
   @keyframes fadeUp {
@@ -105,7 +105,7 @@
     font-size: clamp(3rem, 6vw, 5.5rem);
     line-height: 1.0;
     letter-spacing: -0.025em;
-    color: var(--black);
+    color: var(--white);
     margin-bottom: 1.5rem;
   }
 
@@ -188,7 +188,7 @@
     font-size: clamp(1.6rem, 3vw, 2.4rem);
     line-height: 1.15;
     letter-spacing: -0.02em;
-    color: var(--black);
+    color: var(--white);
     margin-bottom: 1.25rem;
   }
 
@@ -310,7 +310,7 @@
     gap: 0.5rem;
   }
 
-  .project-nav a:hover { color: var(--black); }
+  .project-nav a:hover { color: var(--white); }
 
   .project-nav-center {
     font-family: var(--serif);
@@ -327,6 +327,61 @@
     .section-label { position: static; }
     .project-nav { padding: 2rem 1.5rem; }
     .colour-row { height: 60px; }
+  }
+
+  /* LOGO DISPLAY */
+  .logo-section { padding: 5rem 4rem; border-bottom: 1px solid var(--grey-faint); display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
+  .logo-showcase { display: grid; gap: 1px; background: var(--grey-faint); margin-top: 0; }
+  .logo-showcase.two-col { grid-template-columns: 1fr 1fr; }
+  .logo-cell { background: var(--grey-faint); overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 3rem 2rem; min-height: 200px; }
+  .logo-cell.dark { background: #0a0a09; }
+  .logo-cell.light { background: #f0f0ec; }
+  .logo-cell img { max-width: 100%; max-height: 180px; width: auto; height: auto; display: block; object-fit: contain; filter: grayscale(100%); transition: filter 0.5s; }
+  .logo-cell:hover img { filter: grayscale(0%); }
+  .logo-cell-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-mid); margin-top: 0.75rem; text-align: center; display: block; }
+  .logo-cell-wrap { display: flex; flex-direction: column; align-items: center; width: 100%; }
+  @media (max-width: 768px) { .logo-section { padding: 3rem 1.5rem; grid-template-columns: 1fr; gap: 1.5rem; } .logo-showcase.two-col { grid-template-columns: 1fr; } }
+  /* Mobile-specific fixes: ensure images and videos scale, prevent horizontal overflow */
+  @media (max-width: 768px) {
+    .img-grid.two-col,
+    .img-grid.three-col {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .img-cell {
+      aspect-ratio: 4/3;
+      min-height: auto;
+    }
+
+    .img-cell img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .mockup-slot,
+    .full-img,
+    .hero-img-wrap {
+      aspect-ratio: auto;
+      height: auto;
+    }
+
+    .mockup-slot img,
+    .full-img img,
+    .hero-img-wrap img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    nav a,
+    .project-nav a {
+      padding: 0.5rem 0.5rem;
+      display: inline-block;
+    }
+
+    html, body { max-width: 100vw; overflow-x: hidden; }
   }
 </style>
 </head>
@@ -354,7 +409,7 @@
       </div>
       <div class="meta-item">
         <p class="meta-label">Deliverables</p>
-        <p class="meta-value">Logo System · Brand Colours · Brand Guidelines · Mockups</p>
+        <p class="meta-value">Logo System · Brand Guidelines</p>
       </div>
       <div class="meta-item">
         <p class="meta-label">Year</p>
@@ -383,6 +438,30 @@
     </div>
   </div>
 </section>
+
+<!-- LOGO -->
+<section class="logo-section">
+  <p class="section-label">The logo</p>
+  <div class="section-body">
+    <h2>The mark.</h2>
+    <div class="logo-showcase two-col">
+      <div class="logo-cell-wrap">
+        <div class="logo-cell light">
+          <img src="./images/BOA Zerah/PNGs/1-Blue.png" alt="BOA Zerah Logo on Light">
+        </div>
+        <span class="logo-cell-label">On light</span>
+      </div>
+      <div class="logo-cell-wrap">
+        <div class="logo-cell dark">
+              <img src="./images/BOA Zerah/PNGs/1-White.png" alt="BOA Zerah Logo on Dark">
+        </div>
+        <span class="logo-cell-label">On dark</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 <!-- LOGO CONCEPT -->
 <section class="case-section">
@@ -435,14 +514,7 @@
 
   <!-- Full-width mockup slot -->
   <div class="full-img">
-    <div class="mockup-slot-placeholder" style="height:100%;">
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="3" y="7" width="30" height="22" rx="1.5" stroke="#3a3a38" stroke-width="1.5"/>
-        <circle cx="11" cy="14" r="3" stroke="#3a3a38" stroke-width="1.5"/>
-        <path d="M3 23l8-6 6 5 5-4 9 6" stroke="#3a3a38" stroke-width="1.5" stroke-linejoin="round"/>
-      </svg>
-        <img src="./images/BOA Zerah/Delivery Box 4.jpg" alt="BOA Zerah Delivery Box Mockup">
-    </div>
+    <img src="./images/BOA Zerah/Delivery Box 4.jpg" alt="BOA Zerah Delivery Box Mockup">
   </div>
 </section>
 
