@@ -6,9 +6,7 @@
 		<title>Victor Osondu, Brand Identity Designer</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
-			rel="stylesheet" />
+			<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
 		<style>
 			*,
 			*::before,
@@ -25,8 +23,10 @@
 				--grey-light: #3a3a38;
 				--grey-faint: #1a1a18;
 						--white: #fafaf8;
-				--serif: "DM Serif Display", Georgia, serif;
+				--serif: "DM Sans", system-ui, sans-serif;
 				--sans: "DM Sans", system-ui, sans-serif;
+				--fw: 300;
+				--muted: rgba(250,250,248,0.72);
 			}
 
 			html {
@@ -40,6 +40,7 @@
 				font-size: 16px;
 				line-height: 1.7;
 				-webkit-font-smoothing: antialiased;
+				font-weight: var(--fw);
 			}
 
 			/* NAV */
@@ -164,11 +165,13 @@
 			}
 
 			.projects-grid {
-				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-				gap: 1px;
-				background: var(--grey-faint);
-				border: 1px solid var(--grey-faint);
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 1rem;
+				background: transparent;
+				border: none;
+				padding: 0.5rem 0;
 			}
 
 			.project-card {
@@ -176,6 +179,22 @@
 				overflow: hidden;
 				cursor: pointer;
 				position: relative;
+				opacity: 0;
+				transform: translateY(-40px);
+				transition: opacity 1000ms cubic-bezier(.2,.9,.2,1), transform 1000ms cubic-bezier(.2,.9,.2,1);
+				pointer-events: none;
+			}
+
+			.project-card.in-view {
+				opacity: 1;
+				transform: translateY(0);
+				pointer-events: auto;
+			}
+
+			.project-card.out-view {
+				opacity: 0;
+				transform: translateY(48px);
+				pointer-events: none;
 			}
 
 			.project-card:first-child {
@@ -216,6 +235,24 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
+			}
+
+			@media (max-width: 768px) {
+				.projects-grid {
+					gap: 0.75rem;
+					padding: 0;
+				}
+
+				.project-card {
+					transition-duration: 800ms;
+					transform: translateY(-24px);
+				}
+
+				.project-card.out-view {
+					transform: translateY(28px);
+				}
+
+				.project-img { aspect-ratio: 16/9; }
 			}
 
 			.project-img-placeholder svg {
@@ -761,5 +798,26 @@
 				</a>
 			</div>
 		</footer>
+		<script>
+			(function(){
+				const cards = document.querySelectorAll('.project-card');
+				if(!cards.length) return;
+				const io = new IntersectionObserver((entries)=>{
+					entries.forEach(entry=>{
+						const el = entry.target;
+						const r = entry.intersectionRatio;
+						if(entry.isIntersecting) {
+							el.classList.add('in-view');
+							el.classList.remove('out-view');
+						} else if(r <= 0.10) {
+							el.classList.remove('in-view');
+							el.classList.add('out-view');
+						}
+					});
+				}, { root: null, rootMargin: '0px 0px -70% 0px', threshold: [0, 0.10] });
+
+				cards.forEach(c=>io.observe(c));
+			})();
+		</script>
 	</body>
 </html>

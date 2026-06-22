@@ -7,9 +7,7 @@
   <title>BWBCON 2026, Victor Osondu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
   <style>
     *,
     *::before,
@@ -26,8 +24,9 @@
       --grey-faint: #1a1a18;
       --white: #fafaf8;
       --black: #131313;
-      --serif: 'DM Serif Display', Georgia, serif;
+      --serif: 'DM Sans', system-ui, sans-serif;
       --sans: 'DM Sans', system-ui, sans-serif;
+      --fw: 300;
     }
 
     html {
@@ -41,7 +40,10 @@
       font-size: 16px;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      font-weight: var(--fw);
     }
+
+    h1, h2, h3, .project-name, .stat-number { font-weight: var(--fw); }
 
     nav {
       position: fixed;
@@ -144,7 +146,7 @@
     .meta-value {
       font-size: 0.95rem;
       color: var(--grey-dark);
-      font-weight: 300;
+      font-weight: var(--fw);
     }
 
     .hero-img-wrap {
@@ -348,6 +350,13 @@
     @media (max-width: 768px) {
       nav {
         padding: 1.25rem 1.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .projects-grid { gap: 1rem; align-items: stretch; padding: 0 1.5rem; width: 100%; }
+        .project-card { width: 100%; max-width: none; transition: opacity 800ms cubic-bezier(.2,.9,.2,1), transform 800ms cubic-bezier(.2,.9,.2,1); transform: translateY(-20px); }
+        .project-img { aspect-ratio: 16/9; }
+        .project-card.out-view { transform: translateY(24px); }
       }
 
       .hero {
@@ -626,7 +635,7 @@
 
   <div class="project-nav">
     <a href="./emc-properties.html">← EMC Properties</a>
-    <span class="project-nav-center">05 / 07</span>
+    <span class="project-nav-center">04 / 05</span>
     <a href="./joie-luxe-rentals.html">Joie Luxe Rentals →</a>
   </div>
 
