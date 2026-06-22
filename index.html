@@ -802,6 +802,8 @@
 			(function(){
 				const cards = document.querySelectorAll('.project-card');
 				if(!cards.length) return;
+				const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+				const rootMargin = isMobile ? '0px 0px -60% 0px' : '0px 0px -70% 0px';
 				const io = new IntersectionObserver((entries)=>{
 					entries.forEach(entry=>{
 						const el = entry.target;
@@ -814,7 +816,7 @@
 							el.classList.add('out-view');
 						}
 					});
-				}, { root: null, rootMargin: '0px 0px -70% 0px', threshold: [0, 0.10] });
+				}, { root: null, rootMargin: rootMargin, threshold: [0, 0.10] });
 
 				cards.forEach(c=>io.observe(c));
 			})();
