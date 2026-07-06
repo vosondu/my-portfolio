@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Client Reviews | Victor Osondu</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
+		<style>
+			:root {
+				--black: #131313;
+				--grey-dark: #c8c8c2;
+				--grey-mid: #7a7a76;
+				--grey-light: #3a3a38;
+				--grey-faint: #1a1a18;
+				--white: #fafaf8;
+				--serif: "DM Sans", system-ui, sans-serif;
+				--sans: "DM Sans", system-ui, sans-serif;
+				--fw: 300;
+			}
+
+			* { box-sizing: border-box; margin: 0; padding: 0; }
+			body {
+				font-family: var(--sans);
+				background: var(--black);
+				color: var(--white);
+				line-height: 1.7;
+				font-weight: var(--fw);
+			}
+			nav {
+				position: sticky;
+				top: 0;
+				z-index: 10;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 1.4rem 4rem;
+				background: rgba(17,17,16,0.92);
+				backdrop-filter: blur(8px);
+				border-bottom: 1px solid var(--grey-faint);
+			}
+			.nav-logo { color: var(--white); text-decoration: none; font-family: var(--serif); }
+			.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+			.nav-links a { color: var(--grey-mid); text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; }
+			main { max-width: 1000px; margin: 0 auto; padding: 4rem 4rem 6rem; }
+			.page-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 1rem; }
+			.page-copy { color: var(--grey-dark); max-width: 700px; margin-bottom: 2.2rem; }
+			.review-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+			.review-card { background: var(--black); border: 1px solid var(--grey-faint); padding: 1.5rem; text-decoration: none; color: inherit; display: block; cursor: pointer; transition: border-color 1000ms cubic-bezier(.2,.9,.2,1), transform 1000ms cubic-bezier(.2,.9,.2,1); }
+			.review-card:hover { border-color: #2b2b28; transform: translateY(-3px); }
+			.review-quote { color: var(--grey-dark); margin-bottom: 1.2rem; }
+			.review-author { font-family: var(--serif); color: var(--white); }
+			.review-meta { color: var(--grey-mid); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.3rem; }
+			@media (max-width: 768px) {
+				nav { padding: 1.2rem 1.5rem; }
+				main { padding: 2.5rem 1.5rem 4rem; }
+				.review-grid { grid-template-columns: 1fr; }
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<a href="./index.html" class="nav-logo">Victor Osondu</a>
+			<ul class="nav-links">
+				<li><a href="./index.html#work">Work</a></li>
+				<li><a href="./index.html#packages">Packages</a></li>
+				<li><a href="./reviews.html">Reviews</a></li>
+			</ul>
+		</nav>
+
+		<main>
+			<h1 class="page-title">Client reviews</h1>
+			<div class="review-grid">
+				<article class="review-card">
+					<p class="review-quote">“Victor is very passionate about his work and takes client details to heart. I’m always impressed by his deliverables, he’s excellent at what he does and communicates effectively throughout. I highly recommend him.”</p>
+					<p class="review-author">Peter Ndukwe</p>
+					<p class="review-meta">General feedback</p>
+				</article>
+				<article class="review-card">
+					<p class="review-quote">“I had the pleasure of working with Victor Osondu, and I can confidently say that he is an outstanding graphic designer. His creativity, attention to detail, and ability to bring ideas to life through design are second to none.”</p>
+					<p class="review-author">Uchechukwu Lorreta Anyika</p>
+					<p class="review-meta">General feedback</p>
+				</article>
+				<a href="./joie-luxe-rentals.html" class="review-card">
+					<p class="review-quote">“The result was fabulous, the exact premium branding and feel I needed. Victor listened to my expectations patiently and delivered exactly what I wanted. I’m sticking with his services, and I’ve already referred him.”</p>
+					<p class="review-author">Joy, Joie Luxe Rentals</p>
+					<p class="review-meta">Joie Luxe Rentals case study</p>
+				</a>
+				<a href="./komis-kitchen.html" class="review-card">
+					<p class="review-quote">“I love how Victor takes his time, whenever I had a question, he’d explain until I had real clarity on the choices. By the final review, it already looked like an established, launched business.”</p>
+					<p class="review-author">Komi, Komi’s Kitchen</p>
+					<p class="review-meta">Komi’s Kitchen case study</p>
+				</a>
+			</div>
+		</main>
+	</body>
+</html>
