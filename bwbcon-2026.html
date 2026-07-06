@@ -500,8 +500,21 @@
 
         html, body { max-width: 100vw; overflow-x: hidden; }
       }
-  </style>
-</head>
+  		p a, li a, h1 a, h2 a, h3 a, blockquote a, .section-body a, .content a {
+			color: var(--white) !important;
+			text-decoration: none !important;
+			border-bottom: 1px solid var(--grey-light) !important;
+			transition: color 0.2s, border-color 0.2s;
+		}
+
+		p a:hover, li a:hover, h1 a:hover, h2 a:hover, h3 a:hover, blockquote a:hover, .section-body a:hover, .content a:hover,
+		p a:focus, li a:focus, h1 a:focus, h2 a:focus, h3 a:focus, blockquote a:focus, .section-body a:focus, .content a:focus {
+			color: var(--grey-dark) !important;
+			border-color: var(--grey-mid) !important;
+			outline: none;
+		}
+	</style>
+	</head>
 
 <body>
 
