@@ -680,7 +680,9 @@
 					padding: 1.25rem 1.5rem;
 				}
 				.nav-links {
-					gap: 1.25rem;
+					gap: 0.75rem;
+					flex-wrap: wrap;
+					justify-content: flex-end;
 				}
 				.hero {
 					padding: 9rem 1.5rem 5rem;
@@ -748,7 +750,7 @@
 			@media (max-width: 768px) {
 				.projects-grid { gap: 1rem; }
 				.project-img img { width: 100%; height: auto; object-fit: cover; }
-				nav a, .nav-links a { padding: 0.5rem 0.5rem; display: inline-block; }
+				nav a, .nav-links a { padding: 0.25rem 0.35rem; display: inline-block; }
 				html, body { max-width: 100vw; overflow-x: hidden; }
 			}
 		</style>
@@ -760,8 +762,6 @@
 			<ul class="nav-links">
 				<li><a href="#work">Work</a></li>
 				<li><a href="#packages">Packages</a></li>
-				<li><a href="./reviews.html">Reviews</a></li>
-				<li><a href="#about">About</a></li>
 				<li><a href="#contact">Contact</a></li>
 			</ul>
 		</nav>
@@ -947,14 +947,14 @@
 				</article>
 				<article class="package-card">
 					<p class="package-name">Full Brand Identity</p>
-					<p class="package-desc">A complete, cohesive system for brands that need more than a logo, strategy, guidance, and polish.</p>
+					<p class="package-desc">A complete, cohesive system for brands that need more than a logo.</p>
 					<ul class="package-list">
 						<li>Discovery session + logo suite</li>
 						<li>Full color, type, and imagery system</li>
 						<li>Brand guidelines + stationery + 5 social templates</li>
 					</ul>
 					<p class="package-meta">Timeline</p>
-					<p class="package-price">4 to 5 weeks · ₦280,000</p>
+					<p class="package-price">5 to 6 weeks · ₦280,000</p>
 				</article>
 				<article class="package-card">
 					<p class="package-name">Brand + Launch System</p>
@@ -965,7 +965,7 @@
 						<li>Launch campaign assets and promotional materials</li>
 					</ul>
 					<p class="package-meta">Timeline</p>
-					<p class="package-price">6 to 8 weeks · ₦500,000</p>
+					<p class="package-price">8 to 12 weeks · ₦500,000</p>
 				</article>
 			</div>
 		</section>
@@ -1046,20 +1046,24 @@
 			<p>© 2026 Victor Osondu</p>
 			<div class="social-icons">
 				<a href="https://www.instagram.com/vosondu_/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
-					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-						<rect x="3.5" y="3.5" width="17" height="17" rx="5" />
-						<circle cx="12" cy="12" r="3.5" />
-						<circle cx="17.5" cy="6.5" r="0.9" />
+					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<rect x="3.5" y="3.5" width="17" height="17" rx="4.5" ry="4.5" fill="none" stroke="currentColor" stroke-width="1.7"/>
+						<circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.7"/>
+						<circle cx="17.4" cy="6.6" r="1.15" fill="currentColor"/>
 					</svg>
 				</a>
 				<a href="https://web.facebook.com/osondu.victor.100" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
-					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22 12a10 10 0 10-11.5 9.9v-7h-2.2v-2.9h2.2V9.2c0-2.2 1.3-3.4 3.3-3.4.95 0 1.9.18 1.9.18v2.1h-1.06c-1.04 0-1.36.64-1.36 1.3v1.6h2.3l-.37 2.9h-1.93v7A10 10 0 0022 12z"/></svg>
+					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<path d="M13.8 20.4V13h2.6l.4-3h-3v-1.9c0-.8.2-1.4 1.4-1.4H17V3.5c-.2 0-1.1-.2-2.2-.2-2.2 0-3.7 1.3-3.7 3.8V10H8.6v3h2.5v7.4h2.7Z" fill="currentColor"/>
+					</svg>
 				</a>
 				<a href="https://www.linkedin.com/in/vosondu/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
 					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.002 5.002A2.5 2.5 0 014.98 3.5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-.9 1.8-1.8 3.7-1.8 4 0 4.7 2.6 4.7 6v7h-4v-6.2c0-1.5 0-3.4-2.1-3.4-2.1 0-2.4 1.6-2.4 3.3V21H9z"/></svg>
 				</a>
 				<a href="https://x.com/v_osondu" target="_blank" rel="noopener" class="social-link" aria-label="X">
-					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22 5.9c-.6.3-1.2.5-1.9.6.7-.4 1.2-1 1.4-1.8-.7.4-1.5.8-2.3 1-1.3-1.4-3.6-1.1-4.9.3-1 .9-1.2 2.3-.6 3.5-2.6-.1-5-1.4-6.6-3.6-.8 1.4-.1 3.3 1.3 4.1-.5 0-1-.2-1.5-.4 0 1.6 1.1 3 2.6 3.4-.6.2-1.3.2-2 .1.6 1.9 2.3 3.3 4.3 3.3-1.6 1.3-3.5 2-5.6 2-.4 0-.8 0-1.2-.1 2 1.3 4.3 2 6.8 2 8.1 0 12.5-6.7 12.5-12.5v-.6c.8-.6 1.4-1.3 1.9-2.1-.8.4-1.6.6-2.5.7z"/></svg>
+					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<path d="M17.2 3H20l-6.3 7.2 7.4 10.8h-5.3l-4.1-5.3-4.7 5.3H3.1l7.2-8.2L2.7 3h5.5l3.8 5 4.2-5Zm-1.4 15.3h1.2L6.8 4.7H5.6l10.2 13.6Z" fill="currentColor"/>
+					</svg>
 				</a>
 			</div>
 		</footer>
