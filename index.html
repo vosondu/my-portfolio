@@ -1,875 +1,907 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta name="p:domain_verify" content="79e8fcae29c4a3dafc53a192032b6781"/>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Victor Osondu, Brand Identity Designer</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-			<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
-		<style>
-			*,
-			*::before,
-			*::after {
-				box-sizing: border-box;
-				margin: 0;
+
+<head>
+	<meta name="p:domain_verify" content="79e8fcae29c4a3dafc53a192032b6781" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Victor Osondu, Brand Identity Designer</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
+	<style>
+		*,
+		*::before,
+		*::after {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		:root {
+			--black: #131313;
+			--grey-dark: #c8c8c2;
+			--grey-mid: #7a7a76;
+			--grey-light: #3a3a38;
+			--grey-faint: #1a1a18;
+			--white: #fafaf8;
+			--serif: "DM Sans", system-ui, sans-serif;
+			--sans: "DM Sans", system-ui, sans-serif;
+			--fw: 300;
+			--muted: rgba(250, 250, 248, 0.72);
+		}
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+		body {
+			font-family: var(--sans);
+			background: var(--black);
+			color: var(--white);
+			font-size: 16px;
+			line-height: 1.7;
+			-webkit-font-smoothing: antialiased;
+			font-weight: var(--fw);
+		}
+
+		/* NAV */
+		nav {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 100;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 1.5rem 4rem;
+			background: rgba(17, 17, 16, 0.92);
+			backdrop-filter: blur(8px);
+			border-bottom: 1px solid var(--grey-faint);
+		}
+
+		.nav-logo {
+			font-family: var(--serif);
+			font-size: 1.1rem;
+			color: var(--white);
+			text-decoration: none;
+			letter-spacing: -0.01em;
+		}
+
+		.nav-links {
+			display: flex;
+			gap: 2.5rem;
+			list-style: none;
+			margin-left: auto;
+		}
+
+		.nav-links a {
+			font-size: 0.875rem;
+			color: var(--grey-mid);
+			text-decoration: none;
+			letter-spacing: 0.04em;
+			text-transform: uppercase;
+			transition: color 0.2s;
+		}
+
+		.nav-links a:hover {
+			color: var(--white);
+		}
+
+		/* HERO */
+		.hero {
+			padding: 14rem 4rem 8rem;
+			max-width: 900px;
+		}
+
+		.hero-eyebrow {
+			font-size: 0.8rem;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+			color: var(--grey-mid);
+			margin-bottom: 1.5rem;
+		}
+
+		.hero h1 {
+			font-family: var(--serif);
+			font-size: clamp(2.8rem, 6vw, 5rem);
+			line-height: 1.08;
+			letter-spacing: -0.02em;
+			color: var(--white);
+			margin-bottom: 2rem;
+		}
+
+		.hero h1 em {
+			font-style: italic;
+			color: var(--grey-mid);
+		}
+
+		.hero-sub {
+			font-size: 1.05rem;
+			color: var(--grey-dark);
+			max-width: 480px;
+			line-height: 1.75;
+			font-weight: 300;
+		}
+
+		.hero-cta {
+			margin-top: 3rem;
+			display: inline-block;
+			font-size: 0.875rem;
+			color: var(--white);
+			text-decoration: none;
+			letter-spacing: 0.04em;
+			text-transform: uppercase;
+			border-bottom: 1px solid var(--white);
+			padding-bottom: 2px;
+			transition:
+				color 0.2s,
+				border-color 0.2s;
+		}
+
+		.hero-cta:hover {
+			color: var(--grey-mid);
+			border-color: var(--grey-light);
+		}
+
+		.testimonials-home {
+			padding: 0 4rem 5rem;
+		}
+
+		.testimonials-intro {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 1rem;
+			margin-bottom: 1.25rem;
+		}
+
+		.testimonials-controls {
+			display: flex;
+			gap: 0.5rem;
+		}
+
+		.testimonial-nav {
+			width: 2.25rem;
+			height: 2.25rem;
+			border: 1px solid var(--grey-faint);
+			background: transparent;
+			color: var(--white);
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			transition: border-color 0.2s, color 0.2s, transform 0.2s;
+		}
+
+		.testimonial-nav:hover {
+			border-color: var(--grey-light);
+			color: var(--grey-dark);
+			transform: translateY(-1px);
+		}
+
+		.testimonials-grid {
+			display: flex;
+			gap: 1rem;
+			overflow-x: auto;
+			scroll-snap-type: x proximity;
+			scroll-behavior: smooth;
+			padding-bottom: 0.25rem;
+			scrollbar-width: none;
+			-ms-overflow-style: none;
+		}
+
+		.testimonials-grid::-webkit-scrollbar {
+			display: none;
+		}
+
+		.testimonial-card {
+			background: var(--black);
+			border: 1px solid var(--grey-faint);
+			padding: 1.5rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			min-height: 100%;
+			flex: 0 0 calc(50% - 0.5rem);
+			max-width: calc(50% - 0.5rem);
+			text-decoration: none;
+			color: inherit;
+			cursor: pointer;
+			scroll-snap-align: start;
+			transition: border-color 1000ms cubic-bezier(.2, .9, .2, 1), transform 1000ms cubic-bezier(.2, .9, .2, 1);
+		}
+
+		.testimonial-card:hover {
+			border-color: #2b2b28;
+			transform: translateY(-3px);
+		}
+
+		.testimonial-quote {
+			font-size: 0.98rem;
+			line-height: 1.75;
+			color: var(--grey-dark);
+			margin-bottom: 1.25rem;
+		}
+
+		.testimonial-author {
+			font-family: var(--serif);
+			font-size: 1rem;
+			color: var(--white);
+		}
+
+		.testimonial-meta {
+			font-size: 0.78rem;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			color: var(--grey-mid);
+			margin-top: 0.3rem;
+		}
+
+		.testimonial-link {
+			font-size: 0.78rem;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: var(--grey-mid);
+			text-decoration: none;
+			transition: color 0.2s;
+		}
+
+		.testimonial-link:hover {
+			color: var(--white);
+		}
+
+		.packages {
+			padding: 0 4rem 6rem;
+		}
+
+		.packages-grid {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 1rem;
+		}
+
+		.package-card {
+			background: #121211;
+			border: 1px solid #242421;
+			padding: 1.5rem;
+		}
+
+		.package-name {
+			font-family: var(--serif);
+			font-size: 1.2rem;
+			color: var(--white);
+			margin-bottom: 0.5rem;
+		}
+
+		.package-desc {
+			font-size: 0.95rem;
+			color: var(--grey-dark);
+			line-height: 1.7;
+			margin-bottom: 1rem;
+		}
+
+		.package-list {
+			list-style: none;
+			display: flex;
+			flex-direction: column;
+			gap: 0.45rem;
+			margin-bottom: 1.25rem;
+		}
+
+		.package-list li {
+			font-size: 0.88rem;
+			color: var(--grey-dark);
+			padding-left: 0.9rem;
+			position: relative;
+		}
+
+		.package-list li::before {
+			content: "•";
+			position: absolute;
+			left: 0;
+			color: var(--grey-mid);
+		}
+
+		.package-meta {
+			font-size: 0.78rem;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: var(--grey-mid);
+			margin-bottom: 0.25rem;
+		}
+
+		.package-price {
+			font-family: var(--serif);
+			font-size: 1rem;
+			color: var(--white);
+		}
+
+		/* DIVIDER */
+		.rule {
+			width: 100%;
+			height: 1px;
+			background: var(--grey-faint);
+			margin: 0 4rem;
+			width: calc(100% - 8rem);
+		}
+
+		/* WORK SECTION */
+		.work {
+			padding: 6rem 4rem;
+		}
+
+		.section-label {
+			font-size: 0.75rem;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+			color: var(--grey-mid);
+			margin-bottom: 4rem;
+		}
+
+		.projects-grid {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+			background: transparent;
+			border: none;
+			padding: 0.5rem 0;
+		}
+
+		.project-card {
+			background: var(--black);
+			overflow: hidden;
+			cursor: pointer;
+			position: relative;
+			opacity: 0;
+			transform: translateY(-40px);
+			transition: opacity 1000ms cubic-bezier(.2, .9, .2, 1), transform 1000ms cubic-bezier(.2, .9, .2, 1);
+			pointer-events: none;
+		}
+
+		.project-card.in-view {
+			opacity: 1;
+			transform: translateY(0);
+			pointer-events: auto;
+		}
+
+		.project-card.out-view {
+			opacity: 0;
+			transform: translateY(48px);
+			pointer-events: none;
+		}
+
+		.project-card:first-child {
+			grid-column: 1 / -1;
+		}
+
+		.project-img {
+			width: 100%;
+			aspect-ratio: 16/9;
+			background: transparent;
+			overflow: hidden;
+			position: relative;
+		}
+
+		.project-card:first-child .project-img {
+			aspect-ratio: 21/9;
+		}
+
+		.project-img img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+			filter: grayscale(90%);
+			transition:
+				transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+				filter 0.4s;
+		}
+
+		.project-card:hover .project-img img {
+			transform: scale(1.03);
+			filter: grayscale(0%);
+		}
+
+		.project-img-placeholder {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		@media (max-width: 768px) {
+			.projects-grid {
+				gap: 0.75rem;
 				padding: 0;
 			}
 
-			:root {
-						--black: #131313;
-				--grey-dark: #c8c8c2;
-				--grey-mid: #7a7a76;
-				--grey-light: #3a3a38;
-				--grey-faint: #1a1a18;
-						--white: #fafaf8;
-				--serif: "DM Sans", system-ui, sans-serif;
-				--sans: "DM Sans", system-ui, sans-serif;
-				--fw: 300;
-				--muted: rgba(250,250,248,0.72);
-			}
-
-			html {
-				scroll-behavior: smooth;
-			}
-
-			body {
-				font-family: var(--sans);
-				background: var(--black);
-				color: var(--white);
-				font-size: 16px;
-				line-height: 1.7;
-				-webkit-font-smoothing: antialiased;
-				font-weight: var(--fw);
-			}
-
-			/* NAV */
-			nav {
-				position: fixed;
-				top: 0;
-				left: 0;
-				right: 0;
-				z-index: 100;
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				padding: 1.5rem 4rem;
-				background: rgba(17, 17, 16, 0.92);
-				backdrop-filter: blur(8px);
-				border-bottom: 1px solid var(--grey-faint);
-			}
-
-			.nav-logo {
-				font-family: var(--serif);
-				font-size: 1.1rem;
-				color: var(--white);
-				text-decoration: none;
-				letter-spacing: -0.01em;
-			}
-
-			.nav-links {
-				display: flex;
-				gap: 2.5rem;
-				list-style: none;
-				margin-left: auto;
-			}
-
-			.nav-links a {
-				font-size: 0.875rem;
-				color: var(--grey-mid);
-				text-decoration: none;
-				letter-spacing: 0.04em;
-				text-transform: uppercase;
-				transition: color 0.2s;
-			}
-
-			.nav-links a:hover {
-				color: var(--white);
-			}
-
-			/* HERO */
-			.hero {
-				padding: 14rem 4rem 8rem;
-				max-width: 900px;
-			}
-
-			.hero-eyebrow {
-				font-size: 0.8rem;
-				letter-spacing: 0.12em;
-				text-transform: uppercase;
-				color: var(--grey-mid);
-				margin-bottom: 1.5rem;
-			}
-
-			.hero h1 {
-				font-family: var(--serif);
-				font-size: clamp(2.8rem, 6vw, 5rem);
-				line-height: 1.08;
-				letter-spacing: -0.02em;
-				color: var(--white);
-				margin-bottom: 2rem;
-			}
-
-			.hero h1 em {
-				font-style: italic;
-				color: var(--grey-mid);
-			}
-
-			.hero-sub {
-				font-size: 1.05rem;
-				color: var(--grey-dark);
-				max-width: 480px;
-				line-height: 1.75;
-				font-weight: 300;
-			}
-
-			.hero-cta {
-				margin-top: 3rem;
-				display: inline-block;
-				font-size: 0.875rem;
-				color: var(--white);
-				text-decoration: none;
-				letter-spacing: 0.04em;
-				text-transform: uppercase;
-				border-bottom: 1px solid var(--white);
-				padding-bottom: 2px;
-				transition:
-					color 0.2s,
-					border-color 0.2s;
-			}
-
-			.hero-cta:hover {
-				color: var(--grey-mid);
-				border-color: var(--grey-light);
-			}
-
-			.testimonials-home {
-				padding: 0 4rem 5rem;
-			}
-
-			.testimonials-intro {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				gap: 1rem;
-				margin-bottom: 1.25rem;
-			}
-
-			.testimonials-controls {
-				display: flex;
-				gap: 0.5rem;
-			}
-
-			.testimonial-nav {
-				width: 2.25rem;
-				height: 2.25rem;
-				border: 1px solid var(--grey-faint);
-				background: transparent;
-				color: var(--white);
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				cursor: pointer;
-				transition: border-color 0.2s, color 0.2s, transform 0.2s;
-			}
-
-			.testimonial-nav:hover {
-				border-color: var(--grey-light);
-				color: var(--grey-dark);
-				transform: translateY(-1px);
-			}
-
-			.testimonials-grid {
-				display: flex;
-				gap: 1rem;
-				overflow-x: auto;
-				scroll-snap-type: x proximity;
-				scroll-behavior: smooth;
-				padding-bottom: 0.25rem;
-				scrollbar-width: none;
-				-ms-overflow-style: none;
-			}
-
-			.testimonials-grid::-webkit-scrollbar {
-				display: none;
-			}
-
-			.testimonial-card {
-				background: var(--black);
-				border: 1px solid var(--grey-faint);
-				padding: 1.5rem;
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				min-height: 100%;
-				flex: 0 0 calc(50% - 0.5rem);
-				max-width: calc(50% - 0.5rem);
-				text-decoration: none;
-				color: inherit;
-				cursor: pointer;
-				scroll-snap-align: start;
-				transition: border-color 1000ms cubic-bezier(.2,.9,.2,1), transform 1000ms cubic-bezier(.2,.9,.2,1);
-			}
-
-			.testimonial-card:hover {
-				border-color: #2b2b28;
-				transform: translateY(-3px);
-			}
-
-			.testimonial-quote {
-				font-size: 0.98rem;
-				line-height: 1.75;
-				color: var(--grey-dark);
-				margin-bottom: 1.25rem;
-			}
-
-			.testimonial-author {
-				font-family: var(--serif);
-				font-size: 1rem;
-				color: var(--white);
-			}
-
-			.testimonial-meta {
-				font-size: 0.78rem;
-				letter-spacing: 0.1em;
-				text-transform: uppercase;
-				color: var(--grey-mid);
-				margin-top: 0.3rem;
-			}
-
-			.testimonial-link {
-				font-size: 0.78rem;
-				letter-spacing: 0.08em;
-				text-transform: uppercase;
-				color: var(--grey-mid);
-				text-decoration: none;
-				transition: color 0.2s;
-			}
-
-			.testimonial-link:hover {
-				color: var(--white);
-			}
-
-			.packages {
-				padding: 0 4rem 6rem;
-			}
-
-			.packages-grid {
-				display: grid;
-				grid-template-columns: repeat(3, minmax(0, 1fr));
-				gap: 1rem;
-			}
-
-			.package-card {
-				background: #121211;
-				border: 1px solid #242421;
-				padding: 1.5rem;
-			}
-
-			.package-name {
-				font-family: var(--serif);
-				font-size: 1.2rem;
-				color: var(--white);
-				margin-bottom: 0.5rem;
-			}
-
-			.package-desc {
-				font-size: 0.95rem;
-				color: var(--grey-dark);
-				line-height: 1.7;
-				margin-bottom: 1rem;
-			}
-
-			.package-list {
-				list-style: none;
-				display: flex;
-				flex-direction: column;
-				gap: 0.45rem;
-				margin-bottom: 1.25rem;
-			}
-
-			.package-list li {
-				font-size: 0.88rem;
-				color: var(--grey-dark);
-				padding-left: 0.9rem;
-				position: relative;
-			}
-
-			.package-list li::before {
-				content: "•";
-				position: absolute;
-				left: 0;
-				color: var(--grey-mid);
-			}
-
-			.package-meta {
-				font-size: 0.78rem;
-				letter-spacing: 0.08em;
-				text-transform: uppercase;
-				color: var(--grey-mid);
-				margin-bottom: 0.25rem;
-			}
-
-			.package-price {
-				font-family: var(--serif);
-				font-size: 1rem;
-				color: var(--white);
-			}
-
-			/* DIVIDER */
-			.rule {
-				width: 100%;
-				height: 1px;
-				background: var(--grey-faint);
-				margin: 0 4rem;
-				width: calc(100% - 8rem);
-			}
-
-			/* WORK SECTION */
-			.work {
-				padding: 6rem 4rem;
-			}
-
-			.section-label {
-				font-size: 0.75rem;
-				letter-spacing: 0.12em;
-				text-transform: uppercase;
-				color: var(--grey-mid);
-				margin-bottom: 4rem;
-			}
-
-			.projects-grid {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				gap: 1rem;
-				background: transparent;
-				border: none;
-				padding: 0.5rem 0;
-			}
-
 			.project-card {
-				background: var(--black);
-				overflow: hidden;
-				cursor: pointer;
-				position: relative;
-				opacity: 0;
-				transform: translateY(-40px);
-				transition: opacity 1000ms cubic-bezier(.2,.9,.2,1), transform 1000ms cubic-bezier(.2,.9,.2,1);
-				pointer-events: none;
-			}
-
-			.project-card.in-view {
-				opacity: 1;
-				transform: translateY(0);
-				pointer-events: auto;
+				transition-duration: 800ms;
+				transform: translateY(-24px);
 			}
 
 			.project-card.out-view {
-				opacity: 0;
-				transform: translateY(48px);
-				pointer-events: none;
-			}
-
-			.project-card:first-child {
-				grid-column: 1 / -1;
+				transform: translateY(28px);
 			}
 
 			.project-img {
-				width: 100%;
 				aspect-ratio: 16/9;
-				background: transparent;
-				overflow: hidden;
-				position: relative;
+			}
+		}
+
+		.project-img-placeholder svg {
+			opacity: 0.15;
+		}
+
+		.project-info {
+			padding: 1.75rem 2rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-end;
+		}
+
+		.project-meta {}
+
+		.project-tags {
+			font-size: 0.72rem;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			color: var(--grey-mid);
+			margin-bottom: 0.4rem;
+		}
+
+		.project-name {
+			font-family: var(--serif);
+			font-size: 1.35rem;
+			letter-spacing: -0.01em;
+			color: var(--white);
+		}
+
+		.project-arrow {
+			color: var(--grey-light);
+			font-size: 1.5rem;
+			transition:
+				color 0.2s,
+				transform 0.3s;
+			line-height: 1;
+		}
+
+		.project-card:hover .project-arrow {
+			color: var(--white);
+			transform: translate(3px, -3px);
+		}
+
+		/* ABOUT */
+		.about {
+			padding: 6rem 4rem;
+			display: grid;
+			grid-template-columns: 1fr 1.6fr;
+			gap: 6rem;
+			align-items: start;
+		}
+
+		.about-left {}
+
+		.about h2 {
+			font-family: var(--serif);
+			font-size: clamp(2rem, 4vw, 3rem);
+			line-height: 1.1;
+			letter-spacing: -0.02em;
+			margin-bottom: 2rem;
+		}
+
+		.about p {
+			font-size: 1rem;
+			color: var(--grey-dark);
+			font-weight: 300;
+			margin-bottom: 1.25rem;
+			line-height: 1.8;
+		}
+
+		.about-tools {
+			margin-top: 2.5rem;
+		}
+
+		.about-tools p {
+			font-size: 0.75rem;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			color: var(--grey-mid);
+			margin-bottom: 0.75rem;
+		}
+
+		.tool-list {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+		}
+
+		.tool-tag {
+			font-size: 0.8rem;
+			color: var(--grey-dark);
+			border: 1px solid var(--grey-light);
+			padding: 0.25rem 0.75rem;
+			letter-spacing: 0.02em;
+		}
+
+		.about-stats {
+			display: flex;
+			flex-direction: column;
+			gap: 3rem;
+			padding-top: 0.5rem;
+		}
+
+		.stat {}
+
+		.stat-number {
+			font-family: var(--serif);
+			font-size: 3.5rem;
+			line-height: 1;
+			letter-spacing: -0.03em;
+			color: var(--white);
+			margin-bottom: 0.25rem;
+		}
+
+		.stat-label {
+			font-size: 0.8rem;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: var(--grey-mid);
+		}
+
+		/* CONTACT */
+		.contact {
+			padding: 6rem 4rem 8rem;
+			background: #1a1a18;
+			color: var(--white);
+		}
+
+		.contact .section-label {
+			color: var(--grey-mid);
+		}
+
+		.contact h2 {
+			font-family: var(--serif);
+			font-size: clamp(2.2rem, 5vw, 4rem);
+			line-height: 1.08;
+			letter-spacing: -0.02em;
+			margin-bottom: 1.5rem;
+			max-width: 600px;
+		}
+
+		.contact h2 em {
+			color: var(--grey-light);
+			font-style: italic;
+		}
+
+		.contact-links {
+			margin-top: 3rem;
+			display: flex;
+			flex-direction: column;
+			gap: 0;
+		}
+
+		.contact-link-row {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 1.25rem 0;
+			border-top: 1px solid #2a2a28;
+			text-decoration: none;
+			color: var(--white);
+			transition: padding-left 0.3s;
+		}
+
+		.contact-link-row:last-child {
+			border-bottom: 1px solid #2a2a28;
+		}
+
+		.contact-link-row:hover {
+			padding-left: 0.75rem;
+		}
+
+		.contact-link-row:hover .contact-link-arrow {
+			transform: translate(4px, -4px);
+		}
+
+		.contact-link-label {
+			font-size: 0.75rem;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			color: var(--grey-mid);
+			margin-bottom: 0.15rem;
+		}
+
+		.contact-link-value {
+			font-family: var(--sans);
+			font-size: 1.2rem;
+			letter-spacing: -0.01em;
+		}
+
+		.contact-link-arrow {
+			color: var(--grey-mid);
+			font-size: 1.25rem;
+			transition:
+				transform 0.3s,
+				color 0.2s;
+		}
+
+		.contact-link-row:hover .contact-link-arrow {
+			color: var(--white);
+		}
+
+		/* FOOTER */
+		footer {
+			background: #111110;
+			padding: 2rem 4rem;
+			border-top: 1px solid #1e1e1c;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		footer p {
+			font-size: 0.78rem;
+			color: #555552;
+			letter-spacing: 0.04em;
+		}
+
+		.social-icons {
+			display: flex;
+			gap: 0.75rem;
+			align-items: center;
+		}
+
+		.social-link {
+			color: var(--grey-mid);
+			display: inline-flex;
+			width: 36px;
+			height: 36px;
+			align-items: center;
+			justify-content: center;
+			text-decoration: none;
+			transition: color 0.2s, transform 0.12s;
+		}
+
+		.social-link:hover {
+			color: var(--white);
+			transform: translateY(-2px);
+		}
+
+		.social-link svg {
+			width: 18px;
+			height: 18px;
+			display: block;
+			fill: currentColor;
+		}
+
+		/* MOBILE */
+		@media (max-width: 768px) {
+			nav {
+				padding: 1.25rem 1.5rem;
 			}
 
-			.project-card:first-child .project-img {
-				aspect-ratio: 21/9;
+			.nav-links {
+				gap: 0.75rem;
+				flex-wrap: wrap;
+				justify-content: flex-end;
+				margin-left: auto;
+			}
+
+			.hero {
+				padding: 9rem 1.5rem 5rem;
+			}
+
+			.hero h1 {
+				margin-top: 0.5rem;
+				margin-bottom: 2.75rem;
+			}
+
+			.rule {
+				margin: 0 1.5rem;
+				width: calc(100% - 3rem);
+			}
+
+			.work {
+				padding: 4rem 1.5rem;
+			}
+
+			.projects-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.project-card:first-child {
+				grid-column: auto;
+			}
+
+			.about {
+				padding: 4rem 1.5rem;
+				grid-template-columns: 1fr;
+				gap: 3rem;
+			}
+
+			.about-stats {
+				flex-direction: row;
+				flex-wrap: wrap;
+				gap: 2rem;
+			}
+
+			.testimonials-home {
+				padding: 0 1.5rem 4rem;
+			}
+
+			.testimonials-intro {
+				align-items: start;
+				flex-direction: column;
+			}
+
+			.testimonials-grid {
+				gap: 0.75rem;
+			}
+
+			.testimonial-card {
+				flex: 0 0 min(84vw, 320px);
+				max-width: min(84vw, 320px);
+				scroll-snap-align: start;
+			}
+
+			.packages {
+				padding: 0 1.5rem 4rem;
+			}
+
+			.packages-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.contact {
+				padding: 4rem 1.5rem 5rem;
+			}
+
+			footer {
+				padding: 1.5rem;
+				flex-direction: column;
+				gap: 0.5rem;
+				text-align: center;
+			}
+		}
+
+		/* Mobile-specific fixes: ensure images scale and prevent horizontal overflow */
+		@media (max-width: 768px) {
+			.projects-grid {
+				gap: 1rem;
 			}
 
 			.project-img img {
 				width: 100%;
-				height: 100%;
+				height: auto;
 				object-fit: cover;
-				display: block;
-				filter: grayscale(90%);
-				transition:
-					transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-					filter 0.4s;
 			}
 
-			.project-card:hover .project-img img {
-				transform: scale(1.03);
-				filter: grayscale(0%);
+			nav a,
+			.nav-links a {
+				padding: 0.25rem 0.35rem;
+				display: inline-block;
 			}
 
-			.project-img-placeholder {
-				width: 100%;
-				height: 100%;
-				display: flex;
-				align-items: center;
-				justify-content: center;
+			html,
+			body {
+				max-width: 100vw;
+				overflow-x: hidden;
 			}
+		}
+	</style>
+</head>
 
-			@media (max-width: 768px) {
-				.projects-grid {
-					gap: 0.75rem;
-					padding: 0;
-				}
+<body>
+	<!-- NAV -->
+	<nav>
+		<!-- <a href="#" class="nav-logo">Victor Osondu</a> -->
+		<ul class="nav-links">
+			<li><a href="#work">Work</a></li>
+			<li><a href="#packages">Packages</a></li>
+			<li><a href="#contact">Contact</a></li>
+		</ul>
+	</nav>
 
-				.project-card {
-					transition-duration: 800ms;
-					transform: translateY(-24px);
-				}
+	<!-- HERO -->
+	<section class="hero">
+		<p class="hero-eyebrow">Brand Identity Designer, Lagos, Nigeria</p>
+		<h1>Brand identities built to <em>last.</em></h1>
+		<p class="hero-sub">
+			I create visual identities that give businesses a clear, confident
+			presence, from strategy and naming through to logo systems and brand
+			guidelines.
+		</p>
+		<a href="#work" class="hero-cta">View selected work ↓</a>
+	</section>
 
-				.project-card.out-view {
-					transform: translateY(28px);
-				}
-
-				.project-img { aspect-ratio: 16/9; }
-			}
-
-			.project-img-placeholder svg {
-				opacity: 0.15;
-			}
-
-			.project-info {
-				padding: 1.75rem 2rem;
-				display: flex;
-				justify-content: space-between;
-				align-items: flex-end;
-			}
-
-			.project-meta {
-			}
-
-			.project-tags {
-				font-size: 0.72rem;
-				letter-spacing: 0.1em;
-				text-transform: uppercase;
-				color: var(--grey-mid);
-				margin-bottom: 0.4rem;
-			}
-
-			.project-name {
-				font-family: var(--serif);
-				font-size: 1.35rem;
-				letter-spacing: -0.01em;
-				color: var(--white);
-			}
-
-			.project-arrow {
-				color: var(--grey-light);
-				font-size: 1.5rem;
-				transition:
-					color 0.2s,
-					transform 0.3s;
-				line-height: 1;
-			}
-
-			.project-card:hover .project-arrow {
-				color: var(--white);
-				transform: translate(3px, -3px);
-			}
-
-			/* ABOUT */
-			.about {
-				padding: 6rem 4rem;
-				display: grid;
-				grid-template-columns: 1fr 1.6fr;
-				gap: 6rem;
-				align-items: start;
-			}
-
-			.about-left {
-			}
-
-			.about h2 {
-				font-family: var(--serif);
-				font-size: clamp(2rem, 4vw, 3rem);
-				line-height: 1.1;
-				letter-spacing: -0.02em;
-				margin-bottom: 2rem;
-			}
-
-			.about p {
-				font-size: 1rem;
-				color: var(--grey-dark);
-				font-weight: 300;
-				margin-bottom: 1.25rem;
-				line-height: 1.8;
-			}
-
-			.about-tools {
-				margin-top: 2.5rem;
-			}
-
-			.about-tools p {
-				font-size: 0.75rem;
-				letter-spacing: 0.1em;
-				text-transform: uppercase;
-				color: var(--grey-mid);
-				margin-bottom: 0.75rem;
-			}
-
-			.tool-list {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 0.5rem;
-			}
-
-			.tool-tag {
-				font-size: 0.8rem;
-				color: var(--grey-dark);
-				border: 1px solid var(--grey-light);
-				padding: 0.25rem 0.75rem;
-				letter-spacing: 0.02em;
-			}
-
-			.about-stats {
-				display: flex;
-				flex-direction: column;
-				gap: 3rem;
-				padding-top: 0.5rem;
-			}
-
-			.stat {
-			}
-
-			.stat-number {
-				font-family: var(--serif);
-				font-size: 3.5rem;
-				line-height: 1;
-				letter-spacing: -0.03em;
-				color: var(--white);
-				margin-bottom: 0.25rem;
-			}
-
-			.stat-label {
-				font-size: 0.8rem;
-				letter-spacing: 0.08em;
-				text-transform: uppercase;
-				color: var(--grey-mid);
-			}
-
-			/* CONTACT */
-			.contact {
-				padding: 6rem 4rem 8rem;
-				background: #1a1a18;
-				color: var(--white);
-			}
-
-			.contact .section-label {
-				color: var(--grey-mid);
-			}
-
-			.contact h2 {
-				font-family: var(--serif);
-				font-size: clamp(2.2rem, 5vw, 4rem);
-				line-height: 1.08;
-				letter-spacing: -0.02em;
-				margin-bottom: 1.5rem;
-				max-width: 600px;
-			}
-
-			.contact h2 em {
-				color: var(--grey-light);
-				font-style: italic;
-			}
-
-			.contact-links {
-				margin-top: 3rem;
-				display: flex;
-				flex-direction: column;
-				gap: 0;
-			}
-
-			.contact-link-row {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				padding: 1.25rem 0;
-				border-top: 1px solid #2a2a28;
-				text-decoration: none;
-				color: var(--white);
-				transition: padding-left 0.3s;
-			}
-
-			.contact-link-row:last-child {
-				border-bottom: 1px solid #2a2a28;
-			}
-
-			.contact-link-row:hover {
-				padding-left: 0.75rem;
-			}
-
-			.contact-link-row:hover .contact-link-arrow {
-				transform: translate(4px, -4px);
-			}
-
-			.contact-link-label {
-				font-size: 0.75rem;
-				letter-spacing: 0.1em;
-				text-transform: uppercase;
-				color: var(--grey-mid);
-				margin-bottom: 0.15rem;
-			}
-
-			.contact-link-value {
-				font-family: var(--sans);
-				font-size: 1.2rem;
-				letter-spacing: -0.01em;
-			}
-
-			.contact-link-arrow {
-				color: var(--grey-mid);
-				font-size: 1.25rem;
-				transition:
-					transform 0.3s,
-					color 0.2s;
-			}
-
-			.contact-link-row:hover .contact-link-arrow {
-				color: var(--white);
-			}
-
-			/* FOOTER */
-			footer {
-				background: #111110;
-				padding: 2rem 4rem;
-				border-top: 1px solid #1e1e1c;
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-			}
-
-			footer p {
-				font-size: 0.78rem;
-				color: #555552;
-				letter-spacing: 0.04em;
-			}
-
-			.social-icons {
-				display: flex;
-				gap: 0.75rem;
-				align-items: center;
-			}
-			.social-link {
-				color: var(--grey-mid);
-				display: inline-flex;
-				width: 36px;
-				height: 36px;
-				align-items: center;
-				justify-content: center;
-				text-decoration: none;
-				transition: color 0.2s, transform 0.12s;
-			}
-			.social-link:hover {
-				color: var(--white);
-				transform: translateY(-2px);
-			}
-			.social-link svg {
-				width: 18px;
-				height: 18px;
-				display: block;
-				fill: currentColor;
-			}
-
-			/* MOBILE */
-			@media (max-width: 768px) {
-				nav {
-					padding: 1.25rem 1.5rem;
-				}
-				.nav-links {
-					gap: 0.75rem;
-					flex-wrap: wrap;
-					justify-content: flex-end;
-					margin-left: auto;
-				}
-				.hero {
-					padding: 9rem 1.5rem 5rem;
-				}
-				.hero h1 {
-					margin-top: 0.5rem;
-					margin-bottom: 2.75rem;
-				}
-				.rule {
-					margin: 0 1.5rem;
-					width: calc(100% - 3rem);
-				}
-				.work {
-					padding: 4rem 1.5rem;
-				}
-				.projects-grid {
-					grid-template-columns: 1fr;
-				}
-				.project-card:first-child {
-					grid-column: auto;
-				}
-				.about {
-					padding: 4rem 1.5rem;
-					grid-template-columns: 1fr;
-					gap: 3rem;
-				}
-				.about-stats {
-					flex-direction: row;
-					flex-wrap: wrap;
-					gap: 2rem;
-				}
-				.testimonials-home {
-					padding: 0 1.5rem 4rem;
-				}
-				.testimonials-intro {
-					align-items: start;
-					flex-direction: column;
-				}
-				.testimonials-grid {
-					gap: 0.75rem;
-				}
-				.testimonial-card {
-					flex: 0 0 min(84vw, 320px);
-					max-width: min(84vw, 320px);
-					scroll-snap-align: start;
-				}
-				.packages {
-					padding: 0 1.5rem 4rem;
-				}
-				.packages-grid {
-					grid-template-columns: 1fr;
-				}
-				.contact {
-					padding: 4rem 1.5rem 5rem;
-				}
-				footer {
-					padding: 1.5rem;
-					flex-direction: column;
-					gap: 0.5rem;
-					text-align: center;
-				}
-			}
-
-			/* Mobile-specific fixes: ensure images scale and prevent horizontal overflow */
-			@media (max-width: 768px) {
-				.projects-grid { gap: 1rem; }
-				.project-img img { width: 100%; height: auto; object-fit: cover; }
-				nav a, .nav-links a { padding: 0.25rem 0.35rem; display: inline-block; }
-				html, body { max-width: 100vw; overflow-x: hidden; }
-			}
-		</style>
-	</head>
-	<body>
-		<!-- NAV -->
-		<nav>
-			<!-- <a href="#" class="nav-logo">Victor Osondu</a> -->
-			<ul class="nav-links">
-				<li><a href="#work">Work</a></li>
-				<li><a href="#packages">Packages</a></li>
-				<li><a href="#contact">Contact</a></li>
-			</ul>
-		</nav>
-
-		<!-- HERO -->
-		<section class="hero">
-			<p class="hero-eyebrow">Brand Identity Designer, Lagos, Nigeria</p>
-			<h1>Brand identities built to <em>last.</em></h1>
-			<p class="hero-sub">
-				I create visual identities that give businesses a clear, confident
-				presence, from strategy and naming through to logo systems and brand
-				guidelines.
-			</p>
-			<a href="#work" class="hero-cta">View selected work ↓</a>
-		</section>
-
-		<section class="testimonials-home" id="reviews">
-			<div class="testimonials-intro">
-				<p class="section-label">Client feedback</p>
-				<div class="testimonials-controls">
-					<button type="button" class="testimonial-nav" data-direction="prev" aria-label="Show previous testimonial">←</button>
-					<button type="button" class="testimonial-nav" data-direction="next" aria-label="Show next testimonial">→</button>
+	<section class="testimonials-home" id="reviews">
+		<div class="testimonials-intro">
+			<p class="section-label">Client feedback</p>
+			<div class="testimonials-controls">
+				<button type="button" class="testimonial-nav" data-direction="prev"
+					aria-label="Show previous testimonial">←</button>
+				<button type="button" class="testimonial-nav" data-direction="next"
+					aria-label="Show next testimonial">→</button>
+			</div>
+		</div>
+		<div class="testimonials-grid">
+			<a href="./joie-luxe-rentals.html" class="testimonial-card">
+				<p class="testimonial-quote">“The result was fabulous, the exact premium branding and feel I needed.
+					Victor listened to my expectations patiently and delivered exactly what I wanted. I’m sticking with
+					his services, and I’ve already referred him.”</p>
+				<div>
+					<p class="testimonial-author">Joy, Joie Luxe Rentals</p>
+					<p class="testimonial-meta">Luxury real estate · branding</p>
 				</div>
-			</div>
-			<div class="testimonials-grid">
-				<a href="./joie-luxe-rentals.html" class="testimonial-card">
-					<p class="testimonial-quote">“The result was fabulous, the exact premium branding and feel I needed. Victor listened to my expectations patiently and delivered exactly what I wanted. I’m sticking with his services, and I’ve already referred him.”</p>
-					<div>
-						<p class="testimonial-author">Joy, Joie Luxe Rentals</p>
-						<p class="testimonial-meta">Luxury real estate · branding</p>
-					</div>
-				</a>
-				<a href="./komis-kitchen.html" class="testimonial-card">
-					<p class="testimonial-quote">“I love how Victor takes his time, whenever I had a question, he’d explain until I had real clarity on the choices. By the final review, it already looked like an established, launched business.”</p>
-					<div>
-						<p class="testimonial-author">Komi, Komi’s Kitchen</p>
-						<p class="testimonial-meta">Food brand · visual direction</p>
-					</div>
-				</a>
-			</div>
-		</section>
+			</a>
+			<a href="./komis-kitchen.html" class="testimonial-card">
+				<p class="testimonial-quote">“I love how Victor takes his time, whenever I had a question, he’d explain
+					until I had real clarity on the choices. By the final review, it already looked like an established,
+					launched business.”</p>
+				<div>
+					<p class="testimonial-author">Komi, Komi’s Kitchen</p>
+					<p class="testimonial-meta">Food brand · visual direction</p>
+				</div>
+			</a>
+		</div>
+	</section>
 
-		<div class="rule"></div>
+	<div class="rule"></div>
 
-		<!-- WORK -->
-		<section class="work" id="work">
-			<p class="section-label">Selected projects</p>
+	<!-- WORK -->
+	<section class="work" id="work">
+		<p class="section-label">Selected projects</p>
 
-			<div class="projects-grid">
-				<!-- Featured project -->
-				<article
-					class="project-card"
-					onclick="location.href = './boa-zerah.html'"
-					style="cursor: pointer">
-					<div class="project-img">
-						<!-- Replace the placeholder below with: <img src="your-image.jpg" alt="BOA Zerah"> -->
-						<img src="./images/BOA Zerah/Business Card.webp" alt="BOA Zerah" />
+		<div class="projects-grid">
+			<!-- Featured project -->
+			<article class="project-card" onclick="location.href = './boa-zerah.html'" style="cursor: pointer">
+				<div class="project-img">
+					<!-- Replace the placeholder below with: <img src="your-image.jpg" alt="BOA Zerah"> -->
+					<img src="./images/BOA Zerah/Business Card.webp" alt="BOA Zerah" />
+				</div>
+				<div class="project-info">
+					<div class="project-meta">
+						<p class="project-tags">Brand Identity · Strategy</p>
+						<p class="project-name">BOA Zerah</p>
 					</div>
-					<div class="project-info">
-						<div class="project-meta">
-							<p class="project-tags">Brand Identity · Strategy</p>
-							<p class="project-name">BOA Zerah</p>
-						</div>
-						<span class="project-arrow">↗</span>
-					</div>
-				</article>
+					<span class="project-arrow">↗</span>
+				</div>
+			</article>
 
-				<!-- Project 2 -->
-				<article
-					class="project-card"
-					onclick="location.href = './addide-rebrand.html'"
-					style="cursor: pointer">
-					<div class="project-img">
-						<img src="./images/Addide/Artboard 1.webp" alt="Addide Rebrand" />
+			<!-- Project 2 -->
+			<article class="project-card" onclick="location.href = './addide-rebrand.html'" style="cursor: pointer">
+				<div class="project-img">
+					<img src="./images/Addide/Artboard 1.webp" alt="Addide Rebrand" />
+				</div>
+				<div class="project-info">
+					<div class="project-meta">
+						<p class="project-tags">Rebrand · Identity System</p>
+						<p class="project-name">Addide Rebrand</p>
 					</div>
-					<div class="project-info">
-						<div class="project-meta">
-							<p class="project-tags">Rebrand · Identity System</p>
-							<p class="project-name">Addide Rebrand</p>
-						</div>
-						<span class="project-arrow">↗</span>
-					</div>
-				</article>
+					<span class="project-arrow">↗</span>
+				</div>
+			</article>
 
-				<!-- Project 3 -->
-				<article
-					class="project-card"
-					onclick="location.href = './emc-properties.html'"
-					style="cursor: pointer">
-					<div class="project-img">
-						<img
-							src="./images/EMC Properties/Artboard 7.webp"
-							alt="EMC Properties" />
+			<!-- Project 3 -->
+			<article class="project-card" onclick="location.href = './emc-properties.html'" style="cursor: pointer">
+				<div class="project-img">
+					<img src="./images/EMC Properties/Artboard 7.webp" alt="EMC Properties" />
+				</div>
+				<div class="project-info">
+					<div class="project-meta">
+						<p class="project-tags">Brand Identity · Real Estate</p>
+						<p class="project-name">EMC Properties</p>
 					</div>
-					<div class="project-info">
-						<div class="project-meta">
-							<p class="project-tags">Brand Identity · Real Estate</p>
-							<p class="project-name">EMC Properties</p>
-						</div>
-						<span class="project-arrow">↗</span>
-					</div>
-				</article>
+					<span class="project-arrow">↗</span>
+				</div>
+			</article>
 
-				<!-- Project 4 -->
-				<!-- <article class="project-card" onclick="location.href='./cunnect.html'" style="cursor:pointer;">
+			<!-- Project 4 -->
+			<!-- <article class="project-card" onclick="location.href='./cunnect.html'" style="cursor:pointer;">
 			<div class="project-img">
 				<img src="./images/Cunnect/Billboard.webp" alt="Cunnect">
 			</div>
@@ -882,44 +914,36 @@
       </div>
     </article> -->
 
-				<!-- Project 5 -->
-				<article
-					class="project-card"
-					onclick="location.href = './bwbcon-2026.html'"
-					style="cursor: pointer">
-					<div class="project-img">
-						<img src="./images/BWBCON 2026/1.webp" alt="BWBCON 2026" />
+			<!-- Project 5 -->
+			<article class="project-card" onclick="location.href = './bwbcon-2026.html'" style="cursor: pointer">
+				<div class="project-img">
+					<img src="./images/BWBCON 2026/1.webp" alt="BWBCON 2026" />
+				</div>
+				<div class="project-info">
+					<div class="project-meta">
+						<p class="project-tags">Event Branding</p>
+						<p class="project-name">BWBCON 2026</p>
 					</div>
-					<div class="project-info">
-						<div class="project-meta">
-							<p class="project-tags">Event Branding</p>
-							<p class="project-name">BWBCON 2026</p>
-						</div>
-						<span class="project-arrow">↗</span>
-					</div>
-				</article>
+					<span class="project-arrow">↗</span>
+				</div>
+			</article>
 
-				<!-- Project 6 -->
-				<article
-					class="project-card"
-					onclick="location.href = './joie-luxe-rentals.html'"
-					style="cursor: pointer">
-					<div class="project-img">
-						<img
-							src="./images/Joie Luxe Rentals/Business Card Mockup 1.webp"
-							alt="Joie Luxe Rentals" />
+			<!-- Project 6 -->
+			<article class="project-card" onclick="location.href = './joie-luxe-rentals.html'" style="cursor: pointer">
+				<div class="project-img">
+					<img src="./images/Joie Luxe Rentals/Business Card Mockup 1.webp" alt="Joie Luxe Rentals" />
+				</div>
+				<div class="project-info">
+					<div class="project-meta">
+						<p class="project-tags">Brand Identity · Luxury Real Estate</p>
+						<p class="project-name">Joie Luxe Rentals</p>
 					</div>
-					<div class="project-info">
-						<div class="project-meta">
-							<p class="project-tags">Brand Identity · Luxury Real Estate</p>
-							<p class="project-name">Joie Luxe Rentals</p>
-						</div>
-						<span class="project-arrow">↗</span>
-					</div>
-				</article>
+					<span class="project-arrow">↗</span>
+				</div>
+			</article>
 
-				<!-- Project 7 -->
-				<!-- <article class="project-card" onclick="location.href='./eduverse.html'" style="cursor:pointer;">
+			<!-- Project 7 -->
+			<!-- <article class="project-card" onclick="location.href='./eduverse.html'" style="cursor:pointer;">
 			<div class="project-img">
 				<img src="./images/Eduverse/Building Mockup.webp" alt="Eduverse">
 			</div>
@@ -931,188 +955,200 @@
         <span class="project-arrow">↗</span>
       </div>
     </article> -->
-			</div>
-		</section>
+		</div>
+	</section>
 
-		<section class="packages" id="packages">
-			<p class="section-label">Brand identity packages</p>
-			<div class="packages-grid">
-				<article class="package-card">
-					<p class="package-name">Brand Starter</p>
-					<p class="package-desc">A sharp, usable identity for small businesses and startups that need to launch with confidence.</p>
-					<ul class="package-list">
-						<li>Logo (primary + 1 variation)</li>
-						<li>Color palette + typography system</li>
-						<li>Basic brand guide + 3 social templates</li>
-					</ul>
-					<p class="package-meta">Timeline</p>
-					<p class="package-price">3 to 4 weeks · ₦150,000</p>
-				</article>
-				<article class="package-card">
-					<p class="package-name">Full Brand Identity</p>
-					<p class="package-desc">A complete, cohesive system for brands that need more than a logo.</p>
-					<ul class="package-list">
-						<li>Discovery session + logo suite</li>
-						<li>Full color, type, and imagery system</li>
-						<li>Brand guidelines + stationery + 5 social templates</li>
-					</ul>
-					<p class="package-meta">Timeline</p>
-					<p class="package-price">5 to 6 weeks · ₦280,000</p>
-				</article>
-				<article class="package-card">
-					<p class="package-name">Brand + Launch System</p>
-					<p class="package-desc">Built for launches, campaigns, NGOs, and funded startups that need a stronger rollout.</p>
-					<ul class="package-list">
-						<li>Everything in the full package</li>
-						<li>Motion logo / animation</li>
-						<li>Launch campaign assets and promotional materials</li>
-					</ul>
-					<p class="package-meta">Timeline</p>
-					<p class="package-price">8 to 12 weeks · ₦500,000</p>
-				</article>
-			</div>
-		</section>
+	<section class="packages" id="packages">
+		<p class="section-label">Brand identity packages</p>
+		<div class="packages-grid">
+			<article class="package-card">
+				<p class="package-name">Brand Starter</p>
+				<p class="package-desc">A sharp, usable identity for small businesses and startups that need to launch
+					with confidence.</p>
+				<ul class="package-list">
+					<li>Logo (primary + 1 variation)</li>
+					<li>Color palette + typography system</li>
+					<li>Basic brand guide + 3 social templates</li>
+				</ul>
+				<p class="package-meta">Timeline</p>
+				<p class="package-price">3 to 4 weeks · ₦150,000</p>
+			</article>
+			<article class="package-card">
+				<p class="package-name">Full Brand Identity</p>
+				<p class="package-desc">A complete, cohesive system for brands that need more than a logo.</p>
+				<ul class="package-list">
+					<li>Discovery session + logo suite</li>
+					<li>Full color, type, and imagery system</li>
+					<li>Brand guidelines + stationery + 5 social templates</li>
+				</ul>
+				<p class="package-meta">Timeline</p>
+				<p class="package-price">5 to 6 weeks · ₦280,000</p>
+			</article>
+			<article class="package-card">
+				<p class="package-name">Brand + Launch System</p>
+				<p class="package-desc">Built for launches, campaigns, NGOs, and funded startups that need a stronger
+					rollout.</p>
+				<ul class="package-list">
+					<li>Everything in the full package</li>
+					<li>Motion logo / animation</li>
+					<li>Launch campaign assets and promotional materials</li>
+				</ul>
+				<p class="package-meta">Timeline</p>
+				<p class="package-price">8 to 12 weeks · ₦500,000</p>
+			</article>
+		</div>
+	</section>
 
-		<div class="rule"></div>
+	<div class="rule"></div>
 
-		<!-- ABOUT -->
-		<section class="about" id="about">
-			<div class="about-left">
-				<p class="section-label">About</p>
-				<h2>Design is a thinking tool, not just a making tool.</h2>
-				<p>
-					I'm Victor, a brand identity designer with years of
-					experience helping businesses find their visual voice. Based in Lagos,
-					I work with startups, creatives, and growing companies across Nigeria
-					and internationally.
-				</p>
-				<p>
-					Currently Lead Graphic Designer at Daughter of Ellen Initiative, an NGO advocating inclusion for neurodivergent and disabled individuals across Africa.
-					Available for select freelance projects.
-				</p>
+	<!-- ABOUT -->
+	<section class="about" id="about">
+		<div class="about-left">
+			<p class="section-label">About</p>
+			<h2>Design is a thinking tool, not just a making tool.</h2>
+			<p>
+				I'm Victor, a brand identity designer with years of
+				experience helping businesses find their visual voice. Based in Lagos,
+				I work with startups, creatives, and growing companies across Nigeria
+				and internationally.
+			</p>
+			<p>
+				Currently Lead Graphic Designer at Daughter of Ellen Initiative, an NGO advocating inclusion for
+				neurodivergent and disabled individuals across Africa.
+				Available for select freelance projects.
+			</p>
 
-				<div class="about-tools">
-					<p>Tools</p>
-					<div class="tool-list">
-						<span class="tool-tag">Illustrator</span>
-						<span class="tool-tag">Photoshop</span>
-						<span class="tool-tag">After Effects</span>
-						<span class="tool-tag">Canva</span>
-					</div>
+			<div class="about-tools">
+				<p>Tools</p>
+				<div class="tool-list">
+					<span class="tool-tag">Illustrator</span>
+					<span class="tool-tag">Photoshop</span>
+					<span class="tool-tag">After Effects</span>
+					<span class="tool-tag">Canva</span>
 				</div>
 			</div>
+		</div>
 
-			<div class="about-stats">
-				<div class="stat">
-					<p class="stat-number">4+</p>
-					<p class="stat-label">Years experience</p>
-				</div>
-				<div class="stat">
-					<p class="stat-number">5</p>
-					<p class="stat-label">Featured projects</p>
-				</div>
-				<div class="stat">
-					<p class="stat-number">∞</p>
-					<p class="stat-label">Iterations until right</p>
-				</div>
+		<div class="about-stats">
+			<div class="stat">
+				<p class="stat-number">4+</p>
+				<p class="stat-label">Years experience</p>
 			</div>
-		</section>
-
-		<!-- CONTACT -->
-		<section class="contact" id="contact">
-			<p class="section-label">Get in touch</p>
-			<h2>Let's build something <em>worth remembering.</em></h2>
-
-			<div class="contact-links">
-				<a href="mailto:hello@victorosondu.com" class="contact-link-row">
-					<div>
-						<p class="contact-link-label">Email</p>
-						<p class="contact-link-value">hello@victorosondu.com</p>
-					</div>
-					<span class="contact-link-arrow">↗</span>
-				</a>
-				<!-- Behance link removed -->
-				<a
-					href="https://www.upwork.com/freelancers/~012784caf6938ecf6f"
-					target="_blank"
-					class="contact-link-row">
-					<div>
-						<p class="contact-link-label">Upwork</p>
-						<p class="contact-link-value">Available for hire</p>
-					</div>
-					<span class="contact-link-arrow">↗</span>
-				</a>
+			<div class="stat">
+				<p class="stat-number">5</p>
+				<p class="stat-label">Featured projects</p>
 			</div>
-		</section>
-
-		<footer>
-			<p>© 2026 Victor Osondu</p>
-			<div class="social-icons">
-				<a href="https://www.instagram.com/vosondu_/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
-					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-						<rect x="3.5" y="3.5" width="17" height="17" rx="4.5" ry="4.5" fill="none" stroke="currentColor" stroke-width="1.7"/>
-						<circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.7"/>
-						<circle cx="17.4" cy="6.6" r="1.15" fill="currentColor"/>
-					</svg>
-				</a>
-				<a href="https://web.facebook.com/osondu.victor.100" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
-					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-						<path d="M13.8 20.4V13h2.6l.4-3h-3v-1.9c0-.8.2-1.4 1.4-1.4H17V3.5c-.2 0-1.1-.2-2.2-.2-2.2 0-3.7 1.3-3.7 3.8V10H8.6v3h2.5v7.4h2.7Z" fill="currentColor"/>
-					</svg>
-				</a>
-				<a href="https://www.linkedin.com/in/vosondu/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
-					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.002 5.002A2.5 2.5 0 014.98 3.5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-.9 1.8-1.8 3.7-1.8 4 0 4.7 2.6 4.7 6v7h-4v-6.2c0-1.5 0-3.4-2.1-3.4-2.1 0-2.4 1.6-2.4 3.3V21H9z"/></svg>
-				</a>
-				<a href="https://x.com/v_osondu" target="_blank" rel="noopener" class="social-link" aria-label="X">
-					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-						<path d="M17.2 3H20l-6.3 7.2 7.4 10.8h-5.3l-4.1-5.3-4.7 5.3H3.1l7.2-8.2L2.7 3h5.5l3.8 5 4.2-5Zm-1.4 15.3h1.2L6.8 4.7H5.6l10.2 13.6Z" fill="currentColor"/>
-					</svg>
-				</a>
+			<div class="stat">
+				<p class="stat-number">∞</p>
+				<p class="stat-label">Iterations until right</p>
 			</div>
-		</footer>
-		<script>
-			(function(){
-				const cards = document.querySelectorAll('.project-card');
-				if(!cards.length) return;
-				const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
-				const rootMargin = isMobile ? '0px 0px -50% 0px' : '0px 0px -60% 0px';
-				const io = new IntersectionObserver((entries)=>{
-					entries.forEach(entry=>{
-						const el = entry.target;
-						const r = entry.intersectionRatio;
-						if(entry.isIntersecting) {
-							el.classList.add('in-view');
-							el.classList.remove('out-view');
-						} else if(r <= 0.10) {
-							el.classList.remove('in-view');
-							el.classList.add('out-view');
-						}
-					});
-				}, { root: null, rootMargin: rootMargin, threshold: [0, 0.10] });
+		</div>
+	</section>
 
-				cards.forEach(c=>io.observe(c));
-			})();
-		</script>
-		<script>
-			const testimonialTrack = document.querySelector('.testimonials-grid');
-			const testimonialNavButtons = document.querySelectorAll('.testimonial-nav');
+	<!-- CONTACT -->
+	<section class="contact" id="contact">
+		<p class="section-label">Get in touch</p>
+		<h2>Let's build something <em>worth remembering.</em></h2>
 
-			if (testimonialTrack && testimonialNavButtons.length) {
-				const getCardWidth = () => {
-					const card = testimonialTrack.querySelector('.testimonial-card');
-					if (!card) return 0;
-					const style = getComputedStyle(testimonialTrack);
-					const gap = parseFloat(style.gap || style.columnGap || '16');
-					return card.getBoundingClientRect().width + gap;
-				};
+		<div class="contact-links">
+			<a href="mailto:hello@victorosondu.com" class="contact-link-row">
+				<div>
+					<p class="contact-link-label">Email</p>
+					<p class="contact-link-value">hello@victorosondu.com</p>
+				</div>
+				<span class="contact-link-arrow">↗</span>
+			</a>
+			<!-- Behance link removed -->
+			<a href="https://www.upwork.com/freelancers/~012784caf6938ecf6f" target="_blank" class="contact-link-row">
+				<div>
+					<p class="contact-link-label">Upwork</p>
+					<p class="contact-link-value">Available for hire</p>
+				</div>
+				<span class="contact-link-arrow">↗</span>
+			</a>
+		</div>
+	</section>
 
-				testimonialNavButtons.forEach((button) => {
-					button.addEventListener('click', () => {
-						const direction = button.dataset.direction === 'next' ? 1 : -1;
-						testimonialTrack.scrollBy({ left: direction * getCardWidth(), behavior: 'smooth' });
-					});
+	<footer>
+		<p>© 2026 Victor Osondu</p>
+		<div class="social-icons">
+			<a href="https://www.instagram.com/vosondu_/" target="_blank" rel="noopener" class="social-link"
+				aria-label="Instagram">
+				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<rect x="3.5" y="3.5" width="17" height="17" rx="4.5" ry="4.5" fill="none" stroke="currentColor"
+						stroke-width="1.7" />
+					<circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.7" />
+					<circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" />
+				</svg>
+			</a>
+			<a href="https://web.facebook.com/osondu.victor.100" target="_blank" rel="noopener" class="social-link"
+				aria-label="Facebook">
+				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<path
+						d="M13.8 20.4V13h2.6l.4-3h-3v-1.9c0-.8.2-1.4 1.4-1.4H17V3.5c-.2 0-1.1-.2-2.2-.2-2.2 0-3.7 1.3-3.7 3.8V10H8.6v3h2.5v7.4h2.7Z"
+						fill="currentColor" />
+				</svg>
+			</a>
+			<a href="https://www.linkedin.com/in/vosondu/" target="_blank" rel="noopener" class="social-link"
+				aria-label="LinkedIn">
+				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<path
+						d="M4.98 3.5a2.5 2.5 0 11-.002 5.002A2.5 2.5 0 014.98 3.5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-.9 1.8-1.8 3.7-1.8 4 0 4.7 2.6 4.7 6v7h-4v-6.2c0-1.5 0-3.4-2.1-3.4-2.1 0-2.4 1.6-2.4 3.3V21H9z" />
+				</svg>
+			</a>
+			<a href="https://x.com/v_osondu" target="_blank" rel="noopener" class="social-link" aria-label="X">
+				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<path
+						d="M17.2 3H20l-6.3 7.2 7.4 10.8h-5.3l-4.1-5.3-4.7 5.3H3.1l7.2-8.2L2.7 3h5.5l3.8 5 4.2-5Zm-1.4 15.3h1.2L6.8 4.7H5.6l10.2 13.6Z"
+						fill="currentColor" />
+				</svg>
+			</a>
+		</div>
+	</footer>
+	<script>
+		(function () {
+			const cards = document.querySelectorAll('.project-card');
+			if (!cards.length) return;
+			const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+			const rootMargin = isMobile ? '0px 0px -50% 0px' : '0px 0px -60% 0px';
+			const io = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					const el = entry.target;
+					const r = entry.intersectionRatio;
+					if (entry.isIntersecting) {
+						el.classList.add('in-view');
+						el.classList.remove('out-view');
+					} else if (r <= 0.10) {
+						el.classList.remove('in-view');
+						el.classList.add('out-view');
+					}
 				});
-			}
-		</script>
-	</body>
+			}, { root: null, rootMargin: rootMargin, threshold: [0, 0.10] });
+
+			cards.forEach(c => io.observe(c));
+		})();
+	</script>
+	<script>
+		const testimonialTrack = document.querySelector('.testimonials-grid');
+		const testimonialNavButtons = document.querySelectorAll('.testimonial-nav');
+
+		if (testimonialTrack && testimonialNavButtons.length) {
+			const getCardWidth = () => {
+				const card = testimonialTrack.querySelector('.testimonial-card');
+				if (!card) return 0;
+				const style = getComputedStyle(testimonialTrack);
+				const gap = parseFloat(style.gap || style.columnGap || '16');
+				return card.getBoundingClientRect().width + gap;
+			};
+
+			testimonialNavButtons.forEach((button) => {
+				button.addEventListener('click', () => {
+					const direction = button.dataset.direction === 'next' ? 1 : -1;
+					testimonialTrack.scrollBy({ left: direction * getCardWidth(), behavior: 'smooth' });
+				});
+			});
+		}
+	</script>
+</body>
+
 </html>
