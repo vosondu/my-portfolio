@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centratutor | Victor Osondu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #131313;
+    --grey-dark: #c8c8c2;
+    --grey-mid: #7a7a76;
+    --grey-light: #3a3a38;
+    --grey-faint: #1a1a18;
+    --white: #fafaf8;
+    --serif: 'DM Sans', system-ui, sans-serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --fw: 300;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--black);
+    color: var(--white);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    font-weight: var(--fw);
+  }
+
+  h1, h2, h3, .project-name, .stat-number { font-weight: 300; }
+  h1, h2, h3, .project-name, .stat-number { font-weight: var(--fw); }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 4rem;
+    background: rgba(17,17,16,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--grey-faint);
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-back {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .nav-back:hover { color: var(--white); }
+
+  /* FADE IN ANIMATION */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    opacity: 0;
+    animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 10rem 4rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    border-bottom: 1px solid var(--grey-faint);
+  }
+
+  .hero-left { animation-delay: 0.05s; }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    margin-bottom: 1.25rem;
+    animation-delay: 0.05s;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--grey-mid);
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation-delay: 0.15s;
+  }
+
+  .meta-item {}
+
+  .meta-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    margin-bottom: 0.2rem;
+  }
+
+  .meta-value {
+    font-size: 0.95rem;
+    color: var(--grey-dark);
+    font-weight: 300;
+  }
+
+  /* HERO IMAGE */
+  .hero-img-wrap {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: transparent;
+    animation-delay: 0.1s;
+  }
+
+  .hero-img-wrap img,
+  .hero-img-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%);
+    transition: filter 0.5s;
+  }
+
+  .hero-img-wrap:hover img,
+  .hero-img-wrap:hover video { filter: grayscale(0%); }
+
+  /* CONTENT SECTIONS */
+  .case-section {
+    padding: 5rem 4rem;
+    border-bottom: 1px solid var(--grey-faint);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .case-section.full-width {
+    display: block;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    padding-top: 0.2rem;
+    position: sticky;
+    top: 6rem;
+  }
+
+  .section-body {}
+
+  .section-body h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 1.25rem;
+  }
+
+  .section-body p {
+    font-size: 1rem;
+    color: var(--grey-dark);
+    font-weight: 300;
+    line-height: 1.85;
+    margin-bottom: 1rem;
+    max-width: 560px;
+  }
+
+  /* MOCKUP SLOT */
+  .mockup-slot {
+    width: 100%;
+    max-width: 100%;
+    background: transparent;
+    overflow: hidden;
+    margin-top: 2.5rem;
+    position: relative;
+  }
+
+  .mockup-slot img,
+  .mockup-slot video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%);
+    transition: filter 0.5s;
+  }
+
+  .mockup-slot:hover img,
+  .mockup-slot:hover video { filter: grayscale(0%); }
+
+  .mockup-slot-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .mockup-slot-placeholder span {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--grey-light);
+  }
+
+  /* VIDEO SLOT (motion reel) */
+  .video-slot {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--grey-faint);
+    overflow: hidden;
+    margin-top: 2.5rem;
+    position: relative;
+  }
+
+  .video-slot video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* COLOUR SWATCHES (existing brand palette reference) */
+  .colour-row {
+    display: flex;
+    gap: 1px;
+    margin-top: 2rem;
+    height: 80px;
+    overflow: hidden;
+  }
+
+  .colour-swatch {
+    flex: 1;
+    position: relative;
+    transition: flex 0.4s cubic-bezier(0.22,1,0.36,1);
+    cursor: default;
+  }
+
+  .colour-swatch:hover { flex: 2.5; }
+
+  .swatch-label {
+    position: absolute;
+    bottom: 8px;
+    left: 10px;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.25s;
+    white-space: nowrap;
+  }
+
+  .colour-swatch:hover .swatch-label { opacity: 1; }
+
+  /* FULL-WIDTH IMAGE */
+  .full-img {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .full-img img,
+  .full-img video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%);
+    transition: filter 0.5s;
+  }
+
+  .full-img:hover img,
+  .full-img:hover video { filter: grayscale(0%); }
+
+  /* NAV FOOTER */
+  .project-nav {
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .project-nav a {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .project-nav a:hover { color: var(--white); }
+
+  .project-nav-center {
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    color: var(--grey-light);
+    letter-spacing: 0.04em;
+  }
+
+  /* IMG GRID (selected work) */
+  .img-grid { display: grid; gap: 1px; margin-top: 2.5rem; }
+  .img-grid.two-col { grid-template-columns: 1fr 1fr; }
+  .img-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+  .img-grid.equal-size .img-cell { aspect-ratio: var(--img-ratio, 4/3); }
+  .img-cell { overflow: hidden; background: transparent; width: 100%; }
+  .img-cell img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%); transition: filter 0.5s; }
+  .img-cell:hover img { filter: grayscale(0%); }
+
+  /* LOGO DISPLAY (existing logo reference, not designed by Victor) */
+  .logo-section { padding: 5rem 4rem; border-bottom: 1px solid var(--grey-faint); display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
+  .logo-showcase { display: grid; gap: 0; background: transparent; margin-top: 0; width: 100%; max-width: 100%; }
+  .logo-showcase.two-col { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .logo-cell-wrap { display: flex; flex-direction: column; align-items: center; width: 100%; }
+  .logo-cell { background: transparent; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 3rem 2rem; min-height: 200px; width: 100%; }
+  .logo-cell.dark { background: #0a0a09; }
+  .logo-cell.light { background: #f0f0ec; }
+  .logo-cell img { max-width: 33.333%; max-height: 60px; width: auto; height: auto; display: block; object-fit: contain; filter: grayscale(100%); transition: filter 0.5s; }
+  .logo-cell:hover img { filter: grayscale(0%); }
+  .logo-cell-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-mid); margin-top: 0.75rem; text-align: center; display: block; }
+  @media (max-width: 768px) { .logo-section { padding: 3rem 1.5rem; grid-template-columns: 1fr; gap: 1.5rem; } .logo-showcase.two-col { grid-template-columns: 1fr; } }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 1.25rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 3rem; grid-template-columns: 1fr; gap: 2.5rem; }
+    .case-section { padding: 3rem 1.5rem; grid-template-columns: 1fr; gap: 1.5rem; }
+    .section-label { position: static; }
+    .project-nav { padding: 2rem 1.5rem; }
+    .colour-row { height: 60px; }
+  }
+
+  @media (max-width: 768px) {
+    .img-grid.two-col,
+    .img-grid.three-col {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .img-cell {
+      aspect-ratio: 4/3;
+      min-height: auto;
+    }
+
+    .img-cell img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .mockup-slot,
+    .full-img,
+    .hero-img-wrap,
+    .video-slot {
+      aspect-ratio: auto;
+      height: auto;
+    }
+
+    .mockup-slot img, .mockup-slot video,
+    .full-img img, .full-img video,
+    .hero-img-wrap img, .hero-img-wrap video {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    nav a,
+    .project-nav a {
+      padding: 0.5rem 0.5rem;
+      display: inline-block;
+    }
+
+    html, body { max-width: 100vw; overflow-x: hidden; }
+  }
+    p a, li a, h1 a, h2 a, h3 a, blockquote a, .section-body a, .content a {
+      color: var(--white) !important;
+      text-decoration: none !important;
+      border-bottom: 1px solid var(--grey-light) !important;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    p a:hover, li a:hover, h1 a:hover, h2 a:hover, h3 a:hover, blockquote a:hover, .section-body a:hover, .content a:hover,
+    p a:focus, li a:focus, h1 a:focus, h2 a:focus, h3 a:focus, blockquote a:focus, .section-body a:focus, .content a:focus {
+      color: var(--grey-dark) !important;
+      border-color: var(--grey-mid) !important;
+      outline: none;
+    }
+  </style>
+  </head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="./index.html" class="nav-logo">Victor Osondu</a>
+  <a href="./index.html#work" class="nav-back">← All work</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow fade-up" style="animation-delay:0.05s">Brand Execution · Motion · 2024–2026</p>
+    <h1 class="fade-up" style="animation-delay:0.1s">Centratutor</h1>
+    <div class="hero-meta fade-up" style="animation-delay:0.18s">
+      <div class="meta-item">
+        <p class="meta-label">Client</p>
+        <p class="meta-value">Centratutor</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Sector</p>
+        <p class="meta-value">Edtech · Learning Platform</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Deliverables</p>
+        <p class="meta-value">App Store Visuals · Motion Assets · Social Templates</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Year</p>
+        <p class="meta-value">2024 – 2026</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero image slot: replace with strongest still or motion frame -->
+  <div class="hero-img-wrap fade-up" style="animation-delay:0.12s">
+    <img src="./images/Centratutor/case-study-cover.webp" alt="Centratutor App Feature Visual">
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="case-section">
+  <p class="section-label">Overview</p>
+  <div class="section-body">
+    <h2>A distinct product within a larger family.</h2>
+    <p>Centratutor is one of Mahadumia's core products, a learning platform distinct in audience and positioning from Mahadumia's JUPEB and JAMB-focused apps. Its own identity called for a different visual tone, one suited to its specific product experience and users.</p>
+    <p>The challenge was working within Centratutor's existing brand identity to produce app store visuals, motion, and social content that felt consistent with its established system, while keeping the product's presence fresh and engaging across platforms.</p>
+
+    <!-- Mockup slot 1: placeholder -->
+    <div class="mockup-slot">
+      <img src="./images/Centratutor/ad-1.jpg" alt="Centratutor App Store Listing Mockup">
+    </div>
+  </div>
+</section>
+
+<!-- EXISTING LOGO REFERENCE -->
+<section class="logo-section">
+  <p class="section-label">The mark</p>
+  <div class="section-body">
+    <h2>Working with an existing identity.</h2>
+    <div class="logo-showcase two-col">
+      <div class="logo-cell-wrap">
+        <div class="logo-cell light">
+          <img src="./images/Centratutor/logo-on-light.webp" alt="Centratutor Logo on Light">
+        </div>
+        <span class="logo-cell-label">On light</span>
+      </div>
+      <div class="logo-cell-wrap">
+        <div class="logo-cell dark">
+              <img src="./images/Centratutor/logo-on-dark.webp" alt="Centratutor Logo on Dark">
+        </div>
+        <span class="logo-cell-label">On dark</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND SYSTEM (honest framing: existing identity, not designed by Victor) -->
+<section class="case-section">
+  <p class="section-label">Brand system</p>
+  <div class="section-body">
+    <h2>Designing inside an established identity.</h2>
+    <p>Centratutor's logo and core brand identity were already established prior to this engagement. The role here was to execute within that existing system, producing app store visuals, social content, and motion, while keeping everything consistent with the brand's existing colours, type, and tone. This is a distinct skill from building an identity from scratch: working within constraints, maintaining consistency, and extending a brand rather than inventing one.</p>
+
+    <!-- Colour swatches: replace with Centratutor's actual existing palette -->
+    <div class="colour-row">
+      <div class="colour-swatch" style="background:#002855;">
+        <span class="swatch-label" style="color:#fafaf8;">Colour 1</span>
+      </div>
+      <div class="colour-swatch" style="background:#ff6f61;">
+        <span class="swatch-label" style="color:#111110;">Colour 2</span>
+      </div>
+      <div class="colour-swatch" style="background:#7a7a7a;">
+        <span class="swatch-label" style="color:#fafaf8;">Colour 3</span>
+      </div>
+      <div class="colour-swatch" style="background:#ffffff;">
+        <span class="swatch-label" style="color:#111110;">Colour 4</span>
+      </div>
+    </div>
+
+    <!-- Mockup slot 2 -->
+    <div class="mockup-slot">
+      <img src="./images/Centratutor/ad-2.jpg" alt="Centratutor Existing Brand System Applied">
+    </div>
+  </div>
+</section>
+
+<!-- MOTION -->
+<section class="case-section">
+  <p class="section-label">Motion</p>
+  <div class="section-body">
+    <h2>Giving the product room to move.</h2>
+    <p>Short motion pieces extended Centratutor's existing visual language into app store previews and social content, built to capture attention without straying from the established brand.</p>
+
+    <!-- Video slot: placeholder for motion reel -->
+    <div class="video-slot">
+      <video controls poster="./images/Centratutor/case-study-cover.webp">
+        <source src="./images/Centratutor/vids/demo-video.mp4" type="video/mp4">
+        Your browser does not support embedded video.
+      </video>
+    </div>
+    <div class="video-slot">
+      <video controls poster="./images/Centratutor/case-study-cover.webp">
+        <source src="./images/Centratutor/vids/webinar-ad.mp4" type="video/mp4">
+        Your browser does not support embedded video.
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- SELECTED WORK -->
+<section class="case-section full-width">
+  <p class="section-label" style="margin-bottom: 2rem;">Selected work</p>
+  <div class="img-grid three-col equal-size">
+    <div class="img-cell"><img src="./images/Centratutor/selected-work-1.jpg" alt="Centratutor Selected Work 1"></div>
+    <div class="img-cell"><img src="./images/Centratutor/selected-work-2.jpg" alt="Centratutor Selected Work 2"></div>
+    <div class="img-cell"><img src="./images/Centratutor/selected-work-3.jpg" alt="Centratutor Selected Work 3"></div>
+  </div>
+</section>
+
+<!-- MOCKUPS FULL WIDTH -->
+<section class="case-section full-width" style="padding-bottom: 0;">
+  <p class="section-label" style="margin-bottom: 2rem;">Mockups</p>
+
+  <!-- Full-width mockup slot: placeholder -->
+  <div class="img-grid three-col equal-size" style="margin-top: 0;">
+    <div class="img-cell"><img src="./images/Centratutor/mockup-1.jpg" alt="Centratutor App Store Full Mockup"></div>
+    <div class="img-cell"><img src="./images/Centratutor/mockup-2.jpg" alt="Centratutor App Store Full Mockup"></div>
+    <div class="img-cell"><img src="./images/Centratutor/mockup-3.jpg" alt="Centratutor App Store Full Mockup"></div>
+  </div>
+</section>
+
+<!-- PROJECT NAV -->
+<div class="project-nav">
+  <a href="./emc-properties.html">← EMC Properties</a>
+  <span class="project-nav-center">04 / 08</span>
+  <a href="./mahadumia.html">Mahadumia →</a>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.img-grid.equal-size').forEach((grid) => {
+      const cells = Array.from(grid.querySelectorAll('.img-cell'));
+      const middleImg = cells[1]?.querySelector('img');
+      if (!middleImg) return;
+
+      const applyRatio = () => {
+        const ratio = middleImg.naturalWidth && middleImg.naturalHeight
+          ? middleImg.naturalWidth / middleImg.naturalHeight
+          : 4 / 3;
+        grid.style.setProperty('--img-ratio', ratio.toString());
+        cells.forEach((cell) => {
+          cell.style.aspectRatio = `${ratio}`;
+        });
+      };
+
+      if (middleImg.complete) {
+        applyRatio();
+      } else {
+        middleImg.addEventListener('load', applyRatio, { once: true });
+      }
+    });
+  });
+</script>
+</body>
+</html>
