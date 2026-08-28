@@ -1,0 +1,21 @@
+name: Morning Exercise Reminder
+
+on:
+  schedule:
+    # 6:00 UTC = 7:00 AM WAT (Lagos, UTC+1, no daylight saving)
+    - cron: '0 6 * * *'
+  workflow_dispatch: # lets you trigger it manually from the Actions tab to test
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send reminder via ntfy.sh
+        run: |
+          curl \
+            -H "Title: Time to move" \
+            -H "Priority: default" \
+            -H "Tags: muscle" \
+            -H "Click: https://vosondu.github.io/movement-tracker/" \
+            -d "Log today's routine, full or floor. No zero days." \
+            https://ntfy.sh/victor-movement-63bb096e
