@@ -461,7 +461,7 @@
       <h1>Create Premium Visual Design And Master Video Editing, <em>Live.</em></h1>
       <p class="hero-sub">Tried learning this before and stalled out? This free two-day workshop gives you a real
         starting point, not another tutorial to abandon.</p>
-      <a href="#optin" class="btn">Save My Spot</a>
+      <a href="https://chat.whatsapp.com/G0ZYFCO4gDo4AgsH8yNJnz" class="btn" target="_blank" rel="noopener">Save My Spot</a>
       <div class="checklist">
         <span>Live &amp; interactive</span>
         <span>PC or mobile</span>
@@ -595,28 +595,9 @@
       <p class="sub">You've wanted this skill long enough. The question was never whether you're capable of learning it,
         it was whether you'd find the right starting point. This is it.</p>
 
-      <form class="form-card" id="optinForm">
-        <p class="form-error" id="formError">Something went wrong sending that, please try again.</p>
-        <div class="field">
-          <label for="name">Full name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" required>
-        </div>
-        <div class="field">
-          <label for="whatsapp">WhatsApp number</label>
-          <input type="tel" id="whatsapp" name="whatsapp" placeholder="e.g. 08012345678" required>
-        </div>
-        <button type="submit" class="btn" id="submitBtn">Save My Spot Now</button>
-        <p class="form-note">You'll be redirected straight to the workshop WhatsApp group.</p>
-      </form>
+      <a href="https://chat.whatsapp.com/G0ZYFCO4gDo4AgsH8yNJnz" class="btn" target="_blank" rel="noopener">Save My Spot Now</a>
 
-      <div class="thankyou" id="thankyou" hidden>
-        <h3>You're in.</h3>
-        <p>Tap below to join the workshop WhatsApp group, that's where all session details and reminders go out.</p>
-        <a href="https://chat.whatsapp.com/G0ZYFCO4gDo4AgsH8yNJnz" class="btn" target="_blank" rel="noopener">Join The
-          WhatsApp Group</a>
-      </div>
-
-      <div class="final-checklist" id="finalChecklist">
+      <div class="final-checklist">
         <div>Free to attend</div>
         <div>No obligation to join the full program</div>
         <div>Limited spots available</div>
@@ -626,41 +607,6 @@
 
   <footer>© 2026 Victor Osondu</footer>
 
-  <script>
-    const WHATSAPP_GROUP_LINK = "https://chat.whatsapp.com/G0ZYFCO4gDo4AgsH8yNJnz";
-
-    // TODO (Victor): paste your Apps Script web app URL here, see
-    // apps-script-setup.md for how to get it.
-    const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbwTTcrsTSn4hW23e1D3l8y1KbUY7RdvZG_w7GmE-zkCAAh8C33S6X40EFTmUPaAm2k/exec";
-
-    document.getElementById('optinForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const whatsapp = document.getElementById('whatsapp').value.trim();
-      const errorEl = document.getElementById('formError');
-      const btn = document.getElementById('submitBtn');
-      errorEl.style.display = 'none';
-      btn.textContent = 'Saving…';
-      btn.disabled = true;
-
-      fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        body: JSON.stringify({ name, whatsapp })
-      })
-        .then(() => showThankYou())
-        .catch(() => {
-          errorEl.style.display = 'block';
-          btn.textContent = 'Save My Spot Now';
-          btn.disabled = false;
-        });
-
-      function showThankYou() {
-        document.getElementById('optinForm').hidden = true;
-        document.getElementById('finalChecklist').hidden = true;
-        document.getElementById('thankyou').hidden = false;
-      }
-    });
-  </script>
 
 </body>
 
