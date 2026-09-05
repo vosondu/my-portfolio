@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get The Webinar Recording</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #131313;
+    --grey-dark: #c8c8c2;
+    --grey-mid: #7a7a76;
+    --grey-light: #3a3a38;
+    --white: #fafaf8;
+    --sans: "DM Sans", system-ui, sans-serif;
+  }
+
+  body {
+    font-family: var(--sans);
+    background: var(--black);
+    color: var(--white);
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .wrap {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    margin-bottom: 1.25rem;
+    text-align: center;
+  }
+
+  h1 {
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: clamp(1.7rem, 6vw, 2.2rem);
+    letter-spacing: -0.015em;
+    text-align: center;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  p.sub {
+    color: var(--grey-dark);
+    font-size: 0.98rem;
+    text-align: center;
+    line-height: 1.7;
+    margin-bottom: 2.25rem;
+  }
+
+  .form-card { border: 1px solid var(--grey-light); padding: 1.75rem; }
+
+  .field { margin-bottom: 1rem; }
+  .field label {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    margin-bottom: 0.5rem;
+  }
+  .field input {
+    width: 100%;
+    background: var(--black);
+    border: 1px solid var(--grey-light);
+    padding: 0.85rem 0.9rem;
+    color: var(--white);
+    font-size: 0.95rem;
+    font-family: inherit;
+  }
+  .field input:focus { outline: none; border-color: var(--grey-dark); }
+  .field input::placeholder { color: var(--grey-light); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    padding: 1rem 1.75rem;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .btn:hover { opacity: 0.85; }
+  .btn:disabled { opacity: 0.5; cursor: default; }
+
+  .form-note { font-size: 0.75rem; color: var(--grey-mid); text-align: center; margin-top: 1rem; }
+  .form-error {
+    font-size: 0.82rem;
+    color: var(--grey-dark);
+    background: #1a1a18;
+    border: 1px solid var(--grey-light);
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    display: none;
+  }
+
+  .thankyou { text-align: center; }
+  .thankyou h2 { font-weight: 300; font-size: 1.4rem; margin-bottom: 0.75rem; }
+  .thankyou p { color: var(--grey-dark); font-size: 0.95rem; line-height: 1.7; }
+
+  footer { text-align: center; padding: 2rem 1.5rem 1.5rem; font-size: 0.75rem; color: var(--grey-mid); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <p class="eyebrow">Free Creative Workshop</p>
+  <h1>Get Your Webinar Recording</h1>
+  <p class="sub">Missed a session, or want to watch it again? Leave your details below and we'll email you the recording.</p>
+
+  <form class="form-card" id="recordingForm">
+    <p class="form-error" id="formError">Something went wrong sending that, please try again.</p>
+    <div class="field">
+      <label for="name">Full name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required>
+    </div>
+    <div class="field">
+      <label for="email">Email address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+    </div>
+    <button type="submit" class="btn" id="submitBtn">Send Me The Recording</button>
+    <p class="form-note">The recording link will be emailed to you shortly.</p>
+  </form>
+
+  <div class="thankyou" id="thankyou" hidden>
+    <h2>Check your inbox.</h2>
+    <p>We've sent the recording link to your email. If you don't see it in a few minutes, check your spam folder.</p>
+  </div>
+</div>
+
+<footer>© 2026 Victor Osondu</footer>
+
+<script>
+  // TODO (Victor): paste your Apps Script web app URL here, see
+  // webinar-recording-setup.md for how to get it.
+  const FORM_ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
+
+  document.getElementById('recordingForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const errorEl = document.getElementById('formError');
+    const btn = document.getElementById('submitBtn');
+    errorEl.style.display = 'none';
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    // mode: 'no-cors' because Apps Script never sends back the header
+    // browsers need to read a cross-origin response. The request still
+    // reaches the script, still logs the row, and still sends the email,
+    // we just can't read a confirmation back, so success is assumed
+    // once it's sent.
+    fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify({ name, email })
+    })
+      .then(() => {
+        document.getElementById('recordingForm').hidden = true;
+        document.getElementById('thankyou').hidden = false;
+      })
+      .catch(() => {
+        errorEl.style.display = 'block';
+        btn.textContent = 'Send Me The Recording';
+        btn.disabled = false;
+      });
+  });
+</script>
+
+</body>
+</html>
