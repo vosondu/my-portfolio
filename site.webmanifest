@@ -3,12 +3,12 @@
   "short_name": "Victor Osondu",
   "icons": [
     {
-      "src": "./images/Favicons/0.37x/Favicon - Dark@0.37x.png",
+      "src": "./images/Favicons/192x192/favicon-dark.png",
       "sizes": "190x190",
       "type": "image/png"
     },
     {
-      "src": "./images/Favicons/1x/Favicon - Dark.png",
+      "src": "./images/Favicons/512x512/favicon-dark.png",
       "sizes": "512x512",
       "type": "image/png"
     }
