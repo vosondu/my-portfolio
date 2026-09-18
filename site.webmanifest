@@ -1,0 +1,20 @@
+{
+  "name": "Victor Osondu — Brand Identity Designer",
+  "short_name": "Victor Osondu",
+  "icons": [
+    {
+      "src": "./images/Favicons/0.37x/Favicon - Dark@0.37x.png",
+      "sizes": "190x190",
+      "type": "image/png"
+    },
+    {
+      "src": "./images/Favicons/1x/Favicon - Dark.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#131313",
+  "background_color": "#131313",
+  "display": "standalone",
+  "start_url": "/"
+}

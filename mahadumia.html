@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mahadumia | Victor Osondu</title>
+<link rel="icon" type="image/png" sizes="32x32" href="./images/Favicons/0.062x/Favicon%20-%20Dark@0.06x.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="32x32" href="./images/Favicons/0.062x/Favicon%20-%20Light@0.06x.png" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="48x48" href="./images/Favicons/0.094x/Favicon%20-%20Dark.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./images/Favicons/0.06x/Favicon%20-%20Dark@0.06x.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./images/Favicons/0.35x/Favicon%20-%20Dark@0.35x.png">
+<link rel="manifest" href="./site.webmanifest">
+<meta name="theme-color" content="#131313">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -21,8 +28,6 @@
     --sans: 'DM Sans', system-ui, sans-serif;
     --fw: 300;
   }
-
-  html { scroll-behavior: smooth; }
 
   body {
     font-family: var(--sans);
@@ -507,5 +512,19 @@
   <a href="./komis-kitchen.html">Komi's →</a>
 </div>
 
+<!-- Lenis smooth scroll -->
+<script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
+<script>
+  const lenis = new Lenis({
+    lerp: 0.1,
+    duration: 1.2,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+</script>
 </body>
 </html>
