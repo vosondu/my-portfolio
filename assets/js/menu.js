@@ -44,3 +44,15 @@
 		if (link.dataset.path === path) link.setAttribute('aria-current', 'page');
 	});
 })();
+
+// Local preview (VS Code Live Server, localhost): clean links like /process need
+// Vercel to resolve them, so point them at the .html files instead.
+(function () {
+	const host = window.location.hostname;
+	if (host !== 'localhost' && host !== '127.0.0.1' && !host.endsWith('.local')) return;
+	document.querySelectorAll('a[href^="/"]').forEach((link) => {
+		const href = link.getAttribute('href');
+		const m = href.match(/^\/([a-z0-9-]+)([?#].*)?$/i);
+		if (m) link.setAttribute('href', '/' + m[1] + '.html' + (m[2] || ''));
+	});
+})();

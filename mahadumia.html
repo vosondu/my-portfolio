@@ -1,414 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mahadumia: Motion Design &amp; App Visuals | Victor Osondu</title>
-<meta name="description" content="Motion design, app store visuals and social content for Mahadumia&#x27;s JUPEB and JAMB exam-prep apps, built for a fast-scrolling, mobile-first audience." />
-<link rel="canonical" href="https://www.victorosondu.com/mahadumia" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Victor Osondu" />
-<meta property="og:title" content="Mahadumia: Motion Design &amp; App Visuals | Victor Osondu" />
-<meta property="og:description" content="Motion design, app store visuals and social content for Mahadumia&#x27;s JUPEB and JAMB exam-prep apps, built for a fast-scrolling, mobile-first audience." />
-<meta property="og:url" content="https://www.victorosondu.com/mahadumia" />
-<meta property="og:image" content="https://www.victorosondu.com/images/og/mahadumia.jpg" />
-<meta property="og:image:type" content="image/jpeg" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="627" />
-<meta name="twitter:card" content="summary_large_image" />
-<link rel="icon" type="image/png" sizes="32x32" href="./images/Favicons/32x32/favicon-dark.png">
-<link rel="icon" type="image/png" sizes="32x32" href="./images/Favicons/32x32/favicon-light.png" media="(prefers-color-scheme: dark)">
-<link rel="icon" type="image/png" sizes="48x48" href="./images/Favicons/48x48/favicon-dark.png">
-<link rel="apple-touch-icon" sizes="180x180" href="./images/Favicons/180x180/favicon-dark.png">
-<link rel="manifest" href="./site.webmanifest">
-<meta name="theme-color" content="#131313">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --black: #131313;
-    --grey-dark: #c8c8c2;
-    --grey-mid: #7a7a76;
-    --grey-light: #3a3a38;
-    --grey-faint: #1a1a18;
-    --white: #fafaf8;
-    --serif: 'DM Sans', system-ui, sans-serif;
-    --sans: 'DM Sans', system-ui, sans-serif;
-    --fw: 300;
-  }
-
-  body {
-    font-family: var(--sans);
-    background: var(--black);
-    color: var(--white);
-    font-size: 16px;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-    font-weight: var(--fw);
-  }
-
-  h1, h2, h3, .project-name, .stat-number { font-weight: 300; }
-  h1, h2, h3, .project-name, .stat-number { font-weight: var(--fw); }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 4rem;
-    background: rgba(17,17,16,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--grey-faint);
-  }
-
-  .nav-logo {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    color: var(--white);
-    text-decoration: none;
-    letter-spacing: -0.01em;
-  }
-
-  .nav-back {
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--grey-mid);
-    text-decoration: none;
-    transition: color 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
-  .nav-back:hover { color: var(--white); }
-
-  /* FADE IN ANIMATION */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .fade-up {
-    opacity: 0;
-    animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
-  }
-
-  /* HERO */
-  .hero {
-    padding: 10rem 4rem 5rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: end;
-    border-bottom: 1px solid var(--grey-faint);
-  }
-
-  .hero-left { animation-delay: 0.05s; }
-
-  .hero-eyebrow {
-    font-size: 0.75rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--grey-mid);
-    margin-bottom: 1.25rem;
-    animation-delay: 0.05s;
-  }
-
-  .hero h1 {
-    font-family: var(--serif);
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    line-height: 1.0;
-    letter-spacing: -0.025em;
-    color: var(--white);
-    margin-bottom: 1.5rem;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--grey-mid);
-  }
-
-  .hero-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    animation-delay: 0.15s;
-  }
-
-  .meta-item {}
-
-  .meta-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--grey-mid);
-    margin-bottom: 0.2rem;
-  }
-
-  .meta-value {
-    font-size: 0.95rem;
-    color: var(--grey-dark);
-    font-weight: 300;
-  }
-
-  /* HERO IMAGE */
-  .hero-img-wrap {
-    width: 100%;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-    background: transparent;
-    animation-delay: 0.1s;
-  }
-
-  .hero-img-wrap img,
-  .hero-img-wrap video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: grayscale(100%);
-    transition: filter 0.5s;
-  }
-
-  .hero-img-wrap:hover img,
-  .hero-img-wrap:hover video { filter: grayscale(0%); }
-
-  /* CONTENT SECTIONS */
-  .case-section {
-    padding: 5rem 4rem;
-    border-bottom: 1px solid var(--grey-faint);
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4rem;
-    align-items: start;
-  }
-
-  .case-section.full-width {
-    display: block;
-  }
-
-  .section-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--grey-mid);
-    padding-top: 0.2rem;
-    position: sticky;
-    top: 6rem;
-  }
-
-  .section-body {}
-
-  .section-body h2 {
-    font-family: var(--serif);
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    color: var(--white);
-    margin-bottom: 1.25rem;
-  }
-
-  .section-body p {
-    font-size: 1rem;
-    color: var(--grey-dark);
-    font-weight: 300;
-    line-height: 1.85;
-    margin-bottom: 1rem;
-    max-width: 560px;
-  }
-
-  /* MOCKUP SLOT */
-  .mockup-slot {
-    width: 100%;
-    aspect-ratio: 16/10;
-    background: transparent;
-    overflow: hidden;
-    margin-top: 2.5rem;
-    position: relative;
-  }
-
-  .mockup-slot img,
-  .mockup-slot video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: grayscale(100%);
-    transition: filter 0.5s;
-  }
-
-  .mockup-slot:hover img,
-  .mockup-slot:hover video { filter: grayscale(0%); }
-
-  .mockup-slot-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-  }
-
-  .mockup-slot-placeholder span {
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--grey-light);
-  }
-
-  /* VIDEO SLOT (motion reel) */
-  .video-slot {
-    width: 100%;
-    aspect-ratio: 16/9;
-    background: var(--grey-faint);
-    overflow: hidden;
-    margin-top: 2.5rem;
-    position: relative;
-  }
-
-  .video-slot video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* FULL-WIDTH IMAGE */
-  .full-img {
-    width: 100%;
-    aspect-ratio: 21/9;
-    overflow: hidden;
-    background: transparent;
-  }
-
-  .full-img img,
-  .full-img video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: grayscale(100%);
-    transition: filter 0.5s;
-  }
-
-  .full-img:hover img,
-  .full-img:hover video { filter: grayscale(0%); }
-
-  /* NAV FOOTER */
-  .project-nav {
-    padding: 3rem 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .project-nav a {
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--grey-mid);
-    text-decoration: none;
-    transition: color 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .project-nav a:hover { color: var(--white); }
-
-  .project-nav-center {
-    font-family: var(--serif);
-    font-size: 0.9rem;
-    color: var(--grey-light);
-    letter-spacing: 0.04em;
-  }
-
-  /* IMG GRID (selected work) */
-  .img-grid { display: grid; gap: 1px; margin-top: 2.5rem; }
-  .img-grid.two-col { grid-template-columns: 1fr 1fr; }
-  .img-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
-  .img-cell { aspect-ratio: 4/3; overflow: hidden; background: transparent; }
-  .img-cell img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%); transition: filter 0.5s; }
-  .img-cell:hover img { filter: grayscale(0%); }
-
-  /* MOBILE */
-  @media (max-width: 768px) {
-    nav { padding: 1.25rem 1.5rem; }
-    .hero { padding: 7rem 1.5rem 3rem; grid-template-columns: 1fr; gap: 2.5rem; }
-    .case-section { padding: 3rem 1.5rem; grid-template-columns: 1fr; gap: 1.5rem; }
-    .section-label { position: static; }
-    .project-nav { padding: 2rem 1.5rem; }
-  }
-
-  @media (max-width: 768px) {
-    .img-grid.two-col,
-    .img-grid.three-col {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .img-cell {
-      aspect-ratio: 4/3;
-      min-height: auto;
-    }
-
-    .img-cell img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    .mockup-slot,
-    .full-img,
-    .hero-img-wrap,
-    .video-slot {
-      aspect-ratio: auto;
-      height: auto;
-    }
-
-    .mockup-slot img, .mockup-slot video,
-    .full-img img, .full-img video,
-    .hero-img-wrap img, .hero-img-wrap video {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    nav a,
-    .project-nav a {
-      padding: 0.5rem 0.5rem;
-      display: inline-block;
-    }
-
-    html, body { max-width: 100vw; overflow-x: hidden; }
-  }
-    p a, li a, h1 a, h2 a, h3 a, blockquote a, .section-body a, .content a {
-      color: var(--white) !important;
-      text-decoration: none !important;
-      border-bottom: 1px solid var(--grey-light) !important;
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    p a:hover, li a:hover, h1 a:hover, h2 a:hover, h3 a:hover, blockquote a:hover, .section-body a:hover, .content a:hover,
-    p a:focus, li a:focus, h1 a:focus, h2 a:focus, h3 a:focus, blockquote a:focus, .section-body a:focus, .content a:focus {
-      color: var(--grey-dark) !important;
-      border-color: var(--grey-mid) !important;
-      outline: none;
-    }
-  </style>
-  	<link rel="stylesheet" href="/assets/css/menu.css" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Mahadumia: Motion Design &amp; App Visuals | Victor Osondu</title>
+	<meta name="description" content="Motion design, app store visuals and social content for Mahadumia&#x27;s JUPEB and JAMB exam-prep apps, built for a fast-scrolling, mobile-first audience." />
+	<link rel="canonical" href="https://www.victorosondu.com/mahadumia" />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="Victor Osondu" />
+	<meta property="og:title" content="Mahadumia: Motion Design &amp; App Visuals | Victor Osondu" />
+	<meta property="og:description" content="Motion design, app store visuals and social content for Mahadumia&#x27;s JUPEB and JAMB exam-prep apps, built for a fast-scrolling, mobile-first audience." />
+	<meta property="og:url" content="https://www.victorosondu.com/mahadumia" />
+	<meta property="og:image" content="https://www.victorosondu.com/images/og/mahadumia.jpg" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="627" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/images/Favicons/32x32/favicon-dark.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/images/Favicons/32x32/favicon-light.png" media="(prefers-color-scheme: dark)" />
+	<link rel="icon" type="image/png" sizes="48x48" href="/images/Favicons/48x48/favicon-dark.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/Favicons/180x180/favicon-dark.png" />
+	<link rel="manifest" href="/site.webmanifest" />
+	<meta name="theme-color" content="#131313" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="/assets/css/site.css" />
+	<link rel="stylesheet" href="/assets/css/menu.css" />
 </head>
-<body>
 
-<!-- NAV -->
+<body>
 	<header class="site-header">
 		<a href="/" class="site-logo">Victor Osondu</a>
 		<button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
@@ -434,132 +56,116 @@
 		</div>
 	</div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <p class="hero-eyebrow fade-up" style="animation-delay:0.05s">Motion Design · Digital Assets · 2024–2026</p>
-    <h1 class="fade-up" style="animation-delay:0.1s">Mahadumia </h1>
-    <div class="hero-meta fade-up" style="animation-delay:0.18s">
-      <div class="meta-item">
-        <p class="meta-label">Client</p>
-        <p class="meta-value">Mahadumia (JUPEB, JAMB apps)</p>
-      </div>
-      <div class="meta-item">
-        <p class="meta-label">Sector</p>
-        <p class="meta-value">Edtech · Exam Preparation</p>
-      </div>
-      <div class="meta-item">
-        <p class="meta-label">Deliverables</p>
-        <p class="meta-value">App Store Visuals · Motion Assets · Social Content</p>
-      </div>
-      <div class="meta-item">
-        <p class="meta-label">Year</p>
-        <p class="meta-value">2024 – 2026</p>
-      </div>
-    </div>
-  </div>
+	<main>
+		<section class="page-intro">
+			<h1 class="white">Mahadumia</h1>
+			<p class="muted">Motion design · App visuals · 2024 to 2026</p>
+		</section>
 
-  <!-- Hero image slot: replace with strongest still or motion frame -->
-  <div class="hero-img-wrap fade-up" style="animation-delay:0.12s">
-    <img src="./images/Mahadumia/cover-img.webp" alt="Mahadumia App Store Feature Visual">
-  </div>
-</section>
+		<div class="cs-hero">
+			<img fetchpriority="high" src="./images/Mahadumia/cover-img.webp" alt="Mahadumia" />
+		</div>
 
-<!-- OVERVIEW -->
-<section class="case-section">
-  <p class="section-label">Overview</p>
-  <div class="section-body">
-    <h2>Bringing an edtech brand to life in motion.</h2>
-    <p>Mahadumia builds exam-preparation products for Nigerian students, including JUPEB and JAMB prep apps used by thousands preparing for some of the most high-stakes exams of their academic lives. The brand needed a consistent, energetic presence across app stores and social platforms to stand out in a crowded edtech space.</p>
-    <p>The challenge was to design within Mahadumia's existing brand system, translating a static identity into visuals and motion that felt approachable, current, and built for a fast-scrolling, mobile-first audience.</p>
+		<section class="cs-meta" aria-label="Project details">
+			<div><p class="muted">Client</p><p>Mahadumia (JUPEB and JAMB apps)</p></div>
+			<div><p class="muted">Scope</p><p>App store visuals, motion, social content</p></div>
+			<div><p class="muted">Year</p><p>2024 to 2026</p></div>
+		</section>
 
-    <!-- Mockup slot 1: placeholder -->
-    <div class="mockup-slot" style="aspect-ratio: auto; height: auto;">
-      <img src="./images/Mahadumia/ad-1.webp" alt="Mahadumia App Store Listing Mockup" style="width: 100%; height: auto; object-fit: contain;">
-    </div>
-  </div>
-</section>
+		<section class="cs-text">
+			<div class="prose">
+				<p>Mahadumia’s identity was already in place. My role was to carry it into motion and app store visuals built for a fast-scrolling, mobile-first student audience.</p>
+			</div>
+		</section>
+		<div class="cs-media">
+			<img src="./images/Mahadumia/ad-1.webp" alt="Mahadumia ad" loading="lazy" />
+		</div>
+		<div class="cs-media">
+			<div class="cs-grid">
+				<img src="./images/Mahadumia/ad-5.webp" alt="Mahadumia ad" loading="lazy" />
+				<img src="./images/Mahadumia/ad-6.webp" alt="Mahadumia ad" loading="lazy" />
+			</div>
+		</div>
+		<div class="cs-media">
+			<video controls muted loop playsinline preload="metadata" poster="./images/Mahadumia/cover-img.webp"><source src="./images/Mahadumia/vids/video-1.mp4" type="video/mp4" /></video>
+		</div>
+		<div class="cs-media">
+			<div class="cs-grid">
+				<img src="./images/Mahadumia/selected-work-1.webp" alt="Mahadumia social design" loading="lazy" />
+				<img src="./images/Mahadumia/selected-work-2.webp" alt="Mahadumia social design" loading="lazy" />
+			</div>
+		</div>
+		<div class="cs-media">
+			<video controls muted loop playsinline preload="metadata" poster="./images/Mahadumia/cover-img.webp"><source src="./images/Mahadumia/vids/Logo%20Outro.mp4" type="video/mp4" /></video>
+		</div>
 
-<!-- BRAND SYSTEM (honest framing: existing identity, not designed by Victor) -->
-<section class="case-section">
-  <p class="section-label">Brand system</p>
-  <div class="section-body">
-    <h2>Designing inside an established identity.</h2>
-    <p>Mahadumia's core brand identity, including its logo and visual language, was already established prior to this engagement. My role here was to execute within that existing system: producing app store visuals, social content, and motion assets that stayed consistent with the brand's established colours, type, and tone while giving it new energy across platforms.</p>
+		<nav class="cs-next" aria-label="More work">
+			<a href="/#work">All work</a>
+			<a href="/bwbcon-2026"><span class="next-label">Next project</span>BWBCON 2026</a>
+		</nav>
 
-    <!-- Mockup slot 2: existing brand applied in your work -->
-    <div class="img-grid two-col" style="margin-top: 1.5rem; gap: 1rem;">
-      <div class="img-cell" style="aspect-ratio: auto; height: auto;"><img src="./images/Mahadumia/ad-5.webp" alt="Mahadumia Existing Brand System Applied" style="width: 100%; height: auto; object-fit: contain;"></div>
-      <div class="img-cell" style="aspect-ratio: auto; height: auto;"><img src="./images/Mahadumia/ad-6.webp" alt="Mahadumia Supporting Visual" style="width: 100%; height: auto; object-fit: contain;"></div>
-    </div>
-  </div>
-</section>
+	</main>
 
-<!-- MOTION -->
-<section class="case-section">
-  <p class="section-label">Motion</p>
-  <div class="section-body">
-    <h2>Static assets weren't enough.</h2>
-    <p>To capture attention in a crowded app store and social feed, key visuals were extended into short motion pieces, bringing feature graphics and promotional content to life without straying from the brand's established look.</p>
+	<footer class="site-footer">
+		<div class="cta">
+			<p class="white">Have a project in mind?</p>
+			<p><a href="/contact" class="text-link">Start a project</a> or email <a href="mailto:hello@victorosondu.com" class="text-link">hello@victorosondu.com</a></p>
+		</div>
+		<nav class="footer-links" aria-label="Footer">
+			<a href="/about">About</a>
+			<a href="/process">How I work</a>
+			<a href="/packages">Packages</a>
+			<a href="/reviews">Reviews</a>
+		</nav>
+		<div class="social-icons">
+			<a href="https://www.instagram.com/vosondu_/" target="_blank" rel="noopener" class="social-link"
+				aria-label="Instagram">
+				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<rect x="3.5" y="3.5" width="17" height="17" rx="4.5" ry="4.5" fill="none" stroke="currentColor"
+						stroke-width="1.7" />
+					<circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.7" />
+					<circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" />
+				</svg>
+			</a>
+			<a href="https://web.facebook.com/osondu.victor.100" target="_blank" rel="noopener" class="social-link"
+				aria-label="Facebook">
+				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<path
+						d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-2.796c0-2.453 1.5-3.925 4.02-3.925.955 0 1.916.088 2.87.171v3.334H14.31c-1.44 0-1.786.685-1.786 1.657v1.559h3.61l-.594 3.667h-3.016v7.98H9.101z"
+						fill="currentColor" />
+				</svg>
+			</a>
+			<a href="https://www.linkedin.com/in/vosondu/" target="_blank" rel="noopener" class="social-link"
+				aria-label="LinkedIn">
+				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<path
+						d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z" />
+				</svg>
+			</a>
+			<a href="https://x.com/v_osondu" target="_blank" rel="noopener" class="social-link" aria-label="X">
+				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<path
+						d="M17.2 3H20l-6.3 7.2 7.4 10.8h-5.3l-4.1-5.3-4.7 5.3H3.1l7.2-8.2L2.7 3h5.5l3.8 5 4.2-5Zm-1.4 15.3h1.2L6.8 4.7H5.6l10.2 13.6Z"
+						fill="currentColor" />
+				</svg>
+			</a>
+		</div>
+		<p class="copyright">© 2026 Victor Osondu · Lagos, Nigeria</p>
+	</footer>
 
-    <!-- Video slot: placeholder for motion reel -->
-    <div class="video-slot">
-      <video controls poster="./images/Mahadumia/cover-img.webp">
-        <source src="./images/Mahadumia/vids/video-1.mp4" type="video/mp4">
-        Your browser does not support embedded video.
-      </video>
-    </div>
-  </div>
-</section>
-
-<!-- SELECTED WORK -->
-<section class="case-section full-width">
-  <p class="section-label" style="margin-bottom: 2rem;">Selected work</p>
-  <div class="img-grid three-col">
-    <div class="img-cell" style="aspect-ratio: 4 / 5;"><img src="./images/Mahadumia/selected-work-1.webp" alt="Mahadumia Selected Work 1"></div>
-    <div class="img-cell" style="aspect-ratio: 4 / 5;"><img src="./images/Mahadumia/selected-work-2.webp" alt="Mahadumia Selected Work 2"></div>
-    <div class="img-cell" style="aspect-ratio: 4 / 5;">
-      <video controls playsinline muted loop poster="./images/Mahadumia/cover-img.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-        <source src="./images/Mahadumia/vids/Logo Outro.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </div>
-</section>
-
-<!-- MOCKUPS FULL WIDTH -->
-<!-- <section class="case-section full-width" style="padding-bottom: 0;">
-  <p class="section-label" style="margin-bottom: 2rem;">Mockups</p> -->
-
-  <!-- Full-width mockup slot: placeholder -->
-    <!-- <div class="full-img">
-    <img src="./images/Mahadumia/full-mockup-placeholder.webp" alt="Mahadumia App Store Full Mockup">
-  </div>
-</section> -->
-
-<!-- PROJECT NAV -->
-<div class="project-nav">
-  <a href="/centratutor">← Centratutor</a>
-  <span class="project-nav-center">04 / 07</span>
-  <a href="/komis-kitchen">Komi's →</a>
-</div>
-
-<!-- Lenis smooth scroll -->
-<script src="./assets/js/vendor/lenis@1.3.26.min.js"></script>
-<script>
-  const lenis = new Lenis({
-    lerp: 0.1,
-    duration: 1.2,
-  });
-
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
-</script>
-<script src="/assets/js/menu.js"></script>
+	<script src="/assets/js/vendor/lenis@1.3.26.min.js"></script>
+	<script>
+		const lenis = new Lenis({ lerp: 0.1, duration: 1.2 });
+		function raf(time) {
+			lenis.raf(time);
+			requestAnimationFrame(raf);
+		}
+		requestAnimationFrame(raf);
+	</script>
+	<script src="/assets/js/menu.js"></script>
+	<script src="/assets/js/site.js"></script>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
+
 </html>

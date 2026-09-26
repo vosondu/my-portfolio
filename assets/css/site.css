@@ -13,7 +13,7 @@
 	--font: "DM Sans", system-ui, sans-serif;
 	--fw: 300;
 	--size: 1.0625rem;
-	--gutter: 4rem;
+	--gutter: 6.8rem;
 	--ease: cubic-bezier(.2, .9, .2, 1);
 }
 
@@ -130,7 +130,7 @@ a {
 	pointer-events: none;
 }
 
-.project-card:first-child {
+.projects-grid > .project-card:first-child {
 	grid-column: 1 / -1;
 }
 
@@ -140,8 +140,25 @@ a {
 	background: var(--panel);
 }
 
-.project-card:first-child .project-img {
+.projects-grid > .project-card:first-child .project-img {
 	aspect-ratio: 21 / 9;
+}
+
+/* Komi's (narrow) + Centratutor (wide) share one row: 1/4 and 3/4 of the row,
+   same height as a normal row and the same gap between them */
+.project-pair {
+	grid-column: 1 / -1;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+	column-gap: 2rem;
+}
+
+.project-pair .project-card:first-child .project-img {
+	aspect-ratio: 4 / 5;
+}
+
+.project-pair .project-card:last-child .project-img {
+	aspect-ratio: 12 / 5;
 }
 
 .project-img img {
@@ -545,11 +562,182 @@ a {
 	overflow: hidden;
 }
 
+/* Case studies */
+.cs-hero {
+	padding: 0 var(--gutter) 8rem;
+}
+
+.cs-meta {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 2rem;
+	max-width: 70rem;
+	padding: 0 var(--gutter) 12rem;
+}
+
+.cs-meta p + p {
+	color: var(--white);
+}
+
+.cs-text {
+	padding: 0 var(--gutter) 8rem;
+}
+
+.cs-text .prose p:first-child {
+	color: var(--white);
+}
+
+.cs-media {
+	padding: 0 var(--gutter) 12rem;
+}
+
+.cs-media img,
+.cs-media video,
+.cs-hero img,
+.cs-hero video {
+	width: 100%;
+	height: auto;
+	display: block;
+	background: var(--panel);
+}
+
+.cs-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 2rem;
+	align-items: start;
+}
+
+.cs-grid > :last-child:nth-child(odd) {
+	grid-column: 1 / -1;
+}
+
+.logo-cell {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	aspect-ratio: 16 / 10;
+	padding: 3rem;
+}
+
+.logo-cell.light {
+	background: #f0f0ec;
+}
+
+.logo-cell.dark {
+	background: #0a0a09;
+}
+
+.logo-cell img {
+	width: 45%;
+	max-height: 60%;
+	height: auto;
+	object-fit: contain;
+	background: none;
+}
+
+.swatches {
+	display: flex;
+	height: 14rem;
+}
+
+.swatch {
+	flex: 1;
+}
+
+.cs-quote {
+	padding: 0 var(--gutter) 12rem;
+}
+
+.cs-quote blockquote {
+	max-width: 40rem;
+}
+
+.cs-quote p {
+	color: var(--white);
+}
+
+.cs-quote footer {
+	margin-top: 1.25rem;
+	color: var(--grey-mid);
+}
+
+.cs-next {
+	display: flex;
+	justify-content: space-between;
+	gap: 2rem;
+	padding: 5rem var(--gutter);
+	border-top: 1px solid var(--grey-faint);
+}
+
+.cs-next a {
+	color: var(--grey-dark);
+	text-decoration: none;
+}
+
+.cs-next a:hover {
+	color: var(--white);
+}
+
+.cs-next .next-label {
+	color: var(--grey-mid);
+	display: block;
+}
+
+/* Portrait media (e.g. 4:5 video): on desktop, keep it within one screen height */
+@media (min-width: 769px) {
+	.cs-portrait video,
+	.cs-portrait img {
+		width: min(100%, calc(80vh * 4 / 5));
+		margin-inline: 0 auto;
+	}
+}
+
+/* Portrait video beside an image: the video sets the row height, the image fills the rest */
+.cs-split {
+	display: grid;
+	grid-template-columns: min(55%, calc(80vh * 4 / 5)) minmax(0, 1fr);
+	gap: 2rem;
+}
+
+.cs-split video {
+	width: 100%;
+}
+
+.cs-split img {
+	height: 100%;
+	object-fit: cover;
+	object-position: 70% 50%;
+}
+
+@media (max-width: 768px) {
+	.cs-split {
+		grid-template-columns: 1fr;
+		gap: 1.25rem;
+	}
+
+	.cs-split video {
+		width: 100%;
+	}
+
+	.cs-split img {
+		height: auto;
+	}
+}
+
+/* Reviews page */
+.reviews-list {
+	display: flex;
+	flex-direction: column;
+	gap: 8rem;
+	max-width: 44rem;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
 	:root {
 		--size: 1rem;
-		--gutter: 1.5rem;
+		--gutter: 2.55rem;
 	}
 
 	.page-intro {
@@ -567,8 +755,15 @@ a {
 	}
 
 	.project-img,
-	.project-card:first-child .project-img {
+	.projects-grid > .project-card:first-child .project-img,
+	.project-pair .project-card:first-child .project-img,
+	.project-pair .project-card:last-child .project-img {
 		aspect-ratio: 4 / 3;
+	}
+
+	.project-pair {
+		grid-template-columns: 1fr;
+		row-gap: 9rem;
 	}
 
 	.project-card {
@@ -610,6 +805,48 @@ a {
 
 	.process-desc {
 		grid-column: 2;
+	}
+
+	.cs-hero {
+		padding-bottom: 5rem;
+	}
+
+	.cs-meta {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+		padding-bottom: 8rem;
+	}
+
+	.cs-text {
+		padding-bottom: 5rem;
+	}
+
+	.cs-media,
+	.cs-quote {
+		padding-bottom: 8rem;
+	}
+
+	.cs-grid {
+		grid-template-columns: 1fr;
+		gap: 1.25rem;
+	}
+
+	.logo-cell {
+		padding: 2rem;
+	}
+
+	.swatches {
+		height: 8rem;
+	}
+
+	.cs-next {
+		flex-direction: column;
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+	}
+
+	.reviews-list {
+		gap: 6rem;
 	}
 
 	.site-footer {
