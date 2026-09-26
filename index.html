@@ -361,6 +361,258 @@
 			color: var(--white);
 		}
 
+		/* PACKAGE CTAs */
+		.package-card {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.package-card .package-meta {
+			margin-top: auto;
+		}
+
+		.package-cta {
+			display: block;
+			margin-top: 1.25rem;
+			padding: 0.8rem 1rem;
+			border: 1px solid var(--grey-light);
+			color: var(--white);
+			text-decoration: none;
+			text-align: center;
+			font-size: 0.8rem;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			transition: background 0.2s, color 0.2s, border-color 0.2s;
+		}
+
+		.package-cta:hover,
+		.package-cta:focus-visible {
+			background: var(--white);
+			color: var(--black);
+			border-color: var(--white);
+			outline: none;
+		}
+
+		.packages-note {
+			margin-top: 1.5rem;
+			font-size: 0.95rem;
+			color: var(--grey-dark);
+		}
+
+		.packages-note a {
+			color: var(--white);
+			text-decoration: none;
+			border-bottom: 1px solid var(--grey-light);
+		}
+
+		/* INQUIRY FORM */
+		.inquiry {
+			padding: 6rem 4rem;
+		}
+
+		.inquiry-intro {
+			max-width: 640px;
+			margin-bottom: 3rem;
+		}
+
+		.inquiry-intro h2 {
+			font-family: var(--serif);
+			font-weight: var(--fw);
+			font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+			line-height: 1.15;
+			letter-spacing: -0.02em;
+			color: var(--white);
+			margin-bottom: 1rem;
+		}
+
+		.inquiry-intro p {
+			color: var(--grey-dark);
+			line-height: 1.7;
+		}
+
+		.inquiry-form {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 1.5rem 1.25rem;
+			max-width: 820px;
+		}
+
+		.field {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+			border: none;
+			min-width: 0;
+		}
+
+		.field-full {
+			grid-column: 1 / -1;
+		}
+
+		.field label,
+		.field legend {
+			font-size: 0.75rem;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			color: var(--grey-mid);
+		}
+
+		.field legend {
+			margin-bottom: 0.6rem;
+		}
+
+		.field .optional {
+			text-transform: none;
+			letter-spacing: 0;
+		}
+
+		.field input[type="text"],
+		.field input[type="email"],
+		.field input[type="tel"],
+		.field select,
+		.field textarea {
+			width: 100%;
+			background: #121211;
+			border: 1px solid #242421;
+			color: var(--white);
+			font-family: var(--sans);
+			font-weight: var(--fw);
+			font-size: 1rem;
+			padding: 0.85rem 1rem;
+			border-radius: 0;
+			appearance: none;
+			-webkit-appearance: none;
+			transition: border-color 0.2s;
+		}
+
+		.field select {
+			background-image: linear-gradient(45deg, transparent 50%, var(--grey-mid) 50%), linear-gradient(135deg, var(--grey-mid) 50%, transparent 50%);
+			background-position: calc(100% - 1.2rem) 55%, calc(100% - 0.9rem) 55%;
+			background-size: 5px 5px, 5px 5px;
+			background-repeat: no-repeat;
+			padding-right: 2.5rem;
+		}
+
+		.field textarea {
+			min-height: 7rem;
+			resize: vertical;
+			line-height: 1.6;
+		}
+
+		.field input:focus,
+		.field select:focus,
+		.field textarea:focus {
+			outline: none;
+			border-color: var(--grey-mid);
+		}
+
+		.radio-row {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.75rem;
+		}
+
+		.radio-row label {
+			display: flex;
+			align-items: center;
+			gap: 0.6rem;
+			padding: 0.75rem 1rem;
+			border: 1px solid #242421;
+			background: #121211;
+			color: var(--grey-dark);
+			font-size: 0.95rem;
+			letter-spacing: 0;
+			text-transform: none;
+			cursor: pointer;
+		}
+
+		.radio-row input {
+			accent-color: var(--white);
+		}
+
+		.form-actions {
+			grid-column: 1 / -1;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 1.25rem;
+		}
+
+		.form-submit {
+			background: var(--white);
+			color: var(--black);
+			border: 1px solid var(--white);
+			font-family: var(--sans);
+			font-size: 0.8rem;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			padding: 1rem 2rem;
+			cursor: pointer;
+			transition: opacity 0.2s;
+		}
+
+		.form-submit:hover {
+			opacity: 0.85;
+		}
+
+		.form-submit:disabled {
+			opacity: 0.5;
+			cursor: wait;
+		}
+
+		.form-note {
+			font-size: 0.85rem;
+			color: var(--grey-mid);
+		}
+
+		.form-status {
+			grid-column: 1 / -1;
+			font-size: 0.95rem;
+			color: var(--grey-dark);
+			min-height: 1.5em;
+		}
+
+		.form-status.is-error {
+			color: #e8a0a0;
+		}
+
+		.inquiry-success {
+			max-width: 640px;
+			padding: 2rem;
+			border: 1px solid #242421;
+			background: #121211;
+		}
+
+		.inquiry-success h3 {
+			font-family: var(--serif);
+			font-weight: var(--fw);
+			font-size: 1.5rem;
+			color: var(--white);
+			margin-bottom: 0.75rem;
+		}
+
+		.inquiry-success p {
+			color: var(--grey-dark);
+		}
+
+		.visually-hidden {
+			position: absolute !important;
+			left: -9999px !important;
+			width: 1px;
+			height: 1px;
+			overflow: hidden;
+		}
+
+		@media (max-width: 768px) {
+			.inquiry {
+				padding: 4rem 1.5rem;
+			}
+
+			.inquiry-form {
+				grid-template-columns: 1fr;
+			}
+		}
+
 		/* PROCESS */
 		.process {
 			padding: 6rem 4rem;
@@ -484,13 +736,23 @@
 			pointer-events: none;
 		}
 
-		.project-card.in-view {
+		/* Package cards share the project cards' scroll fade */
+		.package-card {
+			opacity: 0;
+			transform: translateY(-40px);
+			transition: opacity 1000ms cubic-bezier(.2, .9, .2, 1), transform 1000ms cubic-bezier(.2, .9, .2, 1);
+			pointer-events: none;
+		}
+
+		.project-card.in-view,
+		.package-card.in-view {
 			opacity: 1;
 			transform: translateY(0);
 			pointer-events: auto;
 		}
 
-		.project-card.out-view {
+		.project-card.out-view,
+		.package-card.out-view {
 			opacity: 0;
 			transform: translateY(48px);
 			pointer-events: none;
@@ -542,12 +804,14 @@
 				padding: 0;
 			}
 
-			.project-card {
+			.project-card,
+			.package-card {
 				transition-duration: 800ms;
 				transform: translateY(-24px);
 			}
 
-			.project-card.out-view {
+			.project-card.out-view,
+			.package-card.out-view {
 				transform: translateY(28px);
 			}
 
@@ -1117,6 +1381,7 @@
 				</ul>
 				<p class="package-meta">Timeline</p>
 				<p class="package-price">3 to 4 weeks · ₦150,000</p>
+				<a href="#start" class="package-cta" data-package="Brand Starter">Start with Brand Starter</a>
 			</article>
 			<article class="package-card">
 				<p class="package-name">Full Brand Identity</p>
@@ -1128,6 +1393,7 @@
 				</ul>
 				<p class="package-meta">Timeline</p>
 				<p class="package-price">5 to 6 weeks · ₦280,000</p>
+				<a href="#start" class="package-cta" data-package="Full Brand Identity">Start with Full Brand Identity</a>
 			</article>
 			<article class="package-card">
 				<p class="package-name">Brand + Launch System</p>
@@ -1140,7 +1406,85 @@
 				</ul>
 				<p class="package-meta">Timeline</p>
 				<p class="package-price">8 to 12 weeks · ₦500,000</p>
+				<a href="#start" class="package-cta" data-package="Brand + Launch System">Start with Brand + Launch System</a>
 			</article>
+		</div>
+		<p class="packages-note">Not sure which fits? <a href="#start" data-package="Not sure yet">Tell me about your business</a> and I'll recommend one.</p>
+	</section>
+
+	<div class="rule"></div>
+
+	<!-- INQUIRY -->
+	<section class="inquiry" id="start">
+		<p class="section-label">Start a project</p>
+		<div class="inquiry-intro">
+			<h2>Tell me about your business.</h2>
+			<p>A few quick questions so I can understand what you need. I reply to every inquiry within 24 hours, usually to set up a short call.</p>
+		</div>
+
+		<form class="inquiry-form" id="inquiry-form" action="https://api.web3forms.com/submit" method="POST">
+			<input type="hidden" name="access_key" value="6f7eea82-8ff3-4fec-aff4-9cf417bcae4c" />
+			<input type="hidden" name="subject" value="New project inquiry: victorosondu.com" />
+			<input type="hidden" name="from_name" value="victorosondu.com" />
+			<input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+			<div class="field">
+				<label for="f-name">Your name</label>
+				<input type="text" id="f-name" name="name" autocomplete="name" required />
+			</div>
+			<div class="field">
+				<label for="f-business">Business name</label>
+				<input type="text" id="f-business" name="business" autocomplete="organization" required />
+			</div>
+			<div class="field">
+				<label for="f-email">Email</label>
+				<input type="email" id="f-email" name="email" autocomplete="email" required />
+			</div>
+			<div class="field">
+				<label for="f-phone">WhatsApp number <span class="optional">(optional)</span></label>
+				<input type="tel" id="f-phone" name="whatsapp" autocomplete="tel" />
+			</div>
+			<div class="field field-full">
+				<label for="f-about">What does your business do, and who are your customers?</label>
+				<textarea id="f-about" name="about_business" required></textarea>
+			</div>
+			<div class="field">
+				<label for="f-package">Package</label>
+				<select id="f-package" name="package" required>
+					<option value="Brand Starter">Brand Starter · ₦150,000</option>
+					<option value="Full Brand Identity" selected>Full Brand Identity · ₦280,000</option>
+					<option value="Brand + Launch System">Brand + Launch System · ₦500,000</option>
+					<option value="Not sure yet">Not sure yet</option>
+				</select>
+			</div>
+			<div class="field">
+				<label for="f-timeline">When do you need it ready?</label>
+				<select id="f-timeline" name="timeline" required>
+					<option value="" disabled selected>Select a timeline</option>
+					<option value="Within a month">Within a month</option>
+					<option value="1 to 3 months">1 to 3 months</option>
+					<option value="3+ months">3+ months</option>
+					<option value="Just exploring">Just exploring</option>
+				</select>
+			</div>
+			<fieldset class="field field-full">
+				<legend>Packages start at ₦150,000. Does that fit your budget?</legend>
+				<div class="radio-row">
+					<label><input type="radio" name="budget_fit" value="Yes" required /> Yes</label>
+					<label><input type="radio" name="budget_fit" value="Not yet" /> Not yet</label>
+				</div>
+			</fieldset>
+
+			<p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+			<div class="form-actions">
+				<button type="submit" class="form-submit" id="form-submit">Send inquiry</button>
+				<p class="form-note">Prefer email? <a href="mailto:hello@victorosondu.com" style="color: var(--white); text-decoration: none; border-bottom: 1px solid var(--grey-light);">hello@victorosondu.com</a></p>
+			</div>
+		</form>
+
+		<div class="inquiry-success" id="inquiry-success" hidden>
+			<h3>Thank you. Your inquiry is in.</h3>
+			<p>I'll reply within 24 hours, usually with a link to book a short call. Keep an eye on your inbox, and check spam just in case.</p>
 		</div>
 	</section>
 
@@ -1314,6 +1658,47 @@
 				lenis.scrollTo(target);
 			});
 		});
+	</script>
+	<script>
+		// Package buttons pre-select the package in the inquiry form
+		const packageSelect = document.getElementById('f-package');
+		document.querySelectorAll('[data-package]').forEach((el) => {
+			el.addEventListener('click', () => {
+				if (packageSelect) packageSelect.value = el.dataset.package;
+			});
+		});
+
+		// Inquiry form: submit to Web3Forms without leaving the page
+		const inquiryForm = document.getElementById('inquiry-form');
+		if (inquiryForm) {
+			const statusEl = document.getElementById('form-status');
+			const submitBtn = document.getElementById('form-submit');
+			const successEl = document.getElementById('inquiry-success');
+			inquiryForm.addEventListener('submit', async (e) => {
+				e.preventDefault();
+				statusEl.classList.remove('is-error');
+				statusEl.textContent = 'Sending...';
+				submitBtn.disabled = true;
+				try {
+					const data = Object.fromEntries(new FormData(inquiryForm));
+					const res = await fetch('https://api.web3forms.com/submit', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+						body: JSON.stringify(data),
+					});
+					const json = await res.json();
+					if (!res.ok || !json.success) throw new Error(json.message || 'Request failed');
+					inquiryForm.hidden = true;
+					successEl.hidden = false;
+					if (window.va) window.va('event', { name: 'Inquiry submitted' });
+				} catch (err) {
+					statusEl.classList.add('is-error');
+					statusEl.textContent = 'Something went wrong. Please try again, or email hello@victorosondu.com.';
+				} finally {
+					submitBtn.disabled = false;
+				}
+			});
+		}
 	</script>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
