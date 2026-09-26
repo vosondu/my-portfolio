@@ -2,7 +2,7 @@
   const cards = document.querySelectorAll('.project-card, .package-card');
   if (cards.length && 'IntersectionObserver' in window) {
     const mediaQuery = window.matchMedia('(max-width: 768px)');
-    const rootMargin = mediaQuery.matches ? '0px 0px -50% 0px' : '0px 0px -60% 0px';
+    const rootMargin = mediaQuery.matches ? '0px 0px -15% 0px' : '0px 0px -20% 0px';
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {

@@ -51,15 +51,33 @@
 			}
 			@media (max-width: 768px) { nav { padding: 1.2rem 1.5rem; } main { padding: 2.5rem 1.5rem 4rem; } }
 		</style>
-	</head>
+		<link rel="stylesheet" href="/assets/css/menu.css" />
+</head>
 	<body>
-		<nav>
-			<a href="/" class="nav-logo">Victor Osondu</a>
-			<ul class="nav-links">
-				<li><a href="/#work">Work</a></li>
-				<li><a href="/reviews">Reviews</a></li>
-			</ul>
-		</nav>
+	<header class="site-header">
+		<a href="/" class="site-logo">Victor Osondu</a>
+		<button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+			<span></span>
+			<span></span>
+		</button>
+	</header>
+
+	<div class="site-menu" id="site-menu" aria-hidden="true">
+		<ul class="site-menu-links">
+			<li><a href="/" data-path="/">Work</a></li>
+			<li><a href="/about" data-path="/about">About</a></li>
+			<li><a href="/process" data-path="/process">How I work</a></li>
+			<li><a href="/packages" data-path="/packages">Packages</a></li>
+			<li><a href="/reviews" data-path="/reviews">Reviews</a></li>
+			<li><a href="/contact" data-path="/contact">Contact</a></li>
+		</ul>
+		<div class="site-menu-foot">
+			<a href="mailto:hello@victorosondu.com">hello@victorosondu.com</a>
+			<a href="https://www.linkedin.com/in/vosondu/" target="_blank" rel="noopener">LinkedIn</a>
+			<a href="https://www.instagram.com/vosondu_/" target="_blank" rel="noopener">Instagram</a>
+			<a href="https://www.behance.net/vosondu" target="_blank" rel="noopener">Behance</a>
+		</div>
+	</div>
 		<main>
 			<h1>Komi's</h1>
 			<p class="intro">This page is still under construction.</p>
@@ -87,7 +105,8 @@
 			}
 			requestAnimationFrame(raf);
 		</script>
-	<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+	<script src="/assets/js/menu.js"></script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,191 @@
+/* Site header + fullscreen menu. Shared by every page. */
+
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1.25rem 4rem;
+	background: rgba(19, 19, 19, 0.92);
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
+	font-family: "DM Sans", system-ui, sans-serif;
+	font-weight: 300;
+}
+
+.site-logo {
+	color: #fafaf8;
+	text-decoration: none;
+	font-size: 1.0625rem;
+	letter-spacing: 0;
+}
+
+.menu-toggle {
+	position: relative;
+	width: 2.75rem;
+	height: 2.75rem;
+	margin-right: -0.6rem;
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: #fafaf8;
+}
+
+.menu-toggle span {
+	position: absolute;
+	left: 50%;
+	width: 1.5rem;
+	height: 1px;
+	background: currentColor;
+	transform-origin: center;
+	transition: transform 450ms cubic-bezier(.2, .9, .2, 1), top 450ms cubic-bezier(.2, .9, .2, 1);
+}
+
+.menu-toggle span:nth-child(1) {
+	top: calc(50% - 4px);
+	transform: translateX(-50%);
+}
+
+.menu-toggle span:nth-child(2) {
+	top: calc(50% + 4px);
+	transform: translateX(-50%);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+	top: 50%;
+	transform: translateX(-50%) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+	top: 50%;
+	transform: translateX(-50%) rotate(-45deg);
+}
+
+.menu-toggle:focus-visible {
+	outline: 1px solid #7a7a76;
+	outline-offset: 2px;
+}
+
+.site-menu {
+	position: fixed;
+	inset: 0;
+	z-index: 90;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 7rem 4rem 3rem;
+	background: #131313;
+	font-family: "DM Sans", system-ui, sans-serif;
+	font-weight: 300;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 450ms ease, visibility 0s linear 450ms;
+	overflow-y: auto;
+}
+
+.site-menu.is-open {
+	opacity: 1;
+	visibility: visible;
+	transition: opacity 450ms ease, visibility 0s linear 0s;
+}
+
+.site-menu-links {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.9rem;
+}
+
+.site-menu-links li {
+	opacity: 0;
+	transform: translateY(12px);
+	transition: opacity 500ms ease, transform 500ms cubic-bezier(.2, .9, .2, 1);
+}
+
+.site-menu.is-open .site-menu-links li {
+	opacity: 1;
+	transform: none;
+}
+
+.site-menu.is-open .site-menu-links li:nth-child(2) { transition-delay: 50ms; }
+.site-menu.is-open .site-menu-links li:nth-child(3) { transition-delay: 100ms; }
+.site-menu.is-open .site-menu-links li:nth-child(4) { transition-delay: 150ms; }
+.site-menu.is-open .site-menu-links li:nth-child(5) { transition-delay: 200ms; }
+.site-menu.is-open .site-menu-links li:nth-child(6) { transition-delay: 250ms; }
+
+.site-menu-links a {
+	color: #7a7a76;
+	text-decoration: none;
+	font-size: clamp(1.6rem, 4vw, 2.4rem);
+	line-height: 1.35;
+	transition: color 200ms ease;
+}
+
+.site-menu-links a:hover,
+.site-menu-links a:focus-visible,
+.site-menu-links a[aria-current="page"] {
+	color: #fafaf8;
+	outline: none;
+}
+
+.site-menu-foot {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 2rem;
+	margin-top: 3rem;
+	font-size: 1rem;
+	color: #7a7a76;
+}
+
+.site-menu-foot a {
+	color: #c8c8c2;
+	text-decoration: none;
+}
+
+.site-menu-foot a:hover {
+	color: #fafaf8;
+}
+
+html.menu-open,
+html.menu-open body {
+	overflow: hidden;
+}
+
+@media (max-width: 768px) {
+	.site-header {
+		padding: 1rem 1.5rem;
+	}
+
+	.site-logo {
+		font-size: 1rem;
+	}
+
+	.site-menu {
+		padding: 6rem 1.5rem 2.5rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.menu-toggle span,
+	.site-menu,
+	.site-menu-links li {
+		transition: none !important;
+	}
+}
+
+/* Guard against page-level link styles (e.g. "li a { ... !important }") on case study pages */
+.site-menu .site-menu-links li a {
+	color: #7a7a76 !important;
+	border-bottom: none !important;
+	text-decoration: none !important;
+}
+
+.site-menu .site-menu-links li a:hover,
+.site-menu .site-menu-links li a:focus-visible,
+.site-menu .site-menu-links li a[aria-current="page"] {
+	color: #fafaf8 !important;
+}
