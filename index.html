@@ -361,6 +361,80 @@
 			color: var(--white);
 		}
 
+		/* PROCESS */
+		.process {
+			padding: 6rem 4rem;
+		}
+
+		.process-intro {
+			max-width: 640px;
+			margin-bottom: 3.5rem;
+		}
+
+		.process-intro h2 {
+			font-family: var(--serif);
+			font-weight: var(--fw);
+			font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+			line-height: 1.15;
+			letter-spacing: -0.02em;
+			color: var(--white);
+			margin-bottom: 1rem;
+		}
+
+		.process-intro p {
+			color: var(--grey-dark);
+			line-height: 1.7;
+		}
+
+		.process-list {
+			list-style: none;
+			border-top: 1px solid var(--grey-faint);
+		}
+
+		.process-step {
+			display: grid;
+			grid-template-columns: 4rem minmax(0, 14rem) minmax(0, 1fr);
+			gap: 1.5rem;
+			padding: 1.75rem 0;
+			border-bottom: 1px solid var(--grey-faint);
+		}
+
+		.process-num {
+			font-size: 0.8rem;
+			letter-spacing: 0.08em;
+			color: var(--grey-mid);
+			padding-top: 0.2rem;
+		}
+
+		.process-title {
+			font-family: var(--serif);
+			font-weight: var(--fw);
+			font-size: 1.2rem;
+			color: var(--white);
+		}
+
+		.process-desc {
+			font-size: 0.95rem;
+			color: var(--grey-dark);
+			line-height: 1.7;
+			max-width: 620px;
+		}
+
+		@media (max-width: 768px) {
+			.process {
+				padding: 4rem 1.5rem;
+			}
+
+			.process-step {
+				grid-template-columns: 2.5rem minmax(0, 1fr);
+				gap: 0.4rem 1rem;
+			}
+
+			.process-desc {
+				grid-column: 2;
+			}
+		}
+
 		/* DIVIDER */
 		.rule {
 			width: 100%;
@@ -1068,6 +1142,44 @@
 				<p class="package-price">8 to 12 weeks · ₦500,000</p>
 			</article>
 		</div>
+	</section>
+
+	<div class="rule"></div>
+
+	<!-- PROCESS -->
+	<section class="process" id="process">
+		<p class="section-label">How I work</p>
+		<div class="process-intro">
+			<h2>Research first. Every decision explained.</h2>
+			<p>A brand identity is only as strong as the thinking behind it. Every project follows the same five stages, scaled to your package, and you will understand the reason behind each decision before we move to the next.</p>
+		</div>
+		<ol class="process-list">
+			<li class="process-step">
+				<p class="process-num">01</p>
+				<h3 class="process-title">Discovery</h3>
+				<p class="process-desc">We start with your business, not the logo: your goals, your customers, your competitors, and what the brand needs to do for you commercially.</p>
+			</li>
+			<li class="process-step">
+				<p class="process-num">02</p>
+				<h3 class="process-title">Research</h3>
+				<p class="process-desc">I study your category and the brands your customers already trust, to learn what your market expects and where there is room to stand apart. For Joie Luxe Rentals, that meant studying Aman, Rolex and Patek Philippe to understand what luxury actually communicates.</p>
+			</li>
+			<li class="process-step">
+				<p class="process-num">03</p>
+				<h3 class="process-title">Strategy</h3>
+				<p class="process-desc">Before any design work, we agree on your positioning and the ideas the identity has to carry. For BOA Zerah, that idea came from the meaning of the name itself: Zerah is Hebrew for shining.</p>
+			</li>
+			<li class="process-step">
+				<p class="process-num">04</p>
+				<h3 class="process-title">Design</h3>
+				<p class="process-desc">You get two distinct concept routes, each with the reasoning behind it. We choose one together and refine it, with three rounds of revisions included.</p>
+			</li>
+			<li class="process-step">
+				<p class="process-num">05</p>
+				<h3 class="process-title">System &amp; handover</h3>
+				<p class="process-desc">Your identity is delivered as a complete system: brand guidelines, final files in every format you need, and full ownership of the work.</p>
+			</li>
+		</ol>
 	</section>
 
 	<div class="rule"></div>
