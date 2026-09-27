@@ -718,6 +718,61 @@ a {
 	}
 }
 
+/* Media never taller than the screen.
+   Single items: width shrinks so height stays within 85% of the viewport (left aligned).
+   Rows: items share one height, widths follow each item's proportions (--ar),
+   and the whole row narrows if it would get taller than the screen. */
+.cs-one > img,
+.cs-one > video {
+	width: min(100%, calc(85vh * var(--ar, 1.7778)));
+	aspect-ratio: var(--ar, auto);
+	height: auto;
+	object-fit: cover;
+}
+
+.cs-row {
+	display: flex;
+	gap: 2rem;
+	align-items: flex-start;
+	max-width: calc(85vh * var(--row-ar) + (var(--n) - 1) * 2rem);
+}
+
+.cs-hero .cs-row > *,
+.cs-media .cs-row > * {
+	flex: var(--ar) 1 0;
+	width: 0;
+	min-width: 0;
+	aspect-ratio: var(--ar);
+	height: auto;
+	object-fit: cover;
+}
+
+/* Safety net for any image without a known ratio */
+.cs-one > img:not([style*="--ar"]) {
+	width: auto;
+	max-width: 100%;
+	max-height: 85vh;
+}
+
+@media (max-width: 768px) {
+	.cs-one > img,
+	.cs-one > video {
+		width: min(100%, calc(80vh * var(--ar, 1.7778)));
+	}
+
+	.cs-row {
+		flex-direction: column;
+		gap: 1.25rem;
+		max-width: none;
+	}
+
+	.cs-hero .cs-row > *,
+	.cs-media .cs-row > * {
+		flex: none;
+		width: min(100%, calc(80vh * var(--ar)));
+	}
+}
+
 /* Portrait video beside an image: the video sets the row height, the image fills the rest */
 .cs-split {
 	display: grid;
