@@ -13,6 +13,10 @@
 	backdrop-filter: blur(8px);
 	font-family: "DM Sans", system-ui, sans-serif;
 	font-weight: 300;
+	/* Clicking empty space in the bar shouldn't place a text cursor (e.g. beside the burger) */
+	-webkit-user-select: none;
+	user-select: none;
+	caret-color: transparent;
 }
 
 .site-logo {
@@ -24,6 +28,8 @@
 
 .menu-toggle {
 	position: relative;
+	-webkit-tap-highlight-color: transparent;
+	caret-color: transparent;
 	width: 2.75rem;
 	height: 2.75rem;
 	margin-right: -0.6rem;
