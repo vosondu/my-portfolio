@@ -1,3 +1,18 @@
 {
   "cleanUrls": true
 }
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "my-portfolio-six-psi-61.vercel.app" }],
+      "destination": "https://victorosondu.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
