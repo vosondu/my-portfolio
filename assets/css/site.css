@@ -1004,3 +1004,143 @@ a {
 		transition: none !important;
 	}
 }
+
+/* Case study lightbox */
+.lb-trigger {
+	cursor: zoom-in;
+}
+
+.lb-trigger:focus-visible {
+	outline: 1px solid var(--grey-mid);
+	outline-offset: 4px;
+}
+
+html.lightbox-open,
+html.lightbox-open body {
+	overflow: hidden;
+}
+
+.lightbox {
+	position: fixed;
+	inset: 0;
+	z-index: 200;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #0a0a09;
+	opacity: 0;
+	transition: opacity 250ms ease;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.lightbox.is-open {
+	opacity: 1;
+}
+
+.lb-stage {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4.5rem 6rem;
+}
+
+.lb-stage img {
+	max-width: 100%;
+	max-height: 100%;
+	width: auto;
+	height: auto;
+	object-fit: contain;
+	cursor: default;
+	opacity: 0;
+	transform: scale(0.98);
+	transition: opacity 300ms ease, transform 400ms cubic-bezier(.2, .9, .2, 1);
+}
+
+.lb-stage img.is-ready {
+	opacity: 1;
+	transform: none;
+}
+
+.lb-close,
+.lb-nav {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 3rem;
+	height: 3rem;
+	background: none;
+	border: none;
+	color: var(--grey-dark);
+	cursor: pointer;
+	transition: color 200ms ease;
+}
+
+.lb-close:hover,
+.lb-nav:hover,
+.lb-close:focus-visible,
+.lb-nav:focus-visible {
+	color: var(--white);
+	outline: none;
+}
+
+.lb-close svg,
+.lb-nav svg {
+	width: 1.5rem;
+	height: 1.5rem;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.2;
+}
+
+.lb-close {
+	top: 1rem;
+	right: 1.25rem;
+}
+
+.lb-prev {
+	left: 1.25rem;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.lb-next {
+	right: 1.25rem;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.lb-count {
+	position: absolute;
+	bottom: 1.25rem;
+	left: 50%;
+	transform: translateX(-50%);
+	color: var(--grey-mid);
+}
+
+@media (max-width: 768px) {
+	.lb-stage {
+		padding: 4rem 1rem;
+	}
+
+	.lb-nav {
+		top: auto;
+		bottom: 0.5rem;
+		transform: none;
+	}
+
+	.lb-count {
+		bottom: 1.3rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.lightbox,
+	.lb-stage img {
+		transition: none;
+	}
+}
