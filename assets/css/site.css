@@ -646,6 +646,11 @@ a {
 	padding: 0 var(--gutter) 12rem;
 }
 
+/* Deep links (e.g. #listing-video) land below the sticky header */
+.cs-media[id] {
+	scroll-margin-top: 6rem;
+}
+
 .cs-media img,
 .cs-media video,
 .cs-hero img,
