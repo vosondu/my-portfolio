@@ -93,11 +93,26 @@
 			<div class="field">
 				<label for="f-package">Package</label>
 				<select id="f-package" name="package" required>
-					<option value="Brand Starter">Brand Starter · ₦150,000</option>
-					<option value="Full Brand Identity" selected>Full Brand Identity · ₦280,000</option>
-					<option value="Brand + Launch System">Brand + Launch System · ₦500,000</option>
+					<option value="Lite">Lite</option>
+					<option value="Standard">Standard</option>
+					<option value="Full">Full</option>
+					<option value="Not sure yet" selected>Not sure yet</option>
+				</select>
+			</div>
+			<div class="field">
+				<label for="f-need">What do you need help with?</label>
+				<select id="f-need" name="need" required>
+					<option value="" disabled selected>Select one</option>
+					<option value="New brand identity">New brand identity</option>
+					<option value="Rebrand of an existing brand">Rebrand of an existing brand</option>
+					<option value="Refresh of an existing brand">Refresh of an existing brand</option>
+					<option value="Brand guidelines only">Brand guidelines only</option>
 					<option value="Not sure yet">Not sure yet</option>
 				</select>
+			</div>
+			<div class="field field-full">
+				<label for="f-prompt">What’s prompting this project now?</label>
+				<textarea id="f-prompt" name="prompt" required></textarea>
 			</div>
 			<div class="field">
 				<label for="f-timeline">When do you need it ready?</label>
@@ -105,17 +120,32 @@
 					<option value="" disabled selected>Select a timeline</option>
 					<option value="Within a month">Within a month</option>
 					<option value="1 to 3 months">1 to 3 months</option>
-					<option value="3+ months">3+ months</option>
-					<option value="Just exploring">Just exploring</option>
+					<option value="3 to 6 months">3 to 6 months</option>
+					<option value="Flexible">Flexible</option>
 				</select>
 			</div>
-			<fieldset class="field field-full">
-				<legend>Packages start at ₦150,000. Does that fit your budget?</legend>
-				<div class="radio-row">
-					<label><input type="radio" name="budget_fit" value="Yes" required /> Yes</label>
-					<label><input type="radio" name="budget_fit" value="Not yet" /> Not yet</label>
-				</div>
-			</fieldset>
+			<div class="field">
+				<label for="f-budget">What budget have you set aside?</label>
+				<select id="f-budget" name="budget" required>
+					<option value="" disabled selected>Select a range</option>
+					<option value="Under ₦200,000">Under ₦200,000</option>
+					<option value="₦200,000 to ₦500,000">₦200,000 to ₦500,000</option>
+					<option value="₦500,000 to ₦1.5M">₦500,000 to ₦1.5M</option>
+					<option value="₦1.5M to ₦5M">₦1.5M to ₦5M</option>
+					<option value="Above ₦5M">Above ₦5M</option>
+					<option value="Not sure yet">Not sure yet</option>
+				</select>
+			</div>
+			<div class="field field-full">
+				<label for="f-decider">Who will make the final decision?</label>
+				<select id="f-decider" name="decision_maker" required>
+					<option value="" disabled selected>Select one</option>
+					<option value="Me alone">Me alone</option>
+					<option value="Me with a partner or co-founder">Me with a partner or co-founder</option>
+					<option value="A team or board">A team or board</option>
+					<option value="Someone else">Someone else</option>
+				</select>
+			</div>
 
 			<p class="form-status" id="form-status" role="status" aria-live="polite"></p>
 			<div class="form-actions">
@@ -195,6 +225,7 @@
 	</script>
 	<script src="/assets/js/menu.js"></script>
 	<script src="/assets/js/site.js"></script>
+	<script src="/assets/js/sheet.js"></script>
 	<script>
 		// Pre-select the package passed from the Packages page (?package=...)
 		(function () {
@@ -224,6 +255,7 @@
 					});
 					const json = await res.json();
 					if (!res.ok || !json.success) throw new Error(json.message || 'Request failed');
+					if (window.sendToSheet) window.sendToSheet('Enquiries', data);
 					form.hidden = true;
 					successEl.hidden = false;
 					if (window.va) window.va('event', { name: 'Inquiry submitted' });
