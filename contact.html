@@ -226,8 +226,14 @@
 	<script src="/assets/js/menu.js"></script>
 	<script src="/assets/js/site.js"></script>
 	<script src="/assets/js/sheet.js"></script>
+	<script src="/assets/js/drafts.js"></script>
 	<script>
 		// Pre-select the package passed from the Packages page (?package=...)
+		// Keep unfinished answers on this device so visitors can come back later
+		window.contactDraft = window.initDraft
+			? window.initDraft(document.getElementById('inquiry-form'), 'contact')
+			: { restored: false, clear: function () {} };
+
 		(function () {
 			const select = document.getElementById('f-package');
 			const wanted = new URLSearchParams(window.location.search).get('package');
@@ -256,6 +262,7 @@
 					const json = await res.json();
 					if (!res.ok || !json.success) throw new Error(json.message || 'Request failed');
 					if (window.sendToSheet) window.sendToSheet('Enquiries', data);
+					window.contactDraft.clear();
 					form.hidden = true;
 					successEl.hidden = false;
 					if (window.va) window.va('event', { name: 'Inquiry submitted' });

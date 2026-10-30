@@ -116,6 +116,14 @@
 		holder.appendChild(fieldset);
 	});
 
+	// Restore any unfinished answers saved on this device
+	const draft = window.initDraft
+		? window.initDraft(form, 'questionnaire-' + tierKey)
+		: { restored: false, clear: function () {} };
+	if (draft.restored) {
+		statusEl.textContent = 'Welcome back. Your saved answers have been restored.';
+	}
+
 	form.addEventListener('submit', async function (e) {
 		e.preventDefault();
 		statusEl.classList.remove('is-error');
@@ -152,6 +160,7 @@
 			const json = await res.json();
 			if (!res.ok || !json.success) throw new Error(json.message || 'Request failed');
 			if (window.sendToSheet) window.sendToSheet('Questionnaire ' + tier.label, Object.assign({ Tier: tier.label }, answers));
+			draft.clear();
 			form.hidden = true;
 			successEl.hidden = false;
 			window.scrollTo({ top: 0, behavior: 'smooth' });
