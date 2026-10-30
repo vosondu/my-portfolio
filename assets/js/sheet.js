@@ -1,7 +1,7 @@
 // Sends a copy of form submissions to the Client Pipeline Google Sheet.
 // Paste the Google Apps Script web app URL below (it ends in /exec).
 // While it is empty, forms still work and still email you; they just skip the sheet.
-const SHEET_ENDPOINT = '';
+const SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxQBRrHDvnYMqjvsUd6_J9bMwfqJmaLeMq25zoQzWN2RDbQzMNYRJjOuc261aH_rg9H/exec';
 
 window.sendToSheet = function (tab, data) {
 	if (!SHEET_ENDPOINT) return Promise.resolve();
