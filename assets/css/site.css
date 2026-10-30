@@ -1029,7 +1029,7 @@ html.lightbox-open body {
 	justify-content: center;
 	background: #0a0a09;
 	opacity: 0;
-	transition: opacity 250ms ease;
+	transition: opacity 600ms cubic-bezier(.4, 0, .2, 1);
 	-webkit-user-select: none;
 	user-select: none;
 }
@@ -1056,8 +1056,14 @@ html.lightbox-open body {
 	object-fit: contain;
 	cursor: default;
 	opacity: 0;
-	transform: scale(0.98);
-	transition: opacity 300ms ease, transform 400ms cubic-bezier(.2, .9, .2, 1);
+	transform: scale(0.96);
+	/* Opening: the backdrop settles first, then the image eases in */
+	transition: opacity 700ms ease 200ms, transform 1000ms cubic-bezier(.2, .9, .2, 1) 200ms;
+}
+
+/* Moving between images stays quicker so browsing doesn't drag */
+.lightbox.is-browsing .lb-stage img {
+	transition: opacity 350ms ease, transform 500ms cubic-bezier(.2, .9, .2, 1);
 }
 
 .lb-stage img.is-ready {

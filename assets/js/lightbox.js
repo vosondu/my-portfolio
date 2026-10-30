@@ -38,15 +38,27 @@
 		index = (i + images.length) % images.length;
 		const src = images[index];
 		img.classList.remove('is-ready');
-		img.onload = function () { img.classList.add('is-ready'); };
+		// Wait two frames so the fade-in always plays, even for images the browser already has
+		const reveal = function () {
+			requestAnimationFrame(function () {
+				requestAnimationFrame(function () { img.classList.add('is-ready'); });
+			});
+		};
+		img.onload = reveal;
 		img.src = src.currentSrc || src.src;
 		img.alt = src.alt || '';
-		if (img.complete) img.classList.add('is-ready');
+		if (img.complete) reveal();
 		count.textContent = images.length > 1 ? (index + 1) + ' / ' + images.length : '';
+	}
+
+	function browse(step) {
+		box.classList.add('is-browsing');
+		show(index + step);
 	}
 
 	function open(i) {
 		lastFocus = document.activeElement;
+		box.classList.remove('is-browsing');
 		show(i);
 		box.hidden = false;
 		requestAnimationFrame(function () { box.classList.add('is-open'); });
@@ -59,7 +71,7 @@
 		box.classList.remove('is-open');
 		document.documentElement.classList.remove('lightbox-open');
 		if (typeof lenis !== 'undefined') lenis.start();
-		setTimeout(function () { box.hidden = true; img.removeAttribute('src'); }, 250);
+		setTimeout(function () { box.hidden = true; img.removeAttribute('src'); }, 600);
 		if (lastFocus) lastFocus.focus({ preventScroll: true });
 	}
 
@@ -75,8 +87,8 @@
 	});
 
 	closeBtn.addEventListener('click', close);
-	prevBtn.addEventListener('click', function (e) { e.stopPropagation(); show(index - 1); });
-	nextBtn.addEventListener('click', function (e) { e.stopPropagation(); show(index + 1); });
+	prevBtn.addEventListener('click', function (e) { e.stopPropagation(); browse(-1); });
+	nextBtn.addEventListener('click', function (e) { e.stopPropagation(); browse(1); });
 	box.addEventListener('click', function (e) {
 		if (e.target === box || e.target.classList.contains('lb-stage')) close();
 	});
@@ -84,8 +96,8 @@
 	document.addEventListener('keydown', function (e) {
 		if (box.hidden) return;
 		if (e.key === 'Escape') close();
-		else if (e.key === 'ArrowLeft') show(index - 1);
-		else if (e.key === 'ArrowRight') show(index + 1);
+		else if (e.key === 'ArrowLeft') browse(-1);
+		else if (e.key === 'ArrowRight') browse(1);
 		else if (e.key === 'Tab') {
 			// keep keyboard focus inside the viewer
 			const focusables = Array.prototype.filter.call(box.querySelectorAll('button'), function (b) { return !b.hidden; });
@@ -106,7 +118,7 @@
 	box.addEventListener('touchend', function (e) {
 		const dx = e.changedTouches[0].clientX - startX;
 		const dy = e.changedTouches[0].clientY - startY;
-		if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(index + (dx < 0 ? 1 : -1));
+		if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) browse(dx < 0 ? 1 : -1);
 		else if (dy > 90 && Math.abs(dy) > Math.abs(dx)) close();
 	}, { passive: true });
 })();
