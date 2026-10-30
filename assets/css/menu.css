@@ -161,6 +161,15 @@ html.menu-open body {
 	overflow: hidden;
 }
 
+/* Locking scroll unpins a sticky header, so pin it explicitly while the menu is open.
+   Without this, opening the menu after scrolling hides the logo and close button. */
+html.menu-open .site-header {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+}
+
 @media (max-width: 768px) {
 	.site-header {
 		padding: 1rem 2.55rem;
