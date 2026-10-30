@@ -158,6 +158,7 @@
 			if (!res.ok || !json.success) throw new Error(json.message || 'Request failed');
 			if (window.sendToSheet) window.sendToSheet('Questionnaire ' + tier.label, Object.assign({ Tier: tier.label }, answers));
 			draft.clear();
+			statusEl.textContent = '';
 			form.hidden = true;
 			successEl.hidden = false;
 			window.scrollTo({ top: 0, behavior: 'smooth' });

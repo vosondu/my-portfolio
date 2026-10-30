@@ -425,6 +425,11 @@ a {
 	display: block;
 }
 
+/* Anything marked hidden stays hidden, even if a layout rule sets display */
+[hidden] {
+	display: none !important;
+}
+
 /* Contact form */
 .inquiry-form {
 	display: grid;
