@@ -120,9 +120,6 @@
 	const draft = window.initDraft
 		? window.initDraft(form, 'questionnaire-' + tierKey)
 		: { restored: false, clear: function () {} };
-	if (draft.restored) {
-		statusEl.textContent = 'Welcome back. Your saved answers have been restored.';
-	}
 
 	form.addEventListener('submit', async function (e) {
 		e.preventDefault();

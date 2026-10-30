@@ -51,6 +51,31 @@
 		} catch (e) {}
 
 		let timer;
+
+		// Tell returning visitors their answers were kept, at the top of the form
+		let notice = null;
+		if (restored) {
+			notice = document.createElement('div');
+			notice.className = 'draft-notice field-full';
+			notice.setAttribute('role', 'status');
+			const text = document.createElement('p');
+			text.className = 'white';
+			text.textContent = 'Welcome back. Your saved answers have been restored.';
+			const reset = document.createElement('button');
+			reset.type = 'button';
+			reset.className = 'draft-reset text-link';
+			reset.textContent = 'Start over';
+			reset.addEventListener('click', function () {
+				clearTimeout(timer);
+				try { store.removeItem(id); } catch (e) {}
+				form.reset();
+				notice.remove();
+			});
+			notice.appendChild(text);
+			notice.appendChild(reset);
+			form.insertBefore(notice, form.firstChild);
+		}
+
 		function save() {
 			clearTimeout(timer);
 			timer = setTimeout(function () {
@@ -75,6 +100,7 @@
 			restored: restored,
 			clear: function () {
 				clearTimeout(timer);
+				if (notice) notice.remove();
 				try { store.removeItem(id); } catch (e) {}
 			},
 		};

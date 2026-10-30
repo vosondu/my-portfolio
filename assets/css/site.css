@@ -546,6 +546,28 @@ a {
 	margin-top: 0.5rem;
 }
 
+/* Restored-draft notice on forms */
+.draft-notice {
+	grid-column: 1 / -1;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 1.25rem 1.5rem;
+	border: 1px solid var(--grey-light);
+	background: var(--panel);
+}
+
+.draft-reset {
+	background: none;
+	border: none;
+	border-bottom: 1px solid var(--grey-light);
+	font-family: var(--font);
+	cursor: pointer;
+	padding: 0;
+}
+
 /* Discovery questionnaire */
 #q-sections {
 	grid-column: 1 / -1;
