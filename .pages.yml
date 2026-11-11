@@ -13,7 +13,7 @@ content:
     path: content/home.yml
     fields:
       - name: projects
-        label: "Case studies on the homepage, top to bottom (drag ⠿ to reorder). The first gets the wide banner; case studies you leave out are added at the end unless hidden."
+        label: Homepage case studies, top to bottom (drag ⠿ to reorder)
         type: block
         blockKey: type
         list:
@@ -260,7 +260,7 @@ content:
     path: content/writing.yml
     fields:
       - name: articles
-        label: "Articles on the Writing page, top to bottom (drag ⠿ to reorder). New articles not placed here appear at the top, newest first."
+        label: Writing page articles, top to bottom (drag ⠿ to reorder)
         type: reference
         list: true
         options:
@@ -319,7 +319,7 @@ content:
             label: Description
             type: text
       - name: body
-        label: "Article, top to bottom. Use Heading 2 for section titles; they build the In this article list."
+        label: Article sections (use Heading 2 for section titles)
         type: block
         blockKey: type
         list:
