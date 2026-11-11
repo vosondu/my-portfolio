@@ -1222,8 +1222,7 @@ html.lightbox-open body {
 }
 
 .article-aside {
-	position: sticky;
-	top: 8rem;
+	align-self: stretch;
 	border-left: 1px solid var(--line);
 	padding-left: 2.5rem;
 	color: var(--grey-mid);
@@ -1231,6 +1230,18 @@ html.lightbox-open body {
 
 .article-aside-block + .article-aside-block {
 	margin-top: 4rem;
+}
+
+.article-toc-wrap {
+	position: sticky;
+	top: 8rem;
+	max-height: calc(100vh - 10rem);
+	overflow-y: auto;
+	scrollbar-width: none;
+}
+
+.article-toc-wrap::-webkit-scrollbar {
+	display: none;
 }
 
 .article-aside-block p + p {
@@ -1269,7 +1280,7 @@ html.lightbox-open body {
 	}
 
 	.article-aside {
-		position: static;
+		align-self: start;
 		border-left: 0;
 		padding-left: 0;
 		border-top: 1px solid var(--line);
