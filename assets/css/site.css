@@ -1249,8 +1249,19 @@ html.lightbox-open body {
 }
 
 .article-aside-label {
-	color: var(--white);
+	color: var(--grey-mid);
 	margin-bottom: 1rem;
+}
+
+/* Keep the sidebar quiet: only the current section is white */
+.article-aside .text-link {
+	color: var(--grey-mid);
+	transition: color 200ms ease, border-color 200ms ease;
+}
+
+.article-aside .text-link:hover,
+.article-aside .text-link:focus-visible {
+	color: var(--grey-dark);
 }
 
 .article-toc {
@@ -1268,7 +1279,10 @@ html.lightbox-open body {
 }
 
 .article-toc a:hover,
-.article-toc a:focus-visible,
+.article-toc a:focus-visible {
+	color: var(--grey-dark);
+}
+
 .article-toc a.is-current {
 	color: var(--white);
 }
