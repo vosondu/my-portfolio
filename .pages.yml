@@ -13,8 +13,7 @@ content:
     path: content/home.yml
     fields:
       - name: projects
-        label: Case studies on the homepage, top to bottom
-        description: The first one gets the wide banner. A pair puts a narrow and a wide card side by side. Case studies you leave out are added at the end automatically, unless they're hidden.
+        label: Homepage case studies, top to bottom (drag ⠿ to reorder)
         type: block
         blockKey: type
         list:
@@ -107,8 +106,7 @@ content:
             description: One or two sentences for Google results and link previews (about 150 characters).
             type: text
       - name: hero
-        label: Top image(s)
-        description: One image fills the width. Two or three sit in a row.
+        label: Top image(s). One fills the width; two or three sit in a row.
         type: object
         list:
           max: 3
@@ -159,17 +157,18 @@ content:
           description: Leave empty. The shape is read from the file. Only fill this to force a crop, as width divided by height (e.g. 1.5).
           type: number
       - name: details
-        label: Project details
-        description: The label/value rows under the top image (Client, Scope, Year...).
+        label: Project details (Client, Scope, Year...)
         type: object
         list: true
         fields:
           - name: label
+            label: Label
             type: string
           - name: value
+            label: Value
             type: string
       - name: sections
-        label: Page sections, top to bottom
+        label: Page sections, top to bottom (drag ⠿ to reorder)
         type: block
         blockKey: type
         list:
@@ -191,8 +190,7 @@ content:
             label: Images or videos
             fields:
               - name: items
-                label: Images or videos
-                description: One fills the width. Two or three sit in a row at matching heights.
+                label: Images or videos. One fills the width; two or three sit in a row.
                 type: object
                 list:
                   max: 3
@@ -262,8 +260,7 @@ content:
     path: content/writing.yml
     fields:
       - name: articles
-        label: Articles on the Writing page, top to bottom
-        description: New articles you haven't placed here appear at the top, newest first.
+        label: Writing page articles, top to bottom (drag ⠿ to reorder)
         type: reference
         list: true
         options:
@@ -322,8 +319,7 @@ content:
             label: Description
             type: text
       - name: body
-        label: Article, top to bottom
-        description: Use Heading 2 for section titles; they build the "In this article" list automatically.
+        label: Article sections (use Heading 2 for section titles)
         type: block
         blockKey: type
         list:
