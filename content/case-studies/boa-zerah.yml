@@ -1,58 +1,79 @@
 title: BOA Zerah
-subtitle: Brand identity · Strategy · 2025
+subtitle: Brand identity · Strategy · 2025 (test)
+hidden: false
 card:
   image: /images/BOA Zerah/Business Card.webp
   alt: BOA Zerah
   tags: Brand Identity · Strategy
 seo:
-  title: 'BOA Zerah: Brand Identity & Strategy'
-  description: 'Brand identity for BOA Zerah, a Lagos enterprise spanning trade, energy and supply chain: a logo system and brand guidelines for one business spanning four sectors.'
+  title: "BOA Zerah: Brand Identity & Strategy"
+  description: "Brand identity for BOA Zerah, a Lagos enterprise spanning trade,
+    energy and supply chain: a logo system and brand guidelines for one business
+    spanning four sectors."
 hero:
-- image: /images/BOA Zerah/Business Card.webp
-  alt: BOA Zerah business card
-- image: /images/BOA Zerah/Delivery Truck.webp
-  alt: BOA Zerah delivery truck
+  - image: /images/BOA Zerah/Business Card.webp
+    alt: BOA Zerah business card
+    playback: controls
+  - image: /images/BOA Zerah/Delivery Truck.webp
+    alt: BOA Zerah delivery truck
+    playback: controls
 details:
-- label: Client
-  value: BOA Zerah, Lagos
-- label: Scope
-  value: Logo system, brand guidelines
-- label: Year
-  value: '2025'
+  - label: Client
+    value: BOA Zerah, Lagos
+  - label: Scope
+    value: Logo system, brand guidelines
+  - label: Year
+    value: "2025"
 sections:
-- type: text
-  body: |
-    <p>Zerah is Hebrew for shining. My first sketches tried to make the wordmark itself shine, and none of them worked: they either lost the idea of shining, or leaned so far into it that the name stopped reading as a name.</p>
-    <p>So the meaning moved into the mark. Its divergent rays carry it outward: one source of energy reaching into trade, energy, production and supply chain at once.</p>
-    <p>Four colours, none dominant, because no single sector defines the business.</p>
-- type: media
-  items:
-  - image: /images/BOA Zerah/PNGs/1-Blue.png
-    alt: BOA Zerah logo on light
-    background: light
-  - image: /images/BOA Zerah/PNGs/1-White.webp
-    alt: BOA Zerah logo on dark
-    background: dark
-- type: media
-  items:
-  - image: /images/BOA Zerah/logo-concept.webp
-    alt: BOA Zerah logo concept sketches
-  - image: /images/BOA Zerah/Construction Helmet 2.webp
-    alt: BOA Zerah construction helmet
-- type: colours
-  label: BOA Zerah colour palette
-  colours:
-  - name: Blue
-    hex: '#1A8FE3'
-  - name: Coral
-    hex: '#FF5A5F'
-  - name: Gold
-    hex: '#FFD700'
-  - name: Mint
-    hex: '#2EDCBA'
-- type: media
-  items:
-  - image: /images/BOA Zerah/Delivery Box 4.webp
-    alt: BOA Zerah delivery box
-  - image: /images/BOA Zerah/Construction Site.webp
-    alt: BOA Zerah construction site signage
+  - type: text
+    body: "<p>Zerah is Hebrew for shining. My first sketches tried to make the
+      wordmark itself shine, and none of them worked: they either lost the idea
+      of shining, or leaned so far into it that the name stopped reading as a
+      name.</p><p>So the meaning moved into the mark. Its divergent rays carry
+      it outward: one source of energy reaching into trade, energy, production
+      and supply chain at once.</p><p>Four colours, none dominant, because no
+      single sector defines the business.</p>"
+  - type: media
+    items:
+      - image: /images/BOA Zerah/PNGs/1-Blue.png
+        alt: BOA Zerah logo on light
+        playback: controls
+        background: light
+      - image: /images/BOA Zerah/PNGs/1-White.webp
+        alt: BOA Zerah logo on dark
+        playback: controls
+        background: dark
+    layout: row
+  - type: media
+    items:
+      - image: /images/BOA Zerah/logo-concept.webp
+        alt: BOA Zerah logo concept sketches
+        playback: controls
+      - image: /images/BOA Zerah/Construction Helmet 2.webp
+        alt: BOA Zerah construction helmet
+        playback: controls
+    layout: row
+  - type: colours
+    label: BOA Zerah colour palette
+    colours:
+      - name: Blue
+        hex: "#1A8FE3"
+        text: auto
+      - name: Coral
+        hex: "#FF5A5F"
+        text: auto
+      - name: Gold
+        hex: "#FFD700"
+        text: auto
+      - name: Mint
+        hex: "#2EDCBA"
+        text: auto
+  - type: media
+    items:
+      - image: /images/BOA Zerah/Delivery Box 4.webp
+        alt: BOA Zerah delivery box
+        playback: controls
+      - image: /images/BOA Zerah/Construction Site.webp
+        alt: BOA Zerah construction site signage
+        playback: controls
+    layout: row
