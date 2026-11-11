@@ -1205,7 +1205,7 @@ html.lightbox-open body {
 }
 
 .article-body > * {
-	max-width: 70rem;
+	max-width: 40rem;
 }
 
 .article-body > * + * {
