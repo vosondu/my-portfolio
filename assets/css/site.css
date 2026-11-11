@@ -4,11 +4,11 @@
 :root {
 	--black: #131313;
 	--panel: #121211;
-	--line: #242421;
+	--line: #363633;
 	--grey-dark: #c8c8c2;
 	--grey-mid: #7a7a76;
 	--grey-light: #3a3a38;
-	--grey-faint: #1a1a18;
+	--grey-faint: #2e2e2b;
 	--white: #fafaf8;
 	--font: "DM Sans", system-ui, sans-serif;
 	--fw: 300;
@@ -1204,6 +1204,96 @@ html.lightbox-open body {
 	color: var(--grey-dark);
 }
 
+/* Article layout, modelled on long-form blogs (James Clear, Mark Manson):
+   a ~75-character reading column, tables that break out slightly wider,
+   and a sidebar behind a thin rule with the author and section list. */
+.article-intro {
+	padding-bottom: 5rem;
+}
+
+.article-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 52rem) 17rem;
+	column-gap: 4rem;
+	align-items: start;
+	max-width: 73rem;
+	border-top: 1px solid var(--line);
+	padding-top: 6rem;
+}
+
+.article-aside {
+	align-self: stretch;
+	border-left: 1px solid var(--line);
+	padding-left: 2.5rem;
+	color: var(--grey-mid);
+}
+
+.article-aside-block + .article-aside-block {
+	margin-top: 4rem;
+}
+
+.article-toc-wrap {
+	position: sticky;
+	top: 8rem;
+	max-height: calc(100vh - 10rem);
+	overflow-y: auto;
+	scrollbar-width: none;
+}
+
+.article-toc-wrap::-webkit-scrollbar {
+	display: none;
+}
+
+.article-aside-block p + p {
+	margin-top: 1rem;
+}
+
+.article-aside-label {
+	color: var(--white);
+	margin-bottom: 1rem;
+}
+
+.article-toc {
+	list-style: none;
+}
+
+.article-toc li + li {
+	margin-top: 0.6rem;
+}
+
+.article-toc a {
+	color: var(--grey-mid);
+	text-decoration: none;
+	transition: color 200ms ease;
+}
+
+.article-toc a:hover,
+.article-toc a:focus-visible,
+.article-toc a.is-current {
+	color: var(--white);
+}
+
+@media (max-width: 1240px) {
+	.article-layout {
+		grid-template-columns: minmax(0, 1fr);
+		max-width: 70rem;
+	}
+
+	.article-aside {
+		align-self: start;
+		border-left: 0;
+		padding-left: 0;
+		border-top: 1px solid var(--line);
+		padding-top: 4rem;
+		margin-top: 8rem;
+		max-width: 40rem;
+	}
+
+	.article-toc-wrap {
+		display: none;
+	}
+}
+
 .article-body > * {
 	max-width: 40rem;
 }
@@ -1258,7 +1348,7 @@ html.lightbox-open body {
 }
 
 .article-body > .article-table {
-	max-width: 70rem;
+	max-width: 100%;
 	margin-top: 3rem;
 	margin-bottom: 3rem;
 }

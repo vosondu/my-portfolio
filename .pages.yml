@@ -1,0 +1,367 @@
+# Admin console for victorosondu.com (Pages CMS: https://app.pagescms.org)
+# Every save here becomes a commit; Vercel rebuilds the site from these files.
+
+media:
+  input: images
+  output: /images
+  rename: safe
+
+content:
+  - name: home
+    label: Homepage order
+    type: file
+    path: content/home.yml
+    fields:
+      - name: projects
+        label: Case studies on the homepage, top to bottom
+        description: The first one gets the wide banner. A pair puts a narrow and a wide card side by side. Case studies you leave out are added at the end automatically, unless they're hidden.
+        type: block
+        blockKey: type
+        list:
+          collapsible:
+            collapsed: false
+        blocks:
+          - name: single
+            label: One case study (full width)
+            fields:
+              - name: project
+                label: Case study
+                type: reference
+                options:
+                  collection: case-studies
+                  search: title
+                  label: "{title}"
+          - name: pair
+            label: Two side by side (narrow + wide)
+            fields:
+              - name: narrow
+                label: Left (narrow, portrait image works best)
+                type: reference
+                options:
+                  collection: case-studies
+                  search: title
+                  label: "{title}"
+              - name: wide
+                label: Right (wide)
+                type: reference
+                options:
+                  collection: case-studies
+                  search: title
+                  label: "{title}"
+
+  - name: case-studies
+    label: Case studies
+    type: collection
+    path: content/case-studies
+    format: yaml
+    filename:
+      template: "{primary}.yml"
+      field: create
+    view:
+      primary: title
+      fields: [title, subtitle]
+    fields:
+      - name: title
+        label: Project name
+        type: string
+        required: true
+      - name: subtitle
+        label: Line under the title
+        description: e.g. "Brand identity · Luxury real estate"
+        type: string
+      - name: hidden
+        label: Hide this case study (draft)
+        description: Hidden case studies stay off the homepage, out of Google and out of the sitemap.
+        type: boolean
+      - name: card
+        label: Homepage card
+        type: object
+        fields:
+          - name: image
+            label: Card image
+            description: Also used as the link preview when the page is shared.
+            type: image
+            options:
+              path: images/uploads
+          - name: alt
+            label: Card image description
+            type: string
+          - name: tags
+            label: Tags under the name
+            description: e.g. "Brand Identity · Luxury Real Estate"
+            type: string
+          - name: name
+            label: Short name (optional)
+            description: Only if the card should show a different name from the project name.
+            type: string
+      - name: seo
+        label: Google and link previews
+        type: object
+        fields:
+          - name: title
+            label: Page title
+            description: Shown in Google and browser tabs. " | Victor Osondu" is added automatically.
+            type: string
+          - name: description
+            label: Description
+            description: One or two sentences for Google results and link previews (about 150 characters).
+            type: text
+      - name: hero
+        label: Top image(s)
+        description: One image fills the width. Two or three sit in a row.
+        type: object
+        list:
+          max: 3
+          collapsible:
+            collapsed: true
+            summary: "{alt}"
+        fields: &media_item
+        - name: image
+          label: Image (or the cover frame for a video)
+          type: image
+          options:
+            path: images/uploads
+        - name: video
+          label: Video (optional, MP4)
+          type: file
+          options:
+            categories: [video]
+            path: images/uploads
+        - name: alt
+          label: Description
+          description: What the picture shows, for screen readers and Google. Not displayed on the page.
+          type: string
+        - name: playback
+          label: Video playback
+          description: Only used for videos.
+          type: select
+          default: controls
+          options:
+            values:
+              - value: controls
+                label: Play button (sound off, loops)
+              - value: autoplay
+                label: Plays by itself, no controls
+        - name: background
+          label: Logo box
+          description: Put a logo inside a light or dark box instead of showing the image edge to edge.
+          type: select
+          options:
+            values:
+              - value: none
+                label: No box
+              - value: light
+                label: Light box
+              - value: dark
+                label: Dark box
+        - name: shape
+          label: Shape override (advanced)
+          description: Leave empty. The shape is read from the file. Only fill this to force a crop, as width divided by height (e.g. 1.5).
+          type: number
+      - name: details
+        label: Project details
+        description: The label/value rows under the top image (Client, Scope, Year...).
+        type: object
+        list: true
+        fields:
+          - name: label
+            type: string
+          - name: value
+            type: string
+      - name: sections
+        label: Page sections, top to bottom
+        type: block
+        blockKey: type
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{index}. {type}"
+        blocks:
+          - name: text
+            label: Text
+            fields:
+              - name: body
+                label: Text
+                description: Use the quote button for a highlighted line in white.
+                type: rich-text
+                options:
+                  format: html
+                  media: false
+          - name: media
+            label: Images or videos
+            fields:
+              - name: items
+                label: Images or videos
+                description: One fills the width. Two or three sit in a row at matching heights.
+                type: object
+                list:
+                  max: 3
+                  collapsible:
+                    collapsed: true
+                    summary: "{alt}"
+                fields: *media_item
+              - name: layout
+                label: Layout
+                type: select
+                default: row
+                options:
+                  values:
+                    - value: row
+                      label: Row (matching heights)
+                    - value: split
+                      label: Split (portrait video next to an image)
+              - name: caption
+                label: Caption (optional)
+                type: string
+              - name: anchor
+                label: Link name (advanced, optional)
+                description: Lets you link straight to this spot, e.g. "listing-video" makes /page#listing-video.
+                type: string
+          - name: colours
+            label: Colour palette
+            fields:
+              - name: label
+                label: Palette name (for screen readers)
+                description: e.g. "BOA Zerah colour palette"
+                type: string
+              - name: colours
+                label: Colours
+                type: object
+                list: true
+                fields:
+                  - name: name
+                    type: string
+                  - name: hex
+                    label: Hex code
+                    description: e.g. #1A8FE3
+                    type: string
+                  - name: text
+                    label: Label colour
+                    type: select
+                    default: auto
+                    options:
+                      values:
+                        - value: auto
+                          label: Automatic
+                        - value: light
+                          label: Light text
+                        - value: dark
+                          label: Dark text
+          - name: quote
+            label: Client quote
+            fields:
+              - name: quote
+                type: text
+              - name: author
+                label: Name and role
+                type: string
+
+  - name: writing
+    label: Writing order
+    type: file
+    path: content/writing.yml
+    fields:
+      - name: articles
+        label: Articles on the Writing page, top to bottom
+        description: New articles you haven't placed here appear at the top, newest first.
+        type: reference
+        list: true
+        options:
+          collection: articles
+          search: title
+          label: "{title}"
+
+  - name: articles
+    label: Articles
+    type: collection
+    path: content/articles
+    format: yaml
+    filename:
+      template: "{primary}.yml"
+      field: create
+    view:
+      primary: title
+      fields: [title, date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: summary
+        label: Short description
+        description: Shown under the title on the Writing page.
+        type: text
+      - name: date
+        label: Published
+        type: date
+        required: true
+      - name: updated
+        label: Last updated (optional)
+        type: date
+      - name: hidden
+        label: Hide this article (draft)
+        type: boolean
+      - name: image
+        label: Link preview image (optional)
+        description: Without one, links show your logo.
+        type: image
+        options:
+          path: images/uploads
+      - name: seo
+        label: Google and link previews
+        type: object
+        fields:
+          - name: title
+            label: Page title
+            description: " | Victor Osondu is added automatically."
+            type: string
+          - name: description
+            label: Description
+            type: text
+      - name: body
+        label: Article, top to bottom
+        description: Use Heading 2 for section titles; they build the "In this article" list automatically.
+        type: block
+        blockKey: type
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{index}. {type}"
+        blocks:
+          - name: text
+            label: Text
+            fields:
+              - name: body
+                label: Text
+                type: rich-text
+                options:
+                  format: html
+                  media: false
+          - name: table
+            label: Table
+            fields:
+              - name: columns
+                label: Column headings
+                type: string
+                list: true
+              - name: rows
+                label: Rows
+                type: object
+                list: true
+                fields:
+                  - name: cells
+                    label: Cells, left to right
+                    type: string
+                    list: true
+          - name: note
+            label: Small grey note
+            fields:
+              - name: body
+                label: Note
+                type: rich-text
+                options:
+                  format: html
+                  media: false

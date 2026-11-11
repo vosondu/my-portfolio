@@ -1,9 +1,21 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/admin",
+      "destination": "https://app.pagescms.org/vosondu/my-portfolio/main",
+      "permanent": false
+    },
+    {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "my-portfolio-six-psi-61.vercel.app" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "my-portfolio-six-psi-61.vercel.app"
+        }
+      ],
       "destination": "https://victorosondu.com/:path*",
       "permanent": true
     },

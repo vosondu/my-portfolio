@@ -1,0 +1,14 @@
+projects:
+- type: single
+  project: content/case-studies/joie-luxe-rentals.yml
+- type: single
+  project: content/case-studies/boa-zerah.yml
+- type: single
+  project: content/case-studies/addide-rebrand.yml
+- type: pair
+  narrow: content/case-studies/komis-kitchen.yml
+  wide: content/case-studies/centratutor.yml
+- type: single
+  project: content/case-studies/mahadumia.yml
+- type: single
+  project: content/case-studies/bwbcon-2026.yml

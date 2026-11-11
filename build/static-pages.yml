@@ -1,0 +1,16 @@
+# Hand-written pages to include in the sitemap. Case studies and articles are added automatically.
+pages:
+  - path: /
+    lastmod: 2026-09-25
+  - path: /reviews
+    lastmod: 2026-09-25
+  - path: /about
+    lastmod: 2026-09-26
+  - path: /process
+    lastmod: 2026-09-26
+  - path: /packages
+    lastmod: 2026-09-26
+  - path: /contact
+    lastmod: 2026-09-26
+  - path: /writing
+    lastmod: 2026-11-04
