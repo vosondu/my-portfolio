@@ -1,25 +1,45 @@
 title: Financial Faith
-subtitle: Brand Identity · Fintech
+subtitle: Brand Identity · Financial Coaching
 hidden: true
 card:
   image: /images/uploads/ig-story.jpg
+  alt: Financial Faith Instagram story screen on a phone against a warm umber
+    background
   tags: Brand Identity · Financial Coaching
 seo:
-  title: Financial Faith
+  title: "Financial Faith: Financial Coaching Brand Identity"
   description: Discover the complete brand motion identity and dynamic billboard
     screen mockup for Financial Faith, featuring a warm, organic color palette
     of deep espresso, rustic umber, and burnished gold, coupled with bespoke
     neo-soul sound design and tactile micro-foley.
 hero:
   - video: /images/Financial Faith/vids/Brand In Action.mp4
-    playback: controls
-  - image: /images/uploads/linkedin-profile.jpg
-    playback: controls
-  - image: /images/uploads/bus-stop.jpg
+    alt: A dynamic motion design showcase highlighting the core visual elements of
+      the Financial Faith brand. The sequence opens with warm lifestyle
+      photography slides, transitions into an animated presentation of the
+      brand's primary color palette (Deep Espresso, Rustic Umber, Burnished
+      Gold, and Warm Alabaster), showcases a structured icon pattern grid, and
+      concludes with a polished UI dashboard preview and the final interlocking
+      DNA "f" logo reveal, synchronized precisely with custom neo-soul music, UI
+      glides, grid snaps, and an authoritative branding chime.
     playback: controls
 details:
-  - {}
+  - label: Client
+    value: Financial Faith
+  - label: Scope
+    value: Logomark, brand guidelines, LinkedIn banner, motion identity
+  - label: Year
+    value: "2026"
 sections:
+  - type: text
+    body: <p></p>
+  - type: media
+    items:
+      - image: /images/uploads/bus-stop.jpg
+        playback: controls
+      - image: /images/uploads/linkedin-profile.jpg
+        playback: controls
+    layout: row
   - type: media
     items:
       - image: /images/uploads/artboard-6.png
@@ -29,10 +49,35 @@ sections:
       - image: /images/uploads/artboard-11.png
         playback: controls
     layout: row
+  - type: text
+    body: "<p>Faith Ifeanacho coaches young professionals on money through
+      personality, starting with how each person naturally relates to it. Most
+      financial advisers sound alike. This identity had to feel like being
+      understood rather than assessed, closer to listening in therapy than to
+      advice. The voice gets one test: does this sound like we are diagnosing
+      someone, or genuinely trying to understand them?</p><p>My first routes, a
+      fingerprint rising into an ascent and a curved monogram, felt too
+      mathematical to Faith. The final mark interlocks two f’s into a form that
+      reads as a DNA strand. Her method is Your Money Personality, and DNA is
+      unique to each person, like the personality her coaching starts
+      from.</p><p>Green and purple were once in mind. The palette went warm
+      instead: deep espresso, rustic umber and burnished gold, to feel rooted
+      and premium without being trendy or noisy. The motion identity adds
+      neo-soul sound design and tactile micro-foley.</p>"
   - type: quote
     quote: Victor recently worked on my brand identity and I must say, he is
       exceptional at his work. He is very detailed and attentive too. I highly
       recommend him.
     author: Faith Ifeanacho
-  - type: text
-    body: <p></p>
+  - type: media
+    items:
+      - video: /images/Financial Faith/vids/Billboard Mockup.mp4
+        alt: A cinematic video mockup of a high-end outdoor billboard displaying the
+          Financial Faith brand identity against a moving camera push-in. The
+          screen features the interlocking DNA double-helix "f" logomark set
+          within a warm, architectural aesthetic of deep espresso and burnished
+          gold. The motion piece seamlessly integrates smooth green-screen
+          chroma keying, scale animation, and a custom warm neo-soul
+          instrumental track with bespoke tactile sound effects.
+        playback: controls
+    layout: row
