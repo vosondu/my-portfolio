@@ -64,11 +64,6 @@ sections:
       instead: deep espresso, rustic umber and burnished gold, to feel rooted
       and premium without being trendy or noisy. The motion identity adds
       neo-soul sound design and tactile micro-foley.</p>"
-  - type: quote
-    quote: Victor recently worked on my brand identity and I must say, he is
-      exceptional at his work. He is very detailed and attentive too. I highly
-      recommend him.
-    author: Faith Ifeanacho
   - type: media
     items:
       - video: /images/Financial Faith/vids/Billboard Mockup.mp4
@@ -81,3 +76,8 @@ sections:
           instrumental track with bespoke tactile sound effects.
         playback: controls
     layout: row
+  - type: quote
+    quote: Victor recently worked on my brand identity and I must say, he is
+      exceptional at his work. He is very detailed and attentive too. I highly
+      recommend him.
+    author: Faith Ifeanacho
