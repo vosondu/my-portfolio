@@ -11,7 +11,8 @@ seo:
     of deep espresso, rustic umber, and burnished gold, coupled with bespoke
     neo-soul sound design and tactile micro-foley.
 hero:
-  - playback: controls
+  - video: /images/Financial Faith/vids/Brand In Action.mp4
+    playback: controls
   - image: /images/uploads/linkedin-profile.jpg
     playback: controls
   - image: /images/uploads/bus-stop.jpg
