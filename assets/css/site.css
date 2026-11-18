@@ -1453,3 +1453,14 @@ html.lightbox-open body {
 		color: var(--grey-mid);
 	}
 }
+
+
+video:fullscreen {
+  object-fit: contain;
+  background: #000;
+}
+
+video:-webkit-full-screen {
+  object-fit: contain;
+  background: #000;
+}
