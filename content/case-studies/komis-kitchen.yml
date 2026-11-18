@@ -1,0 +1,97 @@
+title: Komi’s Kitchen
+subtitle: Food brand · Brand identity
+card:
+  image: /images/Komis/cover-img.webp
+  alt: Komi’s Kitchen
+  tags: Food Brand · Brand Identity
+seo:
+  title: 'Komi''s Kitchen: Food Brand Identity'
+  description: 'Brand identity for Komi''s Kitchen, a Lagos food brand built on its founder''s village story: wordmark, mascot, earthy palette, guidelines and product labels.'
+hero:
+- image: /images/Komis/cover-img.webp
+  alt: Komi's Kitchen
+details:
+- label: Client
+  value: Komi’s Kitchen
+- label: Scope
+  value: Wordmark, mascot, colour palette, brand guidelines, product labels
+- label: Sector
+  value: Food
+sections:
+- type: text
+  body: |
+    <p>Komi’s Kitchen didn’t start as a business. It started as a nickname.</p>
+    <p>Komi had always been the one cooking at home in the village, but never took it seriously. Then came Lagos, and staying with a sister who started calling every meal “Komi’s kitchen.” The family were the ones who said: you can actually do this.</p>
+    <p>From the moment we unpacked that story in discovery, I knew the identity had to carry pieces of it. Komi never trained as a chef. The cooking came from home, and the promise was simple:</p>
+    <blockquote><p>“Any time you come to our restaurant to eat... you’ll literally get this flashback of the home meal you’ve been missing.”</p></blockquote>
+    <p>So the mascot wears indigenous attire, to signal home-made. The palette is earthy, deep brown and ochre gold, for a real, down-to-earth first impression, like the calabashes our mothers cooked with. And the wordmark is set in Dancing Script, for the artistic expression that runs through the whole story.</p>
+    <p>The tagline went through several versions before we settled on “Tastes like home.” It stood out because it held food and heritage in a single phrase. It also helped that it didn’t sound cheesy (at least to us 😅).</p>
+- type: media
+  items:
+  - image: /images/Komis/logo-deep-brown.webp
+    alt: Komi’s Kitchen wordmark in ochre gold on deep brown
+  - image: /images/Komis/logo-brick-red.webp
+    alt: Komi’s Kitchen wordmark in warm cream on brick red
+  - image: /images/Komis/logo-warm-cream.webp
+    alt: Komi’s Kitchen wordmark in deep brown on warm cream
+- type: media
+  items:
+  - image: /images/Komis/mascot.webp
+    alt: 'Komi’s Kitchen mascot: a woman in indigenous attire and a red apron, holding a wooden spoon'
+- type: colours
+  label: Komi’s Kitchen colour palette
+  colours:
+  - name: Deep Brown
+    hex: '#3B200F'
+  - name: Brick Red
+    hex: '#B03A2E'
+  - name: Ochre Gold
+    hex: '#D4A018'
+  - name: Warm Cream
+    hex: '#F4ECD7'
+- type: media
+  items:
+  - image: /images/Komis/pattern.webp
+    alt: Komi’s Kitchen brand pattern in ochre gold on deep brown
+- type: media
+  items:
+  - image: /images/Komis/restaurant-signage.webp
+    alt: Komi’s Kitchen restaurant signage
+- type: media
+  items:
+  - image: /images/Komis/apron.webp
+    alt: Komi’s Kitchen apron
+  - image: /images/Komis/apron-and-menu.webp
+    alt: Komi’s Kitchen apron and menu
+- type: media
+  items:
+  - image: /images/Komis/menu.webp
+    alt: Komi’s Kitchen menu
+  - image: /images/Komis/door-sign.webp
+    alt: Komi’s Kitchen “yes, we’re open” door sign
+- type: text
+  body: |
+    <p>I kept the heritage story off the product labels and let them stay functional. A label has one job at the shelf, and the story lands better where people have time to read it.</p>
+- type: media
+  items:
+  - image: /images/Komis/granola-label.webp
+    alt: Komi’s Kitchen granola jar label
+  - image: /images/Komis/hibiscus-label.webp
+    alt: Komi’s Kitchen hibiscus drink label
+- type: media
+  items:
+  - image: /images/Komis/parfait-label.webp
+    alt: Komi’s Kitchen fruit parfait lid label
+- type: media
+  items:
+  - image: /images/Komis/takeout-bags.webp
+    alt: Komi’s Kitchen takeout bags
+  - image: /images/Komis/tote-bag.webp
+    alt: Komi’s Kitchen tote bag
+- type: media
+  items:
+  - image: /images/Komis/tshirt-back.webp
+    alt: Komi’s Kitchen staff t-shirt
+- type: quote
+  quote: “I love how Victor takes his time. Whenever I had a question, he’d explain until I had real clarity on the choices. By the final review, it already looked like an established, launched business.”
+  author: Komi, Komi’s Kitchen

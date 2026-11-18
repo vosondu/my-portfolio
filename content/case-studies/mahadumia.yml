@@ -1,0 +1,48 @@
+title: Mahadumia
+subtitle: Motion design · App visuals · 2025 to 2026
+card:
+  image: /images/Mahadumia/cover-img.webp
+  alt: Mahadumia
+  tags: App Visuals · Social Motion
+seo:
+  title: 'Mahadumia: Motion Design & App Visuals'
+  description: Motion design, app store visuals and social content for Mahadumia's JUPEB and JAMB exam-prep apps, built for a fast-scrolling, mobile-first audience.
+hero:
+- image: /images/Mahadumia/cover-img.webp
+  alt: Mahadumia
+details:
+- label: Client
+  value: Mahadumia (JUPEB and JAMB apps)
+- label: Scope
+  value: App store visuals, motion, social content
+- label: Year
+  value: 2025 to 2026
+sections:
+- type: text
+  body: |
+    <p>Mahadumia’s identity was already in place. My role was to carry it into motion and app store visuals built for a fast-scrolling, mobile-first student audience.</p>
+    <p>One rule shaped the motion work: no text stayed on screen for longer than 3 seconds. That was a compromise on accessibility, and we knew it. But our students scroll fast, and slower animation would have lost them, so we designed for them first.</p>
+- type: media
+  items:
+  - image: /images/Mahadumia/ad-1.webp
+    alt: Mahadumia ad
+- type: media
+  items:
+  - image: /images/Mahadumia/ad-5.webp
+    alt: Mahadumia ad
+  - image: /images/Mahadumia/ad-6.webp
+    alt: Mahadumia ad
+  - video: /images/Mahadumia/vids/Logo Outro.mp4
+    image: /images/Mahadumia/vids/logo-outro-poster.webp
+    playback: controls
+- type: media
+  items:
+  - video: /images/Mahadumia/vids/video-1.mp4
+    image: /images/Mahadumia/cover-img.webp
+    playback: controls
+- type: media
+  items:
+  - image: /images/Mahadumia/selected-work-1.webp
+    alt: Mahadumia social design
+  - image: /images/Mahadumia/selected-work-2.webp
+    alt: Mahadumia social design

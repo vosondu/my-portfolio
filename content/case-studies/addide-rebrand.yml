@@ -1,0 +1,61 @@
+title: Addide Rebrand
+subtitle: Practice rebrand · Identity system
+card:
+  image: /images/Addide/Artboard 1.webp
+  alt: Addide Rebrand
+  tags: Practice Rebrand · Identity System
+seo:
+  title: 'Addide Rebrand: Identity System'
+  description: 'A practice brand refresh for Addide, the Lagos convenience store chain: logo redesign and brand strategy to modernise a fast-growing neighbourhood brand.'
+hero:
+- image: /images/Addide/Artboard 1.webp
+  alt: Addide rebrand
+details:
+- label: Client
+  value: Addide Convenience Stores (self-initiated)
+- label: Scope
+  value: Logo redesign, colour, typography, applications
+- label: Location
+  value: Lagos, Nigeria
+sections:
+- type: text
+  body: |
+    <p>A self-initiated refresh for the Lagos convenience store chain my family bought from every Sunday while I was growing up in Ikorodu.</p>
+    <p>I never liked the ‘a’ on their storefront 😅. But everyone recognises it, so I kept it and gave it a cleaner, more confident letterform. Yellow leads the palette so the brand reads from across the street.</p>
+- type: media
+  items:
+  - image: /images/Addide/Artboard 5.webp
+    alt: Addide logo
+  - image: /images/Addide/Artboard 7.webp
+    alt: Addide logo detail
+- type: media
+  items:
+  - image: /images/Addide/Artboard 2.webp
+    alt: Addide colour palette
+  - image: /images/Addide/Artboard 3.webp
+    alt: Addide typography
+- type: media
+  items:
+  - image: /images/Addide/Artboard 4.webp
+    alt: Addide identity system
+- type: media
+  items:
+  - video: /images/Addide/Vids/Addide Ad Design.mp4
+    image: /images/Addide/Artboard 1.webp
+    playback: controls
+- type: media
+  items:
+  - image: /images/Addide/Artboard 6.webp
+    alt: Addide application
+  - image: /images/Addide/Artboard 8.webp
+    alt: Addide application
+- type: media
+  items:
+  - image: /images/Addide/Artboard 9.webp
+    alt: Addide application
+  - image: /images/Addide/Artboard 10.webp
+    alt: Addide application
+- type: media
+  items:
+  - image: /images/Addide/Artboard 11.webp
+    alt: Addide storefront

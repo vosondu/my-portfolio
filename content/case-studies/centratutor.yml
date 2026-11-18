@@ -1,0 +1,54 @@
+title: Centratutor
+subtitle: Brand execution · Motion · 2025 to 2026
+card:
+  image: /images/Centratutor/case-study-cover.webp
+  alt: Centratutor
+  tags: Brand Execution · Motion
+seo:
+  title: 'Centratutor: App Visuals & Motion'
+  description: App store visuals, motion assets and social templates for Centratutor, an edtech learning platform, designed within its existing brand system.
+hero:
+- video: /images/Centratutor/vids/logo-animation.mp4
+  image: /images/Centratutor/case-study-cover.webp
+  playback: autoplay
+details:
+- label: Client
+  value: Centratutor, a Mahadumia product
+- label: Scope
+  value: App store visuals, motion, social templates
+- label: Year
+  value: 2025 to 2026
+sections:
+- type: text
+  body: |
+    <p>Centratutor already had an identity. The job was to extend it across app stores, motion and social without diluting it: consistent with the system, fresh in every placement.</p>
+- type: media
+  items:
+  - image: /images/Centratutor/ad-1.webp
+    alt: Centratutor ad
+- type: media
+  items:
+  - video: /images/Centratutor/vids/demo-video.mp4
+    image: /images/Centratutor/vids/demo-video-poster.webp
+    playback: controls
+  - video: /images/Centratutor/vids/webinar-ad.mp4
+    image: /images/Centratutor/vids/webinar-ad-poster.webp
+    playback: controls
+- type: media
+  items:
+  - image: /images/Centratutor/selected-work-1.webp
+    alt: Centratutor social design
+  - image: /images/Centratutor/selected-work-2.webp
+    alt: Centratutor social design
+  - image: /images/Centratutor/selected-work-3.webp
+    alt: Centratutor social design
+- type: media
+  items:
+  - image: /images/Centratutor/mockup-1.webp
+    alt: Centratutor app mockup
+  - image: /images/Centratutor/mockup-2.webp
+    alt: Centratutor app mockup
+- type: media
+  items:
+  - image: /images/Centratutor/mockup-3.webp
+    alt: Centratutor app mockup
