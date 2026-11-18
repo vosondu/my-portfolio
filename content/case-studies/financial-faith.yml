@@ -1,0 +1,37 @@
+title: Financial Faith
+subtitle: Brand Identity · Fintech
+hidden: false
+card:
+  image: /images/uploads/ig-story.jpg
+  tags: Brand Identity · Fintech
+seo:
+  title: Financial Faith
+  description: Discover the complete brand motion identity and dynamic billboard
+    screen mockup for Financial Faith, featuring a warm, organic color palette
+    of deep espresso, rustic umber, and burnished gold, coupled with bespoke
+    neo-soul sound design and tactile micro-foley.
+hero:
+  - playback: controls
+  - image: /images/uploads/linkedin-profile.jpg
+    playback: controls
+  - image: /images/uploads/bus-stop.jpg
+    playback: controls
+details:
+  - {}
+sections:
+  - type: media
+    items:
+      - image: /images/uploads/artboard-6.png
+        playback: controls
+      - image: /images/uploads/artboard-7.png
+        playback: controls
+      - image: /images/uploads/artboard-11.png
+        playback: controls
+    layout: row
+  - type: quote
+    quote: Victor recently worked on my brand identity and I must say, he is
+      exceptional at his work. He is very detailed and attentive too. I highly
+      recommend him.
+    author: Faith Ifeanacho
+  - type: text
+    body: <p></p>
