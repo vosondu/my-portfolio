@@ -83,6 +83,12 @@ sections:
     layout: row
   - type: media
     items:
+      - video: /images/Financial Faith/vids/Motion Icon Set.mp4
+        playback: controls
+    layout: row
+    anchor: motion-icon-set
+  - type: media
+    items:
       - image: /images/uploads/business-card-1.jpg
         playback: controls
     layout: row
