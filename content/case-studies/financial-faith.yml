@@ -76,6 +76,16 @@ sections:
           instrumental track with bespoke tactile sound effects.
         playback: controls
     layout: row
+  - type: media
+    items:
+      - image: /images/uploads/ig-story.jpg
+        playback: controls
+    layout: row
+  - type: media
+    items:
+      - image: /images/uploads/business-card-1.jpg
+        playback: controls
+    layout: row
   - type: quote
     quote: Victor recently worked on my brand identity and I must say, he is
       exceptional at his work. He is very detailed and attentive too. I highly
