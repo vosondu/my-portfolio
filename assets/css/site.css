@@ -1455,12 +1455,26 @@ html.lightbox-open body {
 }
 
 
+/* Fullscreen video: show the whole frame, never cropped.
+   !important is needed because the case-study layout rules (.cs-row > *, .cs-one > video)
+   set object-fit: cover and an aspect-ratio with higher specificity than video:fullscreen.
+   Kept as two rules so a browser that doesn't know one pseudo-class still applies the other. */
 video:fullscreen {
-  object-fit: contain;
-  background: #000;
+	object-fit: contain !important;
+	aspect-ratio: auto !important;
+	width: 100% !important;
+	height: 100% !important;
+	max-width: none !important;
+	max-height: none !important;
+	background: #000;
 }
 
 video:-webkit-full-screen {
-  object-fit: contain;
-  background: #000;
+	object-fit: contain !important;
+	aspect-ratio: auto !important;
+	width: 100% !important;
+	height: 100% !important;
+	max-width: none !important;
+	max-height: none !important;
+	background: #000;
 }
