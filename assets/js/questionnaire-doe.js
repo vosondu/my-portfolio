@@ -89,6 +89,10 @@
 	// Web3Forms emails you a copy of every submission (same key as the contact form)
 	const WEB3FORMS_KEY = '6f7eea82-8ff3-4fec-aff4-9cf417bcae4c';
 
+	// Saved drafts are stored per DRAFT_VERSION. Bump it when you change the pre-filled text or the questions
+	// BEFORE the client has started, so nobody is shown an old saved copy. Do not bump it once she has begun, or her saved answers are hidden.
+	const DRAFT_VERSION = 'v2';
+
 	// Standard is the default here: this page is sent to one client, so there is no reason to default to lite
 	const tierKey = (new URLSearchParams(window.location.search).get('tier') || 'standard').toLowerCase();
 	const tier = TIERS[tierKey] || TIERS.standard;
@@ -147,7 +151,7 @@
 
 	// Restore any unfinished answers saved on this device (edited answers win over the draft text)
 	const draft = window.initDraft
-		? window.initDraft(form, 'questionnaire-doe-' + tierKey)
+		? window.initDraft(form, 'questionnaire-doe-' + DRAFT_VERSION + '-' + tierKey)
 		: { restored: false, clear: function () {} };
 
 	form.addEventListener('submit', async function (e) {
