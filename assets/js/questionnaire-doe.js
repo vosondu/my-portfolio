@@ -84,7 +84,7 @@
 
 	// Saved drafts are stored per DRAFT_VERSION. Bump it when you change the pre-filled text or the questions
 	// BEFORE the client has started, so nobody is shown an old saved copy. Do not bump it once she has begun, or her saved answers are hidden.
-	const DRAFT_VERSION = 'v8';
+	const DRAFT_VERSION = 'v9';
 
 	// Standard is the default here: this page is sent to one client, so there is no reason to default to lite
 	const tierKey = (new URLSearchParams(window.location.search).get('tier') || 'standard').toLowerCase();

@@ -10,7 +10,7 @@
 // Edit freely: Vic should read every line before it is sent to the client.
 
 window.DOE_PREFILL = {
-	C4: 'From the guidelines: the websites daughterofellen.org and evonanthony.com, plus conferences. A website and social media launch is on the 2026 roadmap. Instagram is in use.\n\nStill needed from you: other platforms, WhatsApp, referrals, partner organisations.',
+	C4: 'The website and social media launch listed on the 2026 roadmap has already happened. The brand is now on Instagram, LinkedIn and Facebook, and the guidelines list daughterofellen.org and evonanthony.com. Conferences are also a channel.\n\nStill needed from you: other platforms, WhatsApp, referrals, partner organisations.',
 
 	H2: 'The roadmap lists formal NGO registration and governance under 2027 to 2028, so registration may not be complete yet. Please confirm, and give the exact legal name.',
 
