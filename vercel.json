@@ -2,15 +2,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "cleanUrls": true,
-  "headers": [
-    {
-      "source": "/assets/js/doe-prefill-(.*)",
-      "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" },
-        { "key": "Cache-Control", "value": "no-store" }
-      ]
-    }
-  ],
   "redirects": [
     {
       "source": "/admin",
