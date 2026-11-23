@@ -20,29 +20,24 @@
 			{ id: 'A2', q: 'Why was it started? What injustice or gap were you responding to?' },
 			{ id: 'A3', q: 'Where do you want Daughter of Ellen to be in 3 years? Be as specific as you can (regions, people reached, programmes, funding, policy outcomes).' },
 			{ id: 'A4', q: 'What are the 3 values you would refuse to compromise on, even if it cost you a donor or a partnership?' },
-			{ id: 'A5', q: 'What programmes do you run, and how is each one funded? Which reaches the most people, and which brings in the most funding?' },
 		] },
 		{ key: 'B', title: 'B. The problem', questions: [
 			{ id: 'B1', q: 'Why are you redesigning the logo now? What changed, and who first raised it?' },
 			{ id: 'B2', q: 'What is the current logo and brand costing you? For example: weaker donor trust, looking smaller than you are, being confused with another organisation, partners not taking you seriously.' },
 			{ id: 'B3', q: 'If this project succeeds, what will be different in 12 months? How will you know?' },
-			{ id: 'B4', q: 'What has already been tried, and why didn’t it work?' },
+			{ id: 'B4', q: 'What has already been tried, and why didn’t it work? Include any earlier logo or creative project that stalled.' },
 		] },
 		{ key: 'C', title: 'C. Audiences', questions: [
 			{ id: 'C1', q: 'Describe the people you serve most: who they are, what they care about, and how they found you.', help: 'Please don’t include names or identifying details of the people you serve, especially children, unless they have given consent.' },
 			{ id: 'C2', q: 'Describe your most important funders and partners: who they are, why they back you, and what they need to see from you.' },
-			{ id: 'C3', q: 'Which of these groups do you want more of? Is that different from who you reach now?' },
 			{ id: 'C4', q: 'Where do people find you, and where do they ask about you (Instagram, WhatsApp, referrals, Google, conferences, events)?' },
-			{ id: 'C5', q: 'What do people say when they recommend you? Quote them if you can.' },
 		] },
 		{ key: 'D', title: 'D. The landscape', questions: [
 			{ id: 'D1', q: 'Name 3 to 5 peer organisations, whether they compete for the same funding, serve the same people, or work on the same cause. Include Instagram handles or websites if possible. Is there any you do not want to be confused with?' },
-			{ id: 'D2', q: 'What do they do better than you? Be honest.' },
 			{ id: 'D3', q: 'What do you do that none of them can easily copy, and how do you know?' },
 			{ id: 'D4', q: 'Name 1 or 2 brands (any sector, anywhere in the world) whose presence you admire. What specifically do you admire?' },
 		] },
 		{ key: 'E', title: 'E. Current brand and voice', questions: [
-			{ id: 'E1', q: 'Please share everything you currently use: logo, social pages, flyers, reports, signage, website, merchandise.', help: 'Paste links (Instagram, website, or a Google Drive folder). You can also send photos to me on WhatsApp.' },
 			{ id: 'E2', q: 'What works about the current logo and brand, and what embarrasses you?' },
 			{ id: 'E3', q: 'Pick 3 words you want people to use when describing Daughter of Ellen, and 3 words you never want associated with it.' },
 			{ id: 'E4', q: 'If your brand were a person walking into a room, how would they speak and carry themselves?' },
@@ -60,8 +55,6 @@
 			{ id: 'G1', q: 'What does Daughter of Ellen stand for beyond its programmes? If it disappeared tomorrow, who would lose what?' },
 			{ id: 'G2', q: 'How do you want to be seen next to your peers: grassroots, professional institution, movement, or a mix? Is that where you are now?' },
 			{ id: 'G3', q: 'What doubts or objections do donors, partners, or communities raise before backing you?' },
-			{ id: 'G4', q: 'Can you connect me with 3 to 5 people (partners, volunteers, caregivers, or past donors) for a 15-minute chat?', help: 'Names and phone numbers are enough, and only with their consent. I’ll reach out politely and keep it brief.', optional: true },
-			{ id: 'G5', q: 'What does internal decision-making look like? Has a previous creative project stalled, and why?' },
 			{ id: 'G6', q: 'Are there plans that will affect the brand soon: new regions, new programmes, formal registration, sub-brands, partnerships, mergers?' },
 			{ id: 'G7', q: 'What budget is set aside for rolling out the new brand after this project (printing, signage, ads, website)? Is any of it restricted grant money with spending rules?' },
 		] },
@@ -72,7 +65,7 @@
 			{ id: 'H4', q: 'Today TENDE has its own logo, while DOE Academy and Early Explorers materials use the Daughter of Ellen logo. Should that stay the same after the redesign? Should the TENDE logo change to work with the new main logo, and how should “by DOE” appear?' },
 			{ id: 'H5', q: 'Does the identity need to be neurodiversity-friendly (strong contrast, plain language, calm layouts)? Have the people you serve told you what works or does not work for them visually?', help: 'For example: low vision, dyslexia, sensory sensitivity, or visual cues the community dislikes.' },
 			{ id: 'H6', q: 'The guidelines and the master logo do not fully match each other (which logo version is official, clear space, which colours are official, gradients). Which version is final?' },
-			{ id: 'H7', q: 'Please send the original logo files (vector or editable source if you have them) and any earlier versions. Which parts of the current logo are fixed and which are open to change: the symbol, the ring, the wordmark? Do you also need simplified versions for small sizes and one-colour use?' },
+			{ id: 'H7', q: 'Please send the original logo files (vector or editable source if you have them), any earlier versions, and photos or links showing where the logo is used today (printed materials, signage, merchandise, social pages). Which parts of the current logo are fixed and which are open to change: the symbol, the ring, the wordmark? Do you also need simplified versions for small sizes and one-colour use?' },
 		] },
 	];
 
@@ -91,7 +84,7 @@
 
 	// Saved drafts are stored per DRAFT_VERSION. Bump it when you change the pre-filled text or the questions
 	// BEFORE the client has started, so nobody is shown an old saved copy. Do not bump it once she has begun, or her saved answers are hidden.
-	const DRAFT_VERSION = 'v6';
+	const DRAFT_VERSION = 'v7';
 
 	// Standard is the default here: this page is sent to one client, so there is no reason to default to lite
 	const tierKey = (new URLSearchParams(window.location.search).get('tier') || 'standard').toLowerCase();
