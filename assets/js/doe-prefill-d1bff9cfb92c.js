@@ -32,8 +32,6 @@ window.DOE_PREFILL = {
 
 	F1: 'From the guidelines: letterheads and presentations, donor communications, policy briefs and partnership decks, event branding and banners, community outreach and family-facing materials, social media and awareness materials. From design work so far: digital workbooks and the website.\n\nStill needed from you: which of these matter most in the next 6 months.',
 
-	F3: 'The roadmap places the inaugural Abuja conference and the brand identity deployment in 2026.\n\nStill needed from you: the conference date, and whether the new logo has to be ready before it.',
-
 	G1: 'The guidelines describe Daughter of Ellen as a movement, not a programme: a long-term commitment to building the infrastructure, community, policy and awareness that neurodivergent people across Nigeria and Africa deserve.\n\nStill needed from you: if it disappeared tomorrow, who would lose what?',
 
 	G2: 'From the guidelines: institutional authority combined with personal authenticity, a movement rather than a charity.\n\nStill needed from you: where you stand next to peer organisations, and whether that feels true today.',
