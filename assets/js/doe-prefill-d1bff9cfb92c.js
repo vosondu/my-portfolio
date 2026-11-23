@@ -30,8 +30,6 @@ window.DOE_PREFILL = {
 
 	E3: 'Wanted words, from the brand personality in the guidelines: Warm, Dignified, Courageous, Grounded, Hopeful. Please pick your three.\nWords to avoid, our reading of the language guidelines: charity, pity, deficient. Please confirm or change.',
 
-	E4: 'From the guidelines: speaks with the care of a trusted companion and the authority of a seasoned advocate. Carries the energy of a mother who will not stop and the strategy of an institution built to win. Names injustice directly, explains complex issues without jargon, and is hopeful and urgent at once.',
-
 	F1: 'From the guidelines: letterheads and presentations, donor communications, policy briefs and partnership decks, event branding and banners, community outreach and family-facing materials, social media and awareness materials. From design work so far: digital workbooks and the website.\n\nStill needed from you: which of these matter most in the next 6 months.',
 
 	F3: 'The roadmap places the inaugural Abuja conference and the brand identity deployment in 2026.\n\nStill needed from you: the conference date, and whether the new logo has to be ready before it.',
