@@ -71,8 +71,8 @@
 			{ id: 'H3', q: 'How should the Evon Anthony Brand appear with the logo: always (as part of the logo lockup), only on some materials, or never?' },
 			{ id: 'H4', q: 'How should TENDE, DOE Academy and Early Explorers relate to the main logo: their own logos, variations of the main logo, or just a name set in the Daughter of Ellen style?' },
 			{ id: 'H5', q: 'Does the identity need to be neurodiversity-friendly (strong contrast, plain language, calm layouts)? Have the people you serve told you what works or does not work for them visually?', help: 'For example: low vision, dyslexia, sensory sensitivity, or visual cues the community dislikes.' },
-			{ id: 'H6', q: 'The guidelines contain a few rules that do not match each other (clear space, and which colours are official). Which version is final?' },
-			{ id: 'H7', q: 'Please send the original logo files (vector if you have them) and any earlier versions. Is the current Georgia-based wordmark fixed, or is a redrawn or custom wordmark open? Would you like a compact symbol or monogram for avatars and stamps?' },
+			{ id: 'H6', q: 'The guidelines and the master logo do not fully match each other (which logo version is official, clear space, which colours are official, gradients). Which version is final?' },
+			{ id: 'H7', q: 'Please send the original logo files (vector or editable source if you have them) and any earlier versions. Which parts of the current logo are fixed and which are open to change: the symbol, the ring, the wordmark? Do you also need simplified versions for small sizes and one-colour use?' },
 		] },
 	];
 
