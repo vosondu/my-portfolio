@@ -69,7 +69,7 @@
 			{ id: 'H1', q: 'Who is Ellen, and how much of that story should the brand carry: the name only, a visual hint, or the full story? Does anyone need to give permission for it to be used?' },
 			{ id: 'H2', q: 'Is formal NGO registration complete? What is the exact legal name that should appear on the logo and on official documents?' },
 			{ id: 'H3', q: 'How should the Evon Anthony Brand appear with the logo: always (as part of the logo lockup), only on some materials, or never?' },
-			{ id: 'H4', q: 'How should TENDE, DOE Academy and Early Explorers relate to the main logo: their own logos, variations of the main logo, or just a name set in the Daughter of Ellen style?' },
+			{ id: 'H4', q: 'Today TENDE has its own logo, while DOE Academy and Early Explorers materials use the Daughter of Ellen logo. Should that stay the same after the redesign? Should the TENDE logo change to work with the new main logo, and how should “by DOE” appear?' },
 			{ id: 'H5', q: 'Does the identity need to be neurodiversity-friendly (strong contrast, plain language, calm layouts)? Have the people you serve told you what works or does not work for them visually?', help: 'For example: low vision, dyslexia, sensory sensitivity, or visual cues the community dislikes.' },
 			{ id: 'H6', q: 'The guidelines and the master logo do not fully match each other (which logo version is official, clear space, which colours are official, gradients). Which version is final?' },
 			{ id: 'H7', q: 'Please send the original logo files (vector or editable source if you have them) and any earlier versions. Which parts of the current logo are fixed and which are open to change: the symbol, the ring, the wordmark? Do you also need simplified versions for small sizes and one-colour use?' },
@@ -91,7 +91,7 @@
 
 	// Saved drafts are stored per DRAFT_VERSION. Bump it when you change the pre-filled text or the questions
 	// BEFORE the client has started, so nobody is shown an old saved copy. Do not bump it once she has begun, or her saved answers are hidden.
-	const DRAFT_VERSION = 'v5';
+	const DRAFT_VERSION = 'v6';
 
 	// Standard is the default here: this page is sent to one client, so there is no reason to default to lite
 	const tierKey = (new URLSearchParams(window.location.search).get('tier') || 'standard').toLowerCase();
