@@ -51,8 +51,8 @@ sections:
     hex: '#F4ECD7'
 - type: media
   items:
-  - image: /images/Komis/pattern.webp
-    alt: Komi’s Kitchen brand pattern in ochre gold on deep brown
+  - image: /images/Komis/tshirt-back.webp
+    alt: Komi’s Kitchen staff t-shirt
 - type: media
   items:
   - image: /images/Komis/restaurant-signage.webp
@@ -61,12 +61,6 @@ sections:
   items:
   - image: /images/Komis/apron.webp
     alt: Komi’s Kitchen apron
-  - image: /images/Komis/apron-and-menu.webp
-    alt: Komi’s Kitchen apron and menu
-- type: media
-  items:
-  - image: /images/Komis/menu.webp
-    alt: Komi’s Kitchen menu
   - image: /images/Komis/door-sign.webp
     alt: Komi’s Kitchen “yes, we’re open” door sign
 - type: text
@@ -80,18 +74,8 @@ sections:
     alt: Komi’s Kitchen hibiscus drink label
 - type: media
   items:
-  - image: /images/Komis/parfait-label.webp
-    alt: Komi’s Kitchen fruit parfait lid label
-- type: media
-  items:
   - image: /images/Komis/takeout-bags.webp
     alt: Komi’s Kitchen takeout bags
-  - image: /images/Komis/tote-bag.webp
-    alt: Komi’s Kitchen tote bag
-- type: media
-  items:
-  - image: /images/Komis/tshirt-back.webp
-    alt: Komi’s Kitchen staff t-shirt
 - type: quote
   quote: “I love how Victor takes his time. Whenever I had a question, he’d explain until I had real clarity on the choices. By the final review, it already looked like an established, launched business.”
   author: Komi, Komi’s Kitchen
